@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "GloberRegular";
+    src: url(../fonts/GloberRegular.otf);
+}
+.movie-title{
+  	padding: 6px 10px;
+	font-size: 15px;
+	font-weight: 300;
+	text-align: left;
+	color: #fff;
+	background: #2f3336;
+}
+
+.favoris{
+	color: yellow; float:left;
+}
+
+.movies{
+	background-color: grey; 
+	margin: 4px 0px; 
+	border: 1px solid black;
+}
+
+h2{
+    border-top:2px solid #2f3336;
+    border-bottom:2px solid #2f3336;
+    margin-top:50px !important;
+}
+.title{
+	padding-left:10px;
+}
+
+.title_padding{
+	padding-top:10px;
+}
+
+.detail:hover{
+	color:white;
+}
+
+.detail{
+	color:white;
+}
+
+.sidebar-left{
+	background: #2f3336 !important;
+}
+
+.navbar-app, .navbar-app .btn, .navbar-app .btn-navbar{
+	background: #2f3336 !important;
+	color: white !important;
+}
+
+.list-group-item, a.list-group-item {
+  margin-bottom: 0;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  color: white !important;
+}
+
+a.list-group-item {
+  color: white;
+}
+
+.list-group-item {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+  background-color: #2f3336 !important;
+}
+
+.list-group-item.active, .list-group-item.active:focus {
+  z-index: 2;
+  color: black !important;
+  background-color: white !important;
+  border-color: lightgray !important;
+}
+
+.app{
+	background: white !important;
+}
