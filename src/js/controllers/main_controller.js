@@ -1,3 +1,4 @@
+/* Main Controller */
 (function(){
 	'use strict';
 
