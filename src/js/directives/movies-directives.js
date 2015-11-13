@@ -1,8 +1,12 @@
 (function(){
 	'use strict';
 
-	angular.module('Queersicht.directives.MoviesDirective', [])
-	.controller('MoviesController', ['$scope', 'CommonService', function($scope, CommonService){
+	angular.module('Queersicht.directives')
+	.controller('MoviesController', moviesController)
+	.directive('movies', moviesDirective);
+
+	moviesController.$inject = ['CommonService'];
+	function moviesController(CommonService){
 		var vm = this;
 		
 		vm.addFavoris = addFavoris;
@@ -25,8 +29,10 @@
 		function deleteFavoris(movieToDelete) {
 			CommonService.deleteFavoris(movieToDelete);
 		};
-	}])
-	.directive('movies', ['$templateCache', function($templateCache) {
+	}
+
+	moviesDirective.$inject = ['$templateCache'];
+	function moviesDirective($templateCache) {
 		return {
 			restrict: 'AE',
 			controller: 'MoviesController',
@@ -37,5 +43,5 @@
 				movies: '=movies'
 			}
 		};
-	}]);
+	}
 })();

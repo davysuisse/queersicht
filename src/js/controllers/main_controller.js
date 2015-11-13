@@ -2,15 +2,25 @@
 (function(){
 	'use strict';
 
-	angular.module('Queersicht.controllers.Program', [])
-	.controller('QueersichtController', ['$scope', 'CommonService', function($scope, CommonService){
+	angular.module('Queersicht.controllers')
+	.controller('QueersichtController', queersichtController)
+	.controller('ProgramPerMovieController', programPerMovieController)
+	.controller('ProgramPerCinemaController', programPerCinemaController)
+	.controller('FavorisController', favorisController)
+    .controller('ProgramDetailController', programDetailController)
+    .controller('ProgramPerDateController', programPerDateController);
+
+	 queersichtController.$inject = ['$scope'];
+	 function queersichtController($scope){
 		var vm = this;
 
 		$scope.$on('menu-title', function(event, args) {
 			vm.navigation = args.title;
 		});
-	}])
-	.controller('ProgramPerMovieController', ['$scope', 'CommonService', function($scope, CommonService){
+	}
+
+	programPerMovieController.$inject = ['CommonService'];
+	function programPerMovieController(CommonService){
 		var vm = this;
 		vm.init = init;
 		init();
@@ -28,8 +38,10 @@
 				{ id: '4', title: 'Zweite Chance', image: 'http://de.web.img2.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/03/30/11/57/390217.jpg', summary : 'Die Polizisten und besten Freunde Andreas (Nikolaj Coster-Waldau) und Simon (Ulrich Thomsen) werden zu einem häuslichen Streit eines...', time: '21:30' }];
 			});
 		};
-	}])
-	.controller('ProgramPerCinemaController', ['CommonService', function(CommonService){
+	}
+
+    programPerCinemaController.$inject = ['CommonService'];
+	function programPerCinemaController(CommonService){
 		var vm = this;
 		vm.init = init;
 		init();
@@ -50,8 +62,10 @@
 				};
 			});
 		};
-	}])
-	.controller('ProgramPerDateController', ['CommonService', function(CommonService){
+	}
+
+	programPerDateController.$inject = ['CommonService'];
+	function programPerDateController(CommonService){
 		var vm = this;
 		vm.init = init;
 		init();
@@ -73,8 +87,10 @@
 				};	
 			});
 		};
-	}])
-	.controller('FavorisController', ['CommonService', function(CommonService){
+	}
+
+	favorisController.$inject = ['CommonService'];
+	function favorisController(CommonService){
 		var vm = this;
 		vm.init = init;
 		vm.addFavoris = addFavoris;
@@ -112,8 +128,10 @@
 				{ id: '4', title: 'Zweite Chance', image: 'http://de.web.img2.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/03/30/11/57/390217.jpg', summary : 'Die Polizisten und besten Freunde Andreas (Nikolaj Coster-Waldau) und Simon (Ulrich Thomsen) werden zu einem häuslichen Streit eines...', time: '21:30' }];
 			});
 		};
-	}])
-	.controller('ProgramDetailController', ['$stateParams', 'CommonService', function($stateParams, CommonService){
+	}
+
+	programDetailController.$inject = ['$stateParams', 'CommonService'];
+	function programDetailController($stateParams, CommonService){
 		var vm = this;
 		vm.init = init;
 		vm.lengthMap = lengthMap;
@@ -131,5 +149,5 @@
 		function lengthMap(map){
 			return Object.keys(map).length;
 		};
-	}]);
+	}
 })();

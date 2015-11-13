@@ -4,11 +4,14 @@
   angular.module('Queersicht', [
     'ui.router',
     'mobile-angular-ui',
-    'Queersicht.controllers.Program',
-    'Queersicht.services.ProgramService',
-    'Queersicht.directives.MoviesDirective'
+    'Queersicht.controllers',
+    'Queersicht.services',
+    'Queersicht.directives'
   ])
-  .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  .config(queersichtConfig);
+
+  queersichtConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
+  function queersichtConfig($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.when('', '/movie');
     $stateProvider
     .state('favoris', {
@@ -49,5 +52,5 @@
         id: null
       }
     });
-  }]);
+  }
 })();
