@@ -9,9 +9,15 @@
 	 function queersichtController($scope){
 		var vm = this;
 
+		vm.affectTitle = affectTitle;
+
 		$scope.$on('menu-title', function(event, args) {
-			vm.navigation = args.title;
+			affectTitle(args.title);
         });
+
+        function affectTitle(title){
+            vm.navigation = title;
+        }
 	}
 
 })();

@@ -14,7 +14,8 @@ var config = {
       './bower_components/angular/angular.js',
       './bower_components/angular-route/angular-route.js',
       './bower_components/angular-ui-router/release/angular-ui-router.js',
-      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js'
+      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js',
+      './bower_components/angular-mocks/angular-mocks.js'
     ],
 
     fonts: [
@@ -71,8 +72,10 @@ var gulp           = require('gulp'),
     ngFilesort     = require('gulp-angular-filesort'),
     streamqueue    = require('streamqueue'),
     rename         = require('gulp-rename'),
-    path           = require('path');
-
+    path           = require('path'),
+    jasmine        = require('gulp-jasmine-phantom'),
+    jasmineBrowser = require('gulp-jasmine-browser');
+    watch          = require('gulp-watch')
 
 /*================================================
 =            Report Errors to Console            =
@@ -272,6 +275,25 @@ gulp.task('build', function(done) {
   seq('clean', tasks, done);
 });
 
+/*====================================
+=            Jasmine Task            =
+====================================*/
+
+gulp.task('jasmine', function () {
+    return gulp.src('spec/**/*.spec.js')
+        // gulp-jasmine works on filepaths so you can't have any plugins before it
+        .pipe(jasmine());
+});
+
+gulp.task('jasmine-browser', function() {
+  var filesForTest = ['src/**/*.js', 'spec/**/*.spec.js'];
+  return streamqueue({ objectMode: true },
+               gulp.src(config.vendor.js),
+               gulp.src(filesForTest))
+    .pipe(watch(filesForTest))
+    .pipe(jasmineBrowser.specRunner())
+    .pipe(jasmineBrowser.server({port: 8888}));
+});
 
 /*====================================
 =            Default Task            =
@@ -289,6 +311,8 @@ gulp.task('default', function(done){
   }
 
   tasks.push('watch');
+  tasks.push('jasmine');
+  tasks.push('jasmine-browser');
   
   seq('build', tasks, done);
 });
