@@ -6,6 +6,7 @@ The different plugins are the followings:
 - Node (Npm)
 - Cordova (To wrap the angular application in android)
 - Gulp
+- Bower
 
 #### Features in modern releases
 No release
