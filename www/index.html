@@ -17,8 +17,7 @@
     <script src="js/app.min.js"></script>
   </head>
   <body ng-app="Queersicht" ng-controller="QueersichtController as queersichtCtrl" style="font-family: 'GloberRegular' !important;">
-
-    <!-- Sidebars -->
+        <!-- Sidebars -->
     <div ng-include="'sidebar.html'" 
             ui-track-as-search-param='true'
             class="sidebar sidebar-left"></div>
@@ -28,7 +27,7 @@
       <!-- Navbars -->
       <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-          {{navigation}}
+          {{queersichtCtrl.navigation}}
         </div>
         <div class="btn-group pull-left">
           <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
@@ -40,7 +39,7 @@
       <!-- App Body -->
       <div class="app-body">
         <div class="app-content" style="overflow: auto !important;">
-          <ng-view></ng-view>  
+          <div ui-view></div>  
         </div>
       </div>
 
