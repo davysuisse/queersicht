@@ -3,7 +3,7 @@
 
 "use strict";
 
-describe("#multiply", function () {
+describe("Test Queersicht Controller", function () {
   var   queersichtController,
         $rootScope;
 
