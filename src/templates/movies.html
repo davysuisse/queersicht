@@ -1,7 +1,7 @@
 <div class="col-sm-12 movies" data-ng-repeat="movie in moviesCtrl.movies">
   <div class="row">
 	  <div class="movie-title title_padding">
-		  <span class="fa fa-star-o favoris" ng-show="!moviesCtrl.isInFavoris(movie)" ng-click="moviesCtrl.addFavoris(movie)"></span>
+        <span class="fa fa-star-o favoris" ng-show="!moviesCtrl.isInFavoris(movie)" ng-click="moviesCtrl.addFavoris(movie)"></span>
 	    <span class="fa fa-star favoris" ng-show="moviesCtrl.isInFavoris(movie)" ng-click="moviesCtrl.deleteFavoris(movie)"></span>
 	    <span class="title">{{movie.title}} - {{movie.time}}</span> <a ui-sref="detail({id: movie.id})" class="fa fa-chevron-right pull-right detail"></a>
 	  </div>

@@ -1,23 +1,24 @@
-/* Main Controller */
 (function(){
 	'use strict';
 
 	angular.module('Queersicht.controllers')
     .controller('ProgramPerDateController', programPerDateController);
 
+    /**
+    * Manage the program per Date
+    */
 	programPerDateController.$inject = ['CommonService'];
 	function programPerDateController(CommonService){
 		var vm = this;
-		vm.init = init;
+
 		init();
 
 		function init(){
 			CommonService.initTitle('Program per Date');
 			CommonService.getProgramPerDate().then(function(response){
-				// vm.dates = response.data;
+				vm.dates = response.data;
 			},
 			function(error){
-				// vm.dates = undefined;
 				vm.dates = {
 					'12.03.2015' : [
 						{ id: '1', title: 'Mad Max: Fury Road', image: 'http://de.web.img3.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/04/27/10/46/356365.jpg', summary : 'In einer trüben Wüstenlandschaft, wo die Menschheit verkommen und fast jeder bereit ist, für das Überlebensnotwendige bis an die Grenzen zu gehen,...', time: '20:30' },
