@@ -16,16 +16,17 @@
     <script src="js/app.min.js"></script>
   </head>
   <body ng-app="Queersicht" ng-controller="QueersichtController as queersichtCtrl" style="font-family: 'GloberRegular' !important;">
-        <!-- Sidebars -->
+    <!-- Sidebars -->
     <div ng-include="'sidebar.html'" 
-            ui-track-as-search-param='true'
-            class="sidebar sidebar-left"></div>
+    ui-track-as-search-param='true'
+    class="sidebar sidebar-left"></div>
 
     <div class="app">
 
       <!-- Navbars -->
       <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
+          <a back-button class="fa fa-chevron-left pull-left detail"></a>
           {{queersichtCtrl.navigation}}
         </div>
         <div class="btn-group pull-left">
