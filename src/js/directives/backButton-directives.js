@@ -1,31 +1,32 @@
-(function(){
-	'use strict';
+(function() {
+  'use strict';
 
-	angular.module('Queersicht.directives')
-	.directive('backButton', backButtonDirective);
+  angular.module('Queersicht.directives').directive('backButton',
+          backButtonDirective);
 
-    /**
-    * Directive that shows a movie preview
-    */
-    backButtonDirective.$inject = ['BackHistoryService'];
-    function backButtonDirective(BackHistoryService) {
-      return {
-         restrict: 'A',
-         link: function(scope, element, attrs) {
-            element.bind('click', goBack);
+  /**
+   * Directive that shows a movie preview
+   */
+  backButtonDirective.$inject = ['BackHistoryService'];
+  function backButtonDirective(BackHistoryService) {
+    return {
+      restrict: 'A',
+      link: function(scope, element, attrs) {
+        element.bind('click', goBack);
 
-            function goBack() {
-                BackHistoryService.goBack();
-            }
-
-            scope.$watch('BackHistoryService.isBackPossible', function(newVal, oldVal) {
-                if (newVal === 'true') {
-                  element.addClass('disabled');
-              } else {
-                  element.removeClass('disabled');
-              }
-          });
+        function goBack() {
+          BackHistoryService.goBack();
         }
+
+        scope.$watch('BackHistoryService.isBackPossible', function(newVal,
+                oldVal) {
+          if (newVal === 'true') {
+            element.addClass('disabled');
+          } else {
+            element.removeClass('disabled');
+          }
+        });
+      }
     };
-}
+  }
 })();
