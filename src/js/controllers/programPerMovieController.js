@@ -7,22 +7,21 @@
     /**
     * Manage the program per Movie
     */
-	programPerMovieController.$inject = ['CommonService'];
-	function programPerMovieController(CommonService){
-		var vm = this;
+    programPerMovieController.$inject = ['CommonService'];
+    function programPerMovieController(CommonService){
+    	var vm = this;
 
-		init();
+    	init();
 
-		function init(){
-			CommonService.initTitle('Program per Movie');
+    	function init(){
+    		CommonService.initTitle('Program per Movie');
 
-			CommonService.getProgramPerMovie().then(function(response){
-				vm.movies = response.data;
-			},
-			function(error){
+    		CommonService.getProgramPerMovie().then(function(response){
+    			vm.movies = response.data;
+    		},
+    		function(error){
 				vm.movies = CommonService.getMovies(); // TODO: To Delete when api created
-		    });
-		}
-	}
-
+			});
+    	}
+    }
 })();

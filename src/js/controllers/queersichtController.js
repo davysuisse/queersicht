@@ -19,5 +19,4 @@
             vm.navigation = title;
         }
     }
-
 })();
