@@ -14,8 +14,8 @@ var config = {
       './node_modules/angular/angular.js',
       './node_modules/angular-route/angular-route.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
-      './node_modules/mobile-angular-ui/dist/js/mobile-angular-ui.js',
-      './node_modules/angular-mocks/angular-mocks.js'
+      './node_modules/angular-mocks/angular-mocks.js',
+      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js'
     ],
 
     fonts : [
@@ -271,7 +271,7 @@ gulp.task('default', function (done) {
   }
 
   tasks.push('watch');
-  tasks.push('jasmine-browser');
+
 
   seq('build', tasks, done);
 });
