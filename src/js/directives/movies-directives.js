@@ -1,15 +1,15 @@
 (function () {
 	'use strict';
 
-	angular.module( 'Queersicht.directives' )
-		.controller( 'MoviesController', moviesController )
-		.directive( 'movies', moviesDirective );
+	angular.module('Queersicht.directives')
+		.controller('MoviesController', moviesController)
+		.directive('movies', moviesDirective);
 
 	/**
 	 * Controller that
 	 */
-	moviesController.$inject = [ 'CommonService' ];
-	function moviesController( CommonService ) {
+	moviesController.$inject = ['CommonService'];
+	function moviesController(CommonService) {
 		var vm = this;
 
 		// Get functions' references from CommonService
@@ -21,13 +21,13 @@
 	/**
 	 * Directive that shows a movie preview
 	 */
-	moviesDirective.$inject = [ '$templateCache' ];
-	function moviesDirective( $templateCache ) {
+	moviesDirective.$inject = ['$templateCache'];
+	function moviesDirective($templateCache) {
 		return {
 			restrict         : 'AE',
 			controller       : 'MoviesController',
 			controllerAs     : 'moviesCtrl',
-			template         : $templateCache.get( 'movies.html' ),
+			template         : $templateCache.get('movies.html'),
 			bindToController : true,
 			scope            : {
 				movies : '=movies'

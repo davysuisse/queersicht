@@ -1,14 +1,14 @@
 (function () {
 	'use strict';
 
-	angular.module( 'Queersicht.services' )
-		.factory( 'CommonService', commonService );
+	angular.module('Queersicht.services')
+		.factory('CommonService', commonService);
 
 	/**
 	 * Get all the common functions that are used in the application [It will be splitted in the future]
 	 */
-	commonService.$inject = [ '$window', '$state', '$rootScope', '$http' ];
-	function commonService( $window, $state, $rootScope, $http ) {
+	commonService.$inject = ['$window', '$state', '$rootScope', '$http'];
+	function commonService($window, $state, $rootScope, $http) {
 		var service = {
 			addFavoris          : addFavoris,
 			deleteFavoris       : deleteFavoris,
@@ -34,11 +34,11 @@
 		/**
 		 * @parameter movieToAdd is the movie that we want to add in the localStorage
 		 */
-		function addFavoris( movieToAdd ) {
+		function addFavoris(movieToAdd) {
 			var favoris = getFavoris();
-			if ( favoris.indexOf( movieToAdd.id ) < 0 ) {
-				favoris.push( movieToAdd.id );
-				$window.localStorage.setItem( "favoris", JSON.stringify( favoris ) );
+			if (favoris.indexOf(movieToAdd.id) < 0) {
+				favoris.push(movieToAdd.id);
+				$window.localStorage.setItem("favoris", JSON.stringify(favoris));
 			}
 		}
 
@@ -46,12 +46,12 @@
 		 * Delete a favoris from the localStorage
 		 * @parameter movieToDelete is the movie that we want to delete
 		 */
-		function deleteFavoris( movieToDelete ) {
+		function deleteFavoris(movieToDelete) {
 			var favoris = getFavoris();
-			var idx     = favoris.indexOf( movieToDelete.id );
-			if ( idx > -1 ) {
-				favoris.splice( idx, 1 );
-				setFavoris( favoris );
+			var idx     = favoris.indexOf(movieToDelete.id);
+			if (idx > -1) {
+				favoris.splice(idx, 1);
+				setFavoris(favoris);
 			}
 		}
 
@@ -60,10 +60,10 @@
 		 * @parameter movie
 		 * return {boolean}
 		 */
-		function isInFavoris( movie ) {
+		function isInFavoris(movie) {
 			var favoris = getFavoris();
-			for ( var i in favoris ) {
-				if ( angular.equals( '' + favoris[ i ], '' + movie.id ) ) {
+			for (var i in favoris) {
+				if (angular.equals('' + favoris[i], '' + movie.id)) {
 					return true;
 				}
 			}
@@ -74,50 +74,50 @@
 		 * Get the favoris from the localStorage
 		 */
 		function getFavoris() {
-			return JSON.parse( $window.localStorage.getItem( 'favoris' ) || '[]' );
+			return JSON.parse($window.localStorage.getItem('favoris') || '[]');
 		}
 
 		/**
 		 * Set favoris in the localStorage
 		 */
-		function setFavoris( favoris ) {
-			$window.localStorage.setItem( "favoris", JSON.stringify( favoris ) );
+		function setFavoris(favoris) {
+			$window.localStorage.setItem("favoris", JSON.stringify(favoris));
 		}
 
-		function initTitle( myTitle ) {
-			$rootScope.$broadcast( 'menu-title', {
+		function initTitle(myTitle) {
+			$rootScope.$broadcast('menu-title', {
 				title : myTitle
-			} );
+			});
 		}
 
-		function goDetail( movieId ) {
-			$state.go( 'detail', {
+		function goDetail(movieId) {
+			$state.go('detail', {
 				id : movieId
-			} );
+			});
 		}
 
-		function getDetail( id ) {
-			return $http.get( '/queersicht/webservice/movies/' + id );
+		function getDetail(id) {
+			return $http.get('/queersicht/webservice/movies/' + id);
 		}
 
 		function getProgramPerMovie() {
-			return $http.get( '/queersicht/webservice/programs/movies' );
+			return $http.get('/queersicht/webservice/programs/movies');
 		}
 
 		function getProgramPerCinema() {
-			return $http.get( '/queersicht/webservice/programs/cinemas' );
+			return $http.get('/queersicht/webservice/programs/cinemas');
 		}
 
 		function getProgramPerDate() {
-			return $http.get( '/queersicht/webservice/programs/dates' );
+			return $http.get('/queersicht/webservice/programs/dates');
 		}
 
-		function lengthMap( map ) {
-			return Object.keys( map ).length;
+		function lengthMap(map) {
+			return Object.keys(map).length;
 		}
 
-		function isDefinedAndNotNull( obj ) {
-			return angular.isDefined( obj ) && obj != null;
+		function isDefinedAndNotNull(obj) {
+			return angular.isDefined(obj) && obj != null;
 		}
 
 		// TODO : TO DELETE
