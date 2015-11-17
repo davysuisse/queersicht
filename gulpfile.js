@@ -55,17 +55,14 @@ if (require('fs').existsSync('./config.js')) {
 var gulp = require('gulp'),
     seq = require('run-sequence'),
     connect = require('gulp-connect'),
-    less = require('gulp-less'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     cssmin = require('gulp-cssmin'),
     concat = require('gulp-concat'),
-    ignore = require('gulp-ignore'),
     rimraf = require('gulp-rimraf'),
     imagemin = require('gulp-imagemin'),
     pngcrush = require('imagemin-pngcrush'),
     templateCache = require('gulp-angular-templatecache'),
-    mobilizer = require('gulp-mobilizer'),
     ngAnnotate = require('gulp-ng-annotate'),
     replace = require('gulp-replace'),
     ngFilesort = require('gulp-angular-filesort'),
@@ -89,7 +86,7 @@ gulp.on('error', function (e) {
  =            Clean dest folder            =
  =========================================*/
 
-gulp.task('clean', function (cb) {
+gulp.task('clean', function () {
     return gulp.src([
         path.join(config.dest, 'index.html'),
         path.join(config.dest, 'images'),
@@ -175,32 +172,6 @@ gulp.task('html', function () {
         .pipe(gulp.dest(config.dest));
 });
 
-
-/*======================================================================
- =            Compile, minify, mobilize less                            =
- ======================================================================*/
-
-gulp.task('less', function () {
-    gulp.src(['./src/less/app.less', './src/less/responsive.less'])
-        .pipe(less({
-            paths: [path.resolve(__dirname, 'src/less'), path.resolve(__dirname, 'bower_components')]
-        }))
-        .pipe(mobilizer('app.css', {
-            'app.css': {
-                hover: 'exclude',
-                screens: ['0px']
-            },
-            'hover.css': {
-                hover: 'only',
-                screens: ['0px']
-            }
-        }))
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(path.join(config.dest, 'css')));
-});
-
-
 /*====================================================================
  =            Compile and minify js generating source maps            =
  ====================================================================*/
@@ -244,7 +215,6 @@ gulp.task('watch', function () {
         gulp.watch([config.dest + '/**/*'], ['livereload']);
     }
     gulp.watch(['./src/html/**/*'], ['html']);
-    gulp.watch(['./src/less/**/*'], ['less']);
     gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
     gulp.watch(['./src/css/*'], ['css']);
     gulp.watch(['./src/images/**/*'], ['images']);
@@ -270,7 +240,7 @@ gulp.task('weinre', function () {
  ======================================*/
 
 gulp.task('build', function (done) {
-    var tasks = ['html', 'fonts', 'images', 'less', 'js', 'css'];
+    var tasks = ['html', 'fonts', 'images', 'js', 'css'];
     seq('clean', tasks, done);
 });
 
@@ -310,8 +280,6 @@ gulp.task('default', function (done) {
     }
 
     tasks.push('watch');
-    tasks.push('jasmine');
-    tasks.push('jasmine-browser');
 
     seq('build', tasks, done);
 });
