@@ -69,7 +69,6 @@ var gulp = require('gulp'),
     streamqueue = require('streamqueue'),
     rename = require('gulp-rename'),
     path = require('path'),
-    jasmine = require('gulp-jasmine-phantom'),
     jasmineBrowser = require('gulp-jasmine-browser');
 watch = require('gulp-watch');
 
@@ -248,12 +247,6 @@ gulp.task('build', function (done) {
  =            Jasmine Task            =
  ====================================*/
 
-gulp.task('jasmine', function () {
-    return gulp.src('spec/**/*.spec.js')
-        // gulp-jasmine works on filepaths so you can't have any plugins before it
-        .pipe(jasmine());
-});
-
 gulp.task('jasmine-browser', function () {
     var filesForTest = ['src/**/*.js', 'spec/**/*.spec.js'];
     return streamqueue({objectMode: true},
@@ -280,6 +273,7 @@ gulp.task('default', function (done) {
     }
 
     tasks.push('watch');
+    tasks.push('jasmine-browser');
 
     seq('build', tasks, done);
 });
