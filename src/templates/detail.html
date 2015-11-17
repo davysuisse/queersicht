@@ -1,25 +1,27 @@
 <section class="section container-fluid" data-ng-init="pdC.init()">
-  <div class="col-sm-12 movies" data-ng-if="!!pdC.detail">
-  	<div class="row">
-      <div class="movie-title title_padding">
-        <span class="title">{{pdC.detail.title}}</span>
-      </div>
+    <div class="col-sm-12 movies" data-ng-if="!!pdC.detail">
+        <div class="row">
+            <div class="movie-title title_padding">
+                <span class="title">{{pdC.detail.title}}</span>
+            </div>
+        </div>
+        <div style="background-color: lightgrey;" class="row">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+                <table class="table">
+                    <tbody>
+                    <tr data-ng-repeat="(key, value) in pdC.detail.description">
+                        <td data-ng-if="$first" rowspan="{{pdC.lengthMap(pdC.detail.description)}}">
+                            <img class="img-responsive" data-ng-src="{{pdC.detail.image}}"/>
+                        </td>
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
+                <span>{{pdC.detail.text}}</span>
+            </div>
+        </div>
     </div>
-    <div style="background-color: lightgrey;" class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-        <table class="table">
-          <tbody>
-            <tr data-ng-repeat="(key, value) in pdC.detail.description">
-              <td data-ng-if="$first" rowspan="{{pdC.lengthMap(pdC.detail.description)}}"><img class="img-responsive" src="{{pdC.detail.image}}" /></td>
-              <td>{{key}}</td>
-              <td>{{value}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-        <span>{{pdC.detail.text}}</span>
-      </div>
-    </div>
-  </div>
 </section>
