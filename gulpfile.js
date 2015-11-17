@@ -11,15 +11,15 @@ var config = {
 
     vendor: {
         js: [
-            './bower_components/angular/angular.js',
-            './bower_components/angular-route/angular-route.js',
-            './bower_components/angular-ui-router/release/angular-ui-router.js',
-            './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js',
-            './bower_components/angular-mocks/angular-mocks.js'
+            './node_modules/angular/angular.js',
+            './node_modules/angular-route/angular-route.js',
+            './node_modules/angular-ui-router/release/angular-ui-router.js',
+            './node_modules/mobile-angular-ui/dist/js/mobile-angular-ui.js',
+            './node_modules/angular-mocks/angular-mocks.js'
         ],
 
         fonts: [
-            './bower_components/font-awesome/fonts/fontawesome-webfont.*',
+            './node_modules/font-awesome/fonts/fontawesome-webfont.*',
             './src/css/GloberRegular.otf'
         ]
     },
