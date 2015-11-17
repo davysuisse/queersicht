@@ -5,44 +5,44 @@
 // Please use config.js to override these selectively:
 
 var config = {
-    dest: 'www',
-    cordova: true,
-    minify_images: true,
+  dest          : 'www',
+  cordova       : true,
+  minify_images : true,
 
-    vendor: {
-        js: [
-            './node_modules/angular/angular.js',
-            './node_modules/angular-route/angular-route.js',
-            './node_modules/angular-ui-router/release/angular-ui-router.js',
-            './node_modules/mobile-angular-ui/dist/js/mobile-angular-ui.js',
-            './node_modules/angular-mocks/angular-mocks.js'
-        ],
+  vendor : {
+    js : [
+      './node_modules/angular/angular.js',
+      './node_modules/angular-route/angular-route.js',
+      './node_modules/angular-ui-router/release/angular-ui-router.js',
+      './node_modules/mobile-angular-ui/dist/js/mobile-angular-ui.js',
+      './node_modules/angular-mocks/angular-mocks.js'
+    ],
 
-        fonts: [
-            './node_modules/font-awesome/fonts/fontawesome-webfont.*',
-            './src/css/GloberRegular.otf'
-        ]
-    },
+    fonts : [
+      './node_modules/font-awesome/fonts/fontawesome-webfont.*',
+      './src/css/GloberRegular.otf'
+    ]
+  },
 
-    server: {
-        host: '0.0.0.0',
-        port: '8000'
-    },
+  server : {
+    host : '0.0.0.0',
+    port : '8000'
+  },
 
-    weinre: {
-        httpPort: 8001,
-        boundHost: 'localhost',
-        verbose: false,
-        debug: false,
-        readTimeout: 5,
-        deathTimeout: 15
-    }
+  weinre : {
+    httpPort     : 8001,
+    boundHost    : 'localhost',
+    verbose      : false,
+    debug        : false,
+    readTimeout  : 5,
+    deathTimeout : 15
+  }
 };
 
 
 if (require('fs').existsSync('./config.js')) {
-    var configFn = require('./config');
-    configFn(config);
+  var configFn = require('./config');
+  configFn(config);
 }
 
 /*-----  End of Configuration  ------*/
@@ -52,32 +52,31 @@ if (require('fs').existsSync('./config.js')) {
  =            Requiring stuffs            =
  ========================================*/
 
-var gulp = require('gulp'),
-    seq = require('run-sequence'),
-    connect = require('gulp-connect'),
-    uglify = require('gulp-uglify'),
-    sourcemaps = require('gulp-sourcemaps'),
-    cssmin = require('gulp-cssmin'),
-    concat = require('gulp-concat'),
-    rimraf = require('gulp-rimraf'),
-    imagemin = require('gulp-imagemin'),
-    pngcrush = require('imagemin-pngcrush'),
-    templateCache = require('gulp-angular-templatecache'),
-    ngAnnotate = require('gulp-ng-annotate'),
-    replace = require('gulp-replace'),
-    ngFilesort = require('gulp-angular-filesort'),
-    streamqueue = require('streamqueue'),
-    rename = require('gulp-rename'),
-    path = require('path'),
-    jasmineBrowser = require('gulp-jasmine-browser');
-watch = require('gulp-watch');
+var gulp           = require('gulp'),
+    seq            = require('run-sequence'),
+    connect        = require('gulp-connect'),
+    sourcemaps     = require('gulp-sourcemaps'),
+    cssmin         = require('gulp-cssmin'),
+    concat         = require('gulp-concat'),
+    rimraf         = require('gulp-rimraf'),
+    imagemin       = require('gulp-imagemin'),
+    pngcrush       = require('imagemin-pngcrush'),
+    templateCache  = require('gulp-angular-templatecache'),
+    ngAnnotate     = require('gulp-ng-annotate'),
+    replace        = require('gulp-replace'),
+    ngFilesort     = require('gulp-angular-filesort'),
+    streamqueue    = require('streamqueue'),
+    rename         = require('gulp-rename'),
+    path           = require('path'),
+    jasmineBrowser = require('gulp-jasmine-browser'),
+    watch          = require('gulp-watch');
 
 /*================================================
  =            Report Errors to Console            =
  ================================================*/
 
 gulp.on('error', function (e) {
-    throw(e);
+  throw(e);
 });
 
 
@@ -86,14 +85,14 @@ gulp.on('error', function (e) {
  =========================================*/
 
 gulp.task('clean', function () {
-    return gulp.src([
-        path.join(config.dest, 'index.html'),
-        path.join(config.dest, 'images'),
-        path.join(config.dest, 'css'),
-        path.join(config.dest, 'js'),
-        path.join(config.dest, 'fonts')
-    ], {read: false})
-        .pipe(rimraf());
+  return gulp.src([
+      path.join(config.dest, 'index.html'),
+      path.join(config.dest, 'images'),
+      path.join(config.dest, 'css'),
+      path.join(config.dest, 'js'),
+      path.join(config.dest, 'fonts')
+    ], {read : false})
+    .pipe(rimraf());
 });
 
 
@@ -102,16 +101,16 @@ gulp.task('clean', function () {
  ==========================================*/
 
 gulp.task('connect', function () {
-    if (typeof config.server === 'object') {
-        connect.server({
-            root: config.dest,
-            host: config.server.host,
-            port: config.server.port,
-            livereload: true
-        });
-    } else {
-        throw new Error('Connect is not configured');
-    }
+  if (typeof config.server === 'object') {
+    connect.server({
+      root       : config.dest,
+      host       : config.server.host,
+      port       : config.server.port,
+      livereload : true
+    });
+  } else {
+    throw new Error('Connect is not configured');
+  }
 });
 
 
@@ -120,8 +119,8 @@ gulp.task('connect', function () {
  ==============================================================*/
 
 gulp.task('livereload', function () {
-    gulp.src(path.join(config.dest, '*.html'))
-        .pipe(connect.reload());
+  gulp.src(path.join(config.dest, '*.html'))
+    .pipe(connect.reload());
 });
 
 
@@ -130,17 +129,17 @@ gulp.task('livereload', function () {
  =====================================*/
 
 gulp.task('images', function () {
-    var stream = gulp.src('src/images/**/*');
+  var stream = gulp.src('src/images/**/*');
 
-    if (config.minify_images) {
-        stream = stream.pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
-            use: [pngcrush()]
-        }));
-    }
+  if (config.minify_images) {
+    stream = stream.pipe(imagemin({
+      progressive : true,
+      svgoPlugins : [{removeViewBox : false}],
+      use         : [pngcrush()]
+    }));
+  }
 
-    return stream.pipe(gulp.dest(path.join(config.dest, 'images')));
+  return stream.pipe(gulp.dest(path.join(config.dest, 'images')));
 });
 
 
@@ -149,8 +148,8 @@ gulp.task('images', function () {
  ==================================*/
 
 gulp.task('fonts', function () {
-    return gulp.src(config.vendor.fonts)
-        .pipe(gulp.dest(path.join(config.dest, 'fonts')));
+  return gulp.src(config.vendor.fonts)
+    .pipe(gulp.dest(path.join(config.dest, 'fonts')));
 });
 
 
@@ -159,16 +158,16 @@ gulp.task('fonts', function () {
  =================================================*/
 
 gulp.task('html', function () {
-    var inject = [];
-    if (typeof config.weinre === 'object') {
-        inject.push('<script src="http://' + config.weinre.boundHost + ':' + config.weinre.httpPort + '/target/target-script-min.js"></script>');
-    }
-    if (config.cordova) {
-        inject.push('<script src="cordova.js"></script>');
-    }
-    gulp.src(['src/html/**/*.html'])
-        .pipe(replace('<!-- inject:js -->', inject.join('\n    ')))
-        .pipe(gulp.dest(config.dest));
+  var inject = [];
+  if (typeof config.weinre === 'object') {
+    inject.push('<script src="http://' + config.weinre.boundHost + ':' + config.weinre.httpPort + '/target/target-script-min.js"></script>');
+  }
+  if (config.cordova) {
+    inject.push('<script src="cordova.js"></script>');
+  }
+  gulp.src(['src/html/**/*.html'])
+    .pipe(replace('<!-- inject:js -->', inject.join('\n    ')))
+    .pipe(gulp.dest(config.dest));
 });
 
 /*====================================================================
@@ -178,18 +177,17 @@ gulp.task('html', function () {
 // - Precompile templates to ng templateCache
 
 gulp.task('js', function () {
-    streamqueue({objectMode: true},
-        gulp.src(config.vendor.js),
-        gulp.src('./src/js/**/*.js').pipe(ngFilesort()),
-        gulp.src(['src/templates/**/*.html']).pipe(templateCache({module: 'Queersicht'}))
-    )
-        .pipe(sourcemaps.init())
-        .pipe(concat('app.js'))
-        .pipe(ngAnnotate())
-//    .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(path.join(config.dest, 'js')));
+  streamqueue({objectMode : true},
+    gulp.src(config.vendor.js),
+    gulp.src('./src/js/**/*.js').pipe(ngFilesort()),
+    gulp.src(['src/templates/**/*.html']).pipe(templateCache({module : 'Queersicht'}))
+  )
+    .pipe(sourcemaps.init())
+    .pipe(concat('app.js'))
+    .pipe(ngAnnotate())
+    .pipe(rename({suffix : '.min'}))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 
 /*====================================================================
@@ -199,10 +197,10 @@ gulp.task('js', function () {
 // - Precompile templates to ng templateCache
 
 gulp.task('css', function () {
-    gulp.src('./src/css/*.css')
-        .pipe(cssmin())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(path.join(config.dest, 'css')))
+  gulp.src('./src/css/*.css')
+    .pipe(cssmin())
+    .pipe(rename({suffix : '.min'}))
+    .pipe(gulp.dest(path.join(config.dest, 'css')))
 });
 
 /*===================================================================
@@ -210,13 +208,13 @@ gulp.task('css', function () {
  ===================================================================*/
 
 gulp.task('watch', function () {
-    if (typeof config.server === 'object') {
-        gulp.watch([config.dest + '/**/*'], ['livereload']);
-    }
-    gulp.watch(['./src/html/**/*'], ['html']);
-    gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
-    gulp.watch(['./src/css/*'], ['css']);
-    gulp.watch(['./src/images/**/*'], ['images']);
+  if (typeof config.server === 'object') {
+    gulp.watch([config.dest + '/**/*'], ['livereload']);
+  }
+  gulp.watch(['./src/html/**/*'], ['html']);
+  gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
+  gulp.watch(['./src/css/*'], ['css']);
+  gulp.watch(['./src/images/**/*'], ['images']);
 });
 
 
@@ -225,12 +223,12 @@ gulp.task('watch', function () {
  ===================================================*/
 
 gulp.task('weinre', function () {
-    if (typeof config.weinre === 'object') {
-        var weinre = require('./node_modules/weinre/lib/weinre');
-        weinre.run(config.weinre);
-    } else {
-        throw new Error('Weinre is not configured');
-    }
+  if (typeof config.weinre === 'object') {
+    var weinre = require('./node_modules/weinre/lib/weinre');
+    weinre.run(config.weinre);
+  } else {
+    throw new Error('Weinre is not configured');
+  }
 });
 
 
@@ -239,8 +237,8 @@ gulp.task('weinre', function () {
  ======================================*/
 
 gulp.task('build', function (done) {
-    var tasks = ['html', 'fonts', 'images', 'js', 'css'];
-    seq('clean', tasks, done);
+  var tasks = ['html', 'fonts', 'images', 'js', 'css'];
+  seq('clean', tasks, done);
 });
 
 /*====================================
@@ -248,13 +246,13 @@ gulp.task('build', function (done) {
  ====================================*/
 
 gulp.task('jasmine-browser', function () {
-    var filesForTest = ['src/**/*.js', 'spec/**/*.spec.js'];
-    return streamqueue({objectMode: true},
-        gulp.src(config.vendor.js),
-        gulp.src(filesForTest))
-        .pipe(watch(filesForTest))
-        .pipe(jasmineBrowser.specRunner())
-        .pipe(jasmineBrowser.server({port: 8888}));
+  var filesForTest = ['src/**/*.js', 'spec/**/*.spec.js'];
+  return streamqueue({objectMode : true},
+    gulp.src(config.vendor.js),
+    gulp.src(filesForTest))
+    .pipe(watch(filesForTest))
+    .pipe(jasmineBrowser.specRunner())
+    .pipe(jasmineBrowser.server({port : 8888}));
 });
 
 /*====================================
@@ -262,18 +260,18 @@ gulp.task('jasmine-browser', function () {
  ====================================*/
 
 gulp.task('default', function (done) {
-    var tasks = [];
+  var tasks = [];
 
-    if (typeof config.weinre === 'object') {
-        tasks.push('weinre');
-    }
+  if (typeof config.weinre === 'object') {
+    tasks.push('weinre');
+  }
 
-    if (typeof config.server === 'object') {
-        tasks.push('connect');
-    }
+  if (typeof config.server === 'object') {
+    tasks.push('connect');
+  }
 
-    tasks.push('watch');
-    tasks.push('jasmine-browser');
+  tasks.push('watch');
+  tasks.push('jasmine-browser');
 
-    seq('build', tasks, done);
+  seq('build', tasks, done);
 });
