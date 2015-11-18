@@ -32,7 +32,6 @@
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
     "imagemin-pngcrush": "^0.1.0",
-    "mobile-angular-ui": "0.0.0",
     "run-sequence": "^0.3.7",
     "streamqueue": "^0.1.1",
     "weinre": "^2.0.0-pre-I0Z7U9OV"

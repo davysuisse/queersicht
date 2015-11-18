@@ -15,7 +15,7 @@ var config = {
       './node_modules/angular-route/angular-route.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
-      './bower_components/mobile-angular-ui/dist/js/mobile-angular-ui.js'
+      './src/js/scripts/mobile-angular-ui.js'
     ],
 
     fonts : [
@@ -159,12 +159,6 @@ gulp.task('fonts', function () {
 
 gulp.task('html', function () {
   var inject = [];
-  if (typeof config.weinre === 'object') {
-    inject.push('<script src="http://' + config.weinre.boundHost + ':' + config.weinre.httpPort + '/target/target-script-min.js"></script>');
-  }
-  if (config.cordova) {
-    inject.push('<script src="cordova.js"></script>');
-  }
   gulp.src(['src/html/**/*.html'])
     .pipe(replace('<!-- inject:js -->', inject.join('\n    ')))
     .pipe(gulp.dest(config.dest));
