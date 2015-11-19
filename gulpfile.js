@@ -7,7 +7,6 @@
 var config = {
   dest          : 'www',
   cordova       : true,
-  minify_images : true,
 
   vendor : {
     js : [
@@ -27,15 +26,6 @@ var config = {
   server : {
     host : '0.0.0.0',
     port : '8000'
-  },
-
-  weinre : {
-    httpPort     : 8001,
-    boundHost    : 'localhost',
-    verbose      : false,
-    debug        : false,
-    readTimeout  : 5,
-    deathTimeout : 15
   }
 };
 
@@ -59,10 +49,7 @@ var gulp           = require('gulp'),
     cssmin         = require('gulp-cssmin'),
     concat         = require('gulp-concat'),
     rimraf         = require('gulp-rimraf'),
-    imagemin       = require('gulp-imagemin'),
-    pngcrush       = require('imagemin-pngcrush'),
     templateCache  = require('gulp-angular-templatecache'),
-    ngAnnotate     = require('gulp-ng-annotate'),
     replace        = require('gulp-replace'),
     ngFilesort     = require('gulp-angular-filesort'),
     streamqueue    = require('streamqueue'),
@@ -123,26 +110,6 @@ gulp.task('livereload', function () {
     .pipe(connect.reload());
 });
 
-
-/*=====================================
- =            Minify images            =
- =====================================*/
-
-gulp.task('images', function () {
-  var stream = gulp.src('src/images/**/*');
-
-  if (config.minify_images) {
-    stream = stream.pipe(imagemin({
-      progressive : true,
-      svgoPlugins : [{removeViewBox : false}],
-      use         : [pngcrush()]
-    }));
-  }
-
-  return stream.pipe(gulp.dest(path.join(config.dest, 'images')));
-});
-
-
 /*==================================
  =            Copy fonts            =
  ==================================*/
@@ -178,7 +145,6 @@ gulp.task('js', function () {
   )
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
-    .pipe(ngAnnotate())
     .pipe(rename({suffix : '.min'}))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.join(config.dest, 'js')));
@@ -187,9 +153,6 @@ gulp.task('js', function () {
 /*====================================================================
  =            Compile and minify css                                  =
  ====================================================================*/
-// - Orders ng deps automatically
-// - Precompile templates to ng templateCache
-
 gulp.task('css', function () {
   gulp.src('./src/css/*.css')
     .pipe(cssmin())
@@ -212,26 +175,12 @@ gulp.task('watch', function () {
 });
 
 
-/*===================================================
- =            Starts a Weinre Server                 =
- ===================================================*/
-
-gulp.task('weinre', function () {
-  if (typeof config.weinre === 'object') {
-    var weinre = require('./node_modules/weinre/lib/weinre');
-    weinre.run(config.weinre);
-  } else {
-    throw new Error('Weinre is not configured');
-  }
-});
-
-
 /*======================================
  =            Build Sequence            =
  ======================================*/
 
 gulp.task('build', function (done) {
-  var tasks = ['html', 'fonts', 'images', 'js', 'css'];
+  var tasks = ['html', 'fonts', 'js', 'css'];
   seq('clean', tasks, done);
 });
 
@@ -256,16 +205,12 @@ gulp.task('jasmine-browser', function () {
 gulp.task('default', function (done) {
   var tasks = [];
 
-  if (typeof config.weinre === 'object') {
-    tasks.push('weinre');
-  }
-
   if (typeof config.server === 'object') {
     tasks.push('connect');
   }
 
   tasks.push('watch');
-
+  tasks.push('jasmine-browser');
 
   seq('build', tasks, done);
 });
