@@ -5,8 +5,8 @@
 // Please use config.js to override these selectively:
 
 var config = {
-  dest          : 'www',
-  cordova       : true,
+  dest    : 'www',
+  cordova : true,
 
   vendor : {
     js : [
@@ -42,20 +42,20 @@ if (require('fs').existsSync('./config.js')) {
  =            Requiring stuffs            =
  ========================================*/
 
-var gulp           = require('gulp'),
-    seq            = require('run-sequence'),
+var concat         = require('gulp-concat'),
     connect        = require('gulp-connect'),
-    sourcemaps     = require('gulp-sourcemaps'),
     cssmin         = require('gulp-cssmin'),
-    concat         = require('gulp-concat'),
-    rimraf         = require('gulp-rimraf'),
-    templateCache  = require('gulp-angular-templatecache'),
-    replace        = require('gulp-replace'),
-    ngFilesort     = require('gulp-angular-filesort'),
-    streamqueue    = require('streamqueue'),
-    rename         = require('gulp-rename'),
-    path           = require('path'),
+    gulp           = require('gulp'),
     jasmineBrowser = require('gulp-jasmine-browser'),
+    ngFilesort     = require('gulp-angular-filesort'),
+    path           = require('path'),
+    rename         = require('gulp-rename'),
+    replace        = require('gulp-replace'),
+    rimraf         = require('gulp-rimraf'),
+    seq            = require('run-sequence'),
+    sourcemaps     = require('gulp-sourcemaps'),
+    streamqueue    = require('streamqueue'),
+    templateCache  = require('gulp-angular-templatecache'),
     watch          = require('gulp-watch');
 
 /*================================================
