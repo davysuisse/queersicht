@@ -18,9 +18,8 @@ First make sure these component are globally installed, by running:
 
 After cloning the project, run the following commands:
 
-    npm install
-    gulp
-    gulp dev
+    npm install // Install all the dependencies
+    gulp // Start compiling and running server
 
 This will start the server, the application should be available at the following url:
 
