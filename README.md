@@ -6,6 +6,7 @@ The different plugins used for the development are the followings:
 - Node : https://nodejs.org/en/
 - Cordova : https://cordova.apache.org/
 - Gulp : http://gulpjs.com/
+- Phonegap : http://phonegap.com/
 
 # Installation instructions
 
