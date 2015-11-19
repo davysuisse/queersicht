@@ -1,6 +1,6 @@
 # Queersicht application
 
-This is a project for a film festival in Bern/Switzerland. 
+This is a project for a film festival in Bern/Switzerland. (http://queersicht.ch/)
 
 The different plugins used for the development are the followings:
 - Node : https://nodejs.org/en/
