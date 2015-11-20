@@ -27,6 +27,7 @@ This will start the server, the application should be available at the following
     http://localhost:8888 // Jasmine Test
 
 To encapsulate the application in a android package (.apk)
+
     cordova build android
 
 # Features in modern releases
