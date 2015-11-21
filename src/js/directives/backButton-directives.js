@@ -19,7 +19,7 @@
         }
 
         scope.$watch('BackHistoryService.isBackPossible', function (newVal) {
-          if (newVal === 'true') {
+          if (angular.equal(newVal, 'true')) {
             element.addClass('disabled');
           } else {
             element.removeClass('disabled');

@@ -7,32 +7,32 @@
   /**
    * Manage the favoris from the localStorage
    */
-  favorisController.$inject = ['CommonService'];
-  function favorisController(CommonService) {
+  favorisController.$inject = ['CommonService', 'RestCallService', 'FavorisService'];
+  function favorisController(CommonService, RestCallService, FavorisService) {
     var vm = this;
 
     vm.favoris       = [];
-    vm.addFavoris    = CommonService.addFavoris;
-    vm.isInFavoris   = CommonService.isInFavoris;
-    vm.deleteFavoris = CommonService.deleteFavoris;
+    vm.addFavoris    = FavorisService.addFavoris;
+    vm.isInFavoris   = FavorisService.isInFavoris;
+    vm.deleteFavoris = FavorisService.deleteFavoris;
 
     init();
 
     function init() {
       CommonService.initTitle('Favoris');
 
-      CommonService.getProgramPerMovie().then(function (response) {
+      RestCallService.getProgramPerMovie().then(function (response) {
         var movies = response.data;
         sortFavoris(movies || []);
       }, function (error) {
-        var movies = CommonService.getMovies(); // TODO: To Delete when api created
+        var movies = RestCallService.getMovies();
         sortFavoris(movies || []);
       });
     }
 
     function sortFavoris(movies) {
       for (var i = 0; i < movies.length; i++) {
-        if (CommonService.isInFavoris(movies[i])) {
+        if (FavorisService.isInFavoris(movies[i])) {
           vm.favoris.push(movies[i]);
         }
       }

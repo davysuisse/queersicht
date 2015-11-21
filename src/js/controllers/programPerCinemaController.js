@@ -7,8 +7,8 @@
   /**
    * Manage the program per Cinema
    */
-  programPerCinemaController.$inject = ['CommonService'];
-  function programPerCinemaController(CommonService) {
+  programPerCinemaController.$inject = ['CommonService', 'RestCallService'];
+  function programPerCinemaController(CommonService, RestCallService) {
     var vm = this;
 
     init();
@@ -16,10 +16,10 @@
     function init() {
       CommonService.initTitle('Program per Cinema');
 
-      CommonService.getProgramPerCinema().then(function (response) {
+      RestCallService.getProgramPerCinema().then(function (response) {
         vm.cinemas = response.data;
       }, function (error) {
-        vm.cinemas = CommonService.getCinemas();
+        vm.cinemas = RestCallService.getCinemas();
       });
     }
   }

@@ -8,14 +8,14 @@
   /**
    * Controller that
    */
-  moviesController.$inject = ['CommonService'];
-  function moviesController(CommonService) {
+  moviesController.$inject = ['FavorisService'];
+  function moviesController(FavorisService) {
     var vm = this;
 
-    // Get functions' references from CommonService
-    vm.addFavoris    = CommonService.addFavoris;
-    vm.isInFavoris   = CommonService.isInFavoris;
-    vm.deleteFavoris = CommonService.deleteFavoris;
+    // Get functions' references from FavorisService
+    vm.addFavoris    = FavorisService.addFavoris;
+    vm.isInFavoris   = FavorisService.isInFavoris;
+    vm.deleteFavoris = FavorisService.deleteFavoris;
   }
 
   /**

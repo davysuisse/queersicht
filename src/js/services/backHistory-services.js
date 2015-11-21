@@ -7,8 +7,8 @@
   /**
    * Manage the back buttons
    */
-  backHistoryService.$inject = ['$rootScope', '$state'];
-  function backHistoryService($rootScope, $state) {
+  backHistoryService.$inject = ['$state'];
+  function backHistoryService($state) {
     var history = [];
 
     var service = {
@@ -26,10 +26,12 @@
 
     // Go to the previous path
     function goBack() {
-      var prevUrl = history.length > 1 ? history.splice(-1)[0] : {
+      // If there is no history, we go to the home page (/movie)
+      var prevUrl = history.length > 2 ? history.splice(-1)[0] : {
         route  : "movie",
         params : ''
       };
+
       if (prevUrl.params) {
         $state.go(prevUrl.route, prevUrl.params);
       } else {
