@@ -26,9 +26,9 @@
 
     // Go to the previous path
     function goBack() {
-      // If there is no history, we go to the home page (/movie)
+      // If there is no history, we go to the home page (and will redirect to the 'movie' state)
       var prevUrl = history.length > 2 ? history.splice(-1)[0] : {
-        route  : "movie",
+        route  : '',
         params : ''
       };
 

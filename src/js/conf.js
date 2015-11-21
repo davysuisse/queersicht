@@ -42,15 +42,15 @@
     });
   }
 
-  queersichtRun.$inject = ['$rootScope', '$location', 'BackHistoryService'];
-  function queersichtRun($rootScope, $location, BackHistoryService) {
-    $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from,
-                                                  fromParams) {
-      BackHistoryService.setHistory({
-        route  : from.name,
-        params : fromParams
-      });
-    });
+  queersichtRun.$inject = ['$rootScope', 'BackHistoryService'];
+  function queersichtRun($rootScope, BackHistoryService) {
+    $rootScope.$on("$stateChangeStart", stateChangeStart);
   }
 
+  function stateChangeStart(ev, to, toParams, from, fromParams) {
+    BackHistoryService.setHistory({
+      route  : from.name,
+      params : fromParams
+    });
+  }
 })();
