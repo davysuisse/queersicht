@@ -10,11 +10,11 @@
   favorisService.$inject = ['$window'];
   function favorisService($window) {
     var service = {
-      addFavoris          : addFavoris,
-      deleteFavoris       : deleteFavoris,
-      isInFavoris         : isInFavoris,
-      getFavoris          : getFavoris,
-      setFavoris          : setFavoris
+      addFavoris    : addFavoris,
+      deleteFavoris : deleteFavoris,
+      isInFavoris   : isInFavoris,
+      getFavoris    : getFavoris,
+      setFavoris    : setFavoris
     };
 
     return service;
