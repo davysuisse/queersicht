@@ -10,7 +10,7 @@ The different plugins used for the development are the followings:
 
 # Installation instructions
 
-First make sure these component are globally installed, by running:
+First make sure these components are globally installed, by running:
 
     npm install -g gulp
     npm install -g cordova
@@ -26,8 +26,13 @@ This will start the server, the application should be available at the following
     http://localhost:8000 // Application
     http://localhost:8888 // Jasmine Test
 
-To encapsulate the application in a android package (.apk)
+To encapsulate the application in a android package (.apk):
+
     cordova build android
+
+# Test - Android Application 
+
+There is a file called "queersicht.apk". It's the android package. Install it in your mobile phone and you'll be able to launch the application and test it.
 
 # Features in modern releases
 No release
