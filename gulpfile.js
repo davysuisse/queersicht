@@ -49,6 +49,7 @@ var concat         = require('gulp-concat'),
     cssmin         = require('gulp-cssmin'),
     gulp           = require('gulp'),
     jasmineBrowser = require('gulp-jasmine-browser'),
+    minify         = require('gulp-minify'),
     ngFilesort     = require('gulp-angular-filesort'),
     path           = require('path'),
     rename         = require('gulp-rename'),
@@ -157,8 +158,7 @@ gulp.task('js', function () {
   )
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
-    .pipe(rename({suffix : '.min'}))
-    .pipe(sourcemaps.write('.'))
+    .pipe(minify())
     .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 
