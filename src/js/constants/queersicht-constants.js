@@ -4,24 +4,34 @@
 (function () {
   "use strict";
 
-  angular.module('Queersicht.constants').constant('QSConstants', {
-    idProperty      : 'id',
-    localStorageKey : 'favoris',
+  angular.module('Queersicht.constants')
+    .constant('QSConstants', qsConstants())
+    .constant('QSCStates', qsCStates());
 
-    // Title
-    broadCastTitle        : 'menu-title',
-    favorisTitle          : 'Favoris',
-    detailTitle           : 'Detail',
-    programPerCinemaTitle : 'Program per cinema',
-    programPerDateTitle   : 'Program per date',
-    programPerMovieTitle  : 'Program per movie',
+  function qsConstants() {
+    return {
+      idProperty      : 'id',
+      localStorageKey : 'favoris',
 
-    // States
-    stateDetail  : 'detail',
-    stateFavoris : 'favoris',
-    stateCinema  : 'cinema',
-    stateMovie   : 'movie',
-    stateDate    : 'date'
-  });
+      // Title
+      broadCastTitle        : 'menu-title',
+      favorisTitle          : 'Favoris',
+      detailTitle           : 'Detail',
+      programPerCinemaTitle : 'Program per cinema',
+      programPerDateTitle   : 'Program per date',
+      programPerMovieTitle  : 'Program per movie'
+    };
+  }
+
+  function qsCStates() {
+    return {
+      // States
+      stateDetail  : 'detail',
+      stateFavoris : 'favoris',
+      stateCinema  : 'cinema',
+      stateMovie   : 'movie',
+      stateDate    : 'date'
+    };
+  }
 
 })();
