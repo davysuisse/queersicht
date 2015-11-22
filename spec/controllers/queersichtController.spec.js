@@ -2,20 +2,22 @@
   'use strict';
 
   describe("Test Queersicht Controller", function () {
-    var queersichtController, $rootScope;
+    var queersichtController, $rootScope, qsConstant;
 
-    beforeEach(module('Queersicht'));
+    beforeEach(module('Queersicht.constants'));
     beforeEach(module('Queersicht.controllers'));
 
-    beforeEach(inject(function ($controller, _$rootScope_) {
-      $rootScope           = _$rootScope_;
+    beforeEach(inject(function ($injector, $controller, _$rootScope_) {
+      $rootScope = _$rootScope_;
+      qsConstant = $injector.get('QSConstants');
+
       queersichtController = $controller('QueersichtController', {
         '$scope' : $rootScope.$new()
       });
     }));
 
     it("Test the broadcast to change the title", function () {
-      $rootScope.$broadcast('menu-title', {
+      $rootScope.$broadcast(qsConstant.broadCastTitle, {
         title : 'test'
       });
 

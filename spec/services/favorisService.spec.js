@@ -16,7 +16,6 @@
         return store[key];
       });
 
-      Object.defineProperty(sessionStorage, "setItem", { writable: true });
       spyOn($window.localStorage, 'setItem').and.callFake(function(key, value) {
         store[key] = value;
       });
@@ -27,10 +26,23 @@
     });
 
     it("Test if an item has been added", function () {
-      favorisService.addFavoris({ id : 2 });
+      var favoris = favorisService.getFavoris();
+      expect(favoris).toEqual([]);
 
-      var isFavoris = favorisService.isInFavoris({ id : 2 });
-      expect(isFavoris).toBe(true);
+      // Add a favoris id
+      favorisService.addFavoris({ id : 1 });
+      var isFavoris = favorisService.isInFavoris({ id : 1 });
+      expect(isFavoris).toEqual(true);
+
+      // Add an other one and test if both are there
+      favorisService.addFavoris({ id : 2 });
+      favoris = favorisService.getFavoris();
+      expect(favoris).toEqual([1, 2]);
+
+      // Delete 1 and watch if it's correctly been removed.
+      favorisService.deleteFavoris({ id : 1 });
+      isFavoris = favorisService.isInFavoris({ id : 1 });
+      expect(isFavoris).toBe(false);
     });
   });
 })();

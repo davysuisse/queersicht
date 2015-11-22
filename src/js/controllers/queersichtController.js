@@ -5,13 +5,13 @@
     .controller('QueersichtController', queersichtController);
 
   /**
-   * The Queersicht Controlle [MainController]
+   * The Queersicht Controller [MainController]
    */
-  queersichtController.$inject = ['$scope'];
-  function queersichtController($scope) {
+  queersichtController.$inject = ['$scope', 'QSConstants'];
+  function queersichtController($scope, QSConstants) {
     var vm = this;
 
-    $scope.$on('menu-title', function (event, args) {
+    $scope.$on(QSConstants.broadCastTitle, function (event, args) {
       affectTitle(args.title);
     });
 

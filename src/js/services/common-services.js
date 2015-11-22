@@ -7,25 +7,26 @@
   /**
    * Get all the common functions that are used in the application
    */
-  commonService.$inject = ['$state', '$rootScope'];
-  function commonService($state, $rootScope) {
+  commonService.$inject = ['$state', '$rootScope', 'QSConstants'];
+  function commonService($state, $rootScope, QSConstants) {
     var service = {
       initTitle           : initTitle,
       lengthMap           : lengthMap,
       goDetail            : goDetail,
+      stringify           : stringify,
       isDefinedAndNotNull : isDefinedAndNotNull
     };
 
     return service;
 
     function initTitle(myTitle) {
-      $rootScope.$broadcast('menu-title', {
+      $rootScope.$broadcast(QSConstants.broadCastTitle, {
         title : myTitle
       });
     }
 
     function goDetail(movieId) {
-      $state.go('detail', {
+      $state.go(QSConstants.stateDetail, {
         id : movieId
       });
     }
@@ -36,6 +37,10 @@
 
     function isDefinedAndNotNull(obj) {
       return angular.isDefined(obj) && obj != null;
+    }
+
+    function stringify(obj) {
+      return '' + obj;
     }
   }
 })();

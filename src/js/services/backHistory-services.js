@@ -19,12 +19,17 @@
 
     return service;
 
-    // Each time the location changes its name, this function will be cast
+    /**
+     * Each time the location changes its name, this function will be cast
+     * @param path
+     */
     function setHistory(path) {
       history.push(path);
     }
 
-    // Go to the previous path
+    /**
+     * Go back action
+     */
     function goBack() {
       // If there is no history, we go to the home page (and will redirect to the 'movie' state)
       var prevUrl = history.length > 2 ? history.splice(-1)[0] : {
@@ -39,6 +44,10 @@
       }
     }
 
+    /**
+     * Is it possible to  go back ?
+     * @returns {boolean}
+     */
     function isBackPossible() {
       return history.length > 0;
     }

@@ -7,17 +7,17 @@
   /**
    * Manage the program detail
    */
-  programDetailController.$inject = ['$stateParams', 'CommonService', 'RestCallService'];
-  function programDetailController($stateParams, CommonService, RestCallService) {
+  programDetailController.$inject = ['$stateParams', 'CommonService', 'RestCallService', 'QSConstants'];
+  function programDetailController($stateParams, CommonService, RestCallService, QSConstants) {
     var vm       = this;
     vm.init      = init;
     vm.lengthMap = CommonService.lengthMap;
 
     // Called from the GUI
     function init() {
-      CommonService.initTitle('Detail');
+      CommonService.initTitle(QSConstants.detailTitle);
 
-      RestCallService.getDetail($stateParams['id']).then(function (response) {
+      RestCallService.getDetail($stateParams[QSConstants.idProperty]).then(function (response) {
         vm.detail = response.data;
       }, function (error) {
         vm.detail = RestCallService.getDetailMock(); // Mocking because the REST api is not created yet

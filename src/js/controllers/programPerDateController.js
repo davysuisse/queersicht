@@ -7,14 +7,14 @@
   /**
    * Manage the program per Date
    */
-  programPerDateController.$inject = ['CommonService', 'RestCallService'];
-  function programPerDateController(CommonService, RestCallService) {
+  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSConstants'];
+  function programPerDateController(CommonService, RestCallService, QSConstants) {
     var vm = this;
 
     init();
 
     function init() {
-      CommonService.initTitle('Program per Date');
+      CommonService.initTitle(QSConstants.programPerDateTitle);
 
       RestCallService.getProgramPerDate().then(function (response) {
         vm.dates = response.data;

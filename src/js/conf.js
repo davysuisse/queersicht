@@ -44,13 +44,11 @@
 
   queersichtRun.$inject = ['$rootScope', 'BackHistoryService'];
   function queersichtRun($rootScope, BackHistoryService) {
-    $rootScope.$on("$stateChangeStart", stateChangeStart);
-  }
-
-  function stateChangeStart(ev, to, toParams, from, fromParams) {
-    BackHistoryService.setHistory({
-      route  : from.name,
-      params : fromParams
+    $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from, fromParams) {
+      BackHistoryService.setHistory({
+        route  : from.name,
+        params : fromParams
+      });
     });
   }
 })();
