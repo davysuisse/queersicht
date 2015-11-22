@@ -5,9 +5,9 @@
   "use strict";
 
   angular.module('Queersicht.constants')
-    .constant('QSLangEn', qsLangEng());
+    .constant('QSLangEn', qsLangEn());
 
-  function qsLangEng() {
+  function qsLangEn() {
     return {
       MENU : 'Menu',
 

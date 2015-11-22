@@ -4,9 +4,9 @@
   angular.module('Queersicht').config(queersichtConfig).run(queersichtRun);
 
   queersichtConfig.$inject = [
-    '$stateProvider', '$urlRouterProvider', 'QSCStates', '$translateProvider', 'QSLangEn', 'QSLangFr'
+    '$stateProvider', '$urlRouterProvider', 'QSCStates', '$translateProvider', 'QSLangEn', 'QSLangFr', 'QSLangDe'
   ];
-  function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr) {
+  function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
     $urlRouterProvider.when('', '/movie');
     $stateProvider.state(QSCStates.stateFavoris, {
       url            : '/favoris',
@@ -44,9 +44,10 @@
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');
-    $translateProvider.preferredLanguage('en');
+    $translateProvider.preferredLanguage('de');
     $translateProvider.translations('en', QSLangEn);
     $translateProvider.translations('fr', QSLangFr);
+    $translateProvider.translations('de', QSLangDe);
   }
 
   queersichtRun.$inject = ['$rootScope', 'BackHistoryService'];
