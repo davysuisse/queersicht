@@ -4,7 +4,7 @@
 (function () {
   "use strict";
 
-  angular.module('Queersicht.constants').value('QSConstants', {
+  angular.module('Queersicht.constants').constant('QSConstants', {
     idProperty      : 'id',
     localStorageKey : 'favoris',
 

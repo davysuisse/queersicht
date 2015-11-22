@@ -3,34 +3,34 @@
 
   angular.module('Queersicht').config(queersichtConfig).run(queersichtRun);
 
-  queersichtConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
-  function queersichtConfig($stateProvider, $urlRouterProvider) {
+  queersichtConfig.$inject = ['$stateProvider', '$urlRouterProvider', 'QSConstants'];
+  function queersichtConfig($stateProvider, $urlRouterProvider, QSConstants) {
     $urlRouterProvider.when('', '/movie');
-    $stateProvider.state('favoris', {
+    $stateProvider.state(QSConstants.stateFavoris, {
       url            : '/favoris',
       templateUrl    : 'favoris.html',
       controller     : 'FavorisController',
       controllerAs   : 'favC',
       reloadOnSearch : false
-    }).state('date', {
+    }).state(QSConstants.stateDate, {
       url            : '/date',
       templateUrl    : 'program_per_date.html',
       controller     : 'ProgramPerDateController',
       controllerAs   : 'ppdC',
       reloadOnSearch : false
-    }).state('movie', {
+    }).state(QSConstants.stateMovie, {
       url            : '/movie',
       templateUrl    : 'program_per_movie.html',
       controller     : 'ProgramPerMovieController',
       controllerAs   : 'ppmC',
       reloadOnSearch : false
-    }).state('cinema', {
+    }).state(QSConstants.stateCinema, {
       url            : '/cinema',
       templateUrl    : 'program_per_cinema.html',
       controller     : 'ProgramPerCinemaController',
       controllerAs   : 'ppcC',
       reloadOnSearch : false
-    }).state('detail', {
+    }).state(QSConstants.stateDetail, {
       url            : '/detail',
       templateUrl    : 'detail.html',
       controller     : 'ProgramDetailController',
