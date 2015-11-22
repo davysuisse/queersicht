@@ -11,9 +11,11 @@ var config = {
   vendor : {
     js : [
       './node_modules/angular/angular.js',
+      './node_modules/angular-sanitize/angular-sanitize.js',
       './node_modules/angular-route/angular-route.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
       './node_modules/angular-mocks/angular-mocks.js',
+      './node_modules/angular-translate/dist/angular-translate.js',
       './src/js/scripts/mobile-angular-ui.js'
     ],
 
@@ -131,6 +133,16 @@ gulp.task('html', function () {
     .pipe(gulp.dest(config.dest));
 });
 
+/*=================================================
+ =            Copy images to dest                  =
+ =================================================*/
+
+gulp.task('images', function () {
+  var inject = [];
+  gulp.src(['src/images/**/*'])
+    .pipe(gulp.dest(path.join(config.dest, 'images')));
+});
+
 /*====================================================================
  =            Compile and minify js generating source maps            =
  ====================================================================*/
@@ -180,7 +192,7 @@ gulp.task('watch', function () {
  ======================================*/
 
 gulp.task('build', function (done) {
-  var tasks = ['html', 'fonts', 'js', 'css'];
+  var tasks = ['html', 'fonts', 'images', 'js', 'css'];
   seq('clean', tasks, done);
 });
 

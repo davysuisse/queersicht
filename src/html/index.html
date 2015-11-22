@@ -26,12 +26,17 @@
 
     <!-- Navbars -->
     <div class="navbar navbar-app navbar-absolute-top">
-        <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-            {{queersichtCtrl.navigation}}
+        <div class="navbar-brand navbar-brand-center" ui-yield-to="title" translate="{{queersichtCtrl.navigation}}">
         </div>
         <div class="btn-group pull-left">
             <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
-                <i class="fa fa-bars"></i> Menu
+                <i class="fa fa-bars"></i> <span translate="MENU"></span>
+            </div>
+        </div>
+        <div class="navbar-brand pull-right">
+            <div style="cursor: pointer;">
+            <img data-ng-src="images/en.gif" data-ng-click="queersichtCtrl.changeLanguage('en')" />
+            <img data-ng-src="images/fr.png" data-ng-click="queersichtCtrl.changeLanguage('fr')" />
             </div>
         </div>
     </div>

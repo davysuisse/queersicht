@@ -15,7 +15,7 @@
 
     // Called from the GUI
     function init() {
-      CommonService.initTitle(QSConstants.detailTitle);
+      CommonService.initTitle("FAVORIS_TITLE");
 
       RestCallService.getDetail($stateParams[QSConstants.idProperty]).then(function (response) {
         vm.detail = response.data;

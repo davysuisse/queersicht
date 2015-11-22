@@ -23,7 +23,6 @@
      * @parameter movieToAdd is the movie that we want to add in the localStorage
      */
     function addFavoris(movieToAdd) {
-      console.log(QSConstants.localStorageKey);
       if (CommonService.isDefinedAndNotNull(movieToAdd) && movieToAdd.hasOwnProperty(QSConstants.idProperty)) {
         var favoris = getFavoris();
         if (favoris.indexOf(movieToAdd.id) < 0) {

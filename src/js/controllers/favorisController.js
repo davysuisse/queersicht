@@ -7,8 +7,8 @@
   /**
    * Manage the favoris from the localStorage
    */
-  favorisController.$inject = ['CommonService', 'RestCallService', 'FavorisService', 'QSConstants'];
-  function favorisController(CommonService, RestCallService, FavorisService, QSConstants) {
+  favorisController.$inject = ['CommonService', 'RestCallService', 'FavorisService'];
+  function favorisController(CommonService, RestCallService, FavorisService) {
     var vm = this;
 
     vm.favoris       = [];
@@ -19,7 +19,7 @@
     init();
 
     function init() {
-      CommonService.initTitle(QSConstants.favorisTitle);
+      CommonService.initTitle("FAVORIS_TITLE");
 
       RestCallService.getProgramPerMovie().then(function (response) {
         var movies = response.data;

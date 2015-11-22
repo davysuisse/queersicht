@@ -7,14 +7,14 @@
   /**
    * Manage the program per Movie
    */
-  programPerMovieController.$inject = ['CommonService', 'RestCallService', 'QSConstants'];
-  function programPerMovieController(CommonService, RestCallService, QSConstants) {
+  programPerMovieController.$inject = ['CommonService', 'RestCallService'];
+  function programPerMovieController(CommonService, RestCallService) {
     var vm = this;
 
     init();
 
     function init() {
-      CommonService.initTitle(QSConstants.programPerMovieTitle);
+      CommonService.initTitle("PROG_PER_MOVIE_TITLE");
 
       RestCallService.getProgramPerMovie().then(function (response) {
         vm.movies = response.data;
