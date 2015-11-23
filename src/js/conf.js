@@ -8,7 +8,13 @@
   ];
   function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
     $urlRouterProvider.when('', '/movie');
-    $stateProvider.state(QSCStates.stateFavoris, {
+    $stateProvider.state(QSCStates.stateSettings, {
+      url            : '/settings',
+      templateUrl    : 'settings.html',
+      controller     : 'SettingsController',
+      controllerAs   : 'settingsC',
+      reloadOnSearch : false
+    }).state(QSCStates.stateFavoris, {
       url            : '/favoris',
       templateUrl    : 'favoris.html',
       controller     : 'FavorisController',

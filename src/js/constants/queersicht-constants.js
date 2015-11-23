@@ -10,27 +10,30 @@
 
   function qsConstants() {
     return {
-      idProperty      : 'id',
-      localStorageKey : 'favoris',
+      idProperty     : 'id',
+      broadCastTitle : 'menu-title',
 
-      // Title
-      broadCastTitle        : 'menu-title',
-      favorisTitle          : 'Favoris',
-      detailTitle           : 'Detail',
-      programPerCinemaTitle : 'Program per cinema',
-      programPerDateTitle   : 'Program per date',
-      programPerMovieTitle  : 'Program per movie'
+      // LocalStorage Key
+      localStorageKey : 'favoris',
+      settingsKey     : 'settings',
+
+      languageOptions : {
+        'de' : 'LANG_GERMAN',
+        'en' : 'LANG_ENGLISH',
+        'fr' : 'LANG_FRENCH'
+      }
     };
   }
 
   function qsCStates() {
     return {
       // States
-      stateDetail  : 'detail',
-      stateFavoris : 'favoris',
-      stateCinema  : 'cinema',
-      stateMovie   : 'movie',
-      stateDate    : 'date'
+      stateDetail   : 'detail',
+      stateFavoris  : 'favoris',
+      stateCinema   : 'cinema',
+      stateMovie    : 'movie',
+      stateDate     : 'date',
+      stateSettings : 'settings'
     };
   }
 

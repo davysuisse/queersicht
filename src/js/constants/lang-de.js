@@ -16,7 +16,14 @@
       DETAIL_TITLE          : 'Detail',
       PROG_PER_CINEMA_TITLE : 'Programm nach Kino',
       PROG_PER_DATE_TITLE   : 'Programm nach Datum',
-      PROG_PER_MOVIE_TITLE  : 'Programm nach movie'
+      PROG_PER_MOVIE_TITLE  : 'Programm nach movie',
+
+      LANG_GERMAN  : 'Deutsch',
+      LANG_ENGLISH : 'Englisch',
+      LANG_FRENCH  : 'Französisch',
+
+      LANGUAGE_SETTINGS_TITLE : 'Sprache',
+      SETTINGS_TITLE          : 'Einstellungen'
     };
   }
 

@@ -79,3 +79,9 @@ a.list-group-item {
 .app{
 	background: white !important;
 }
+
+.pull-down{
+    position:absolute;
+    bottom:0px;
+    width:100%;
+}

@@ -66,7 +66,7 @@
 
     /**
      * Get the favoris from the localStorage
-     * @return either a list a favoris or an empty array
+     * @return either a list of favoris or an empty array
      */
     function getFavoris() {
       return JSON.parse($window.localStorage.getItem(QSConstants.localStorageKey) || '[]');
