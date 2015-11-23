@@ -1,12 +1,12 @@
 (function () {
   'use strict';
 
-  angular.module('Queersicht').config(queersichtConfig).run(queersichtRun);
+  angular.module('Queersicht').config(queersichtConfig);
 
   queersichtConfig.$inject = [
     '$stateProvider', '$urlRouterProvider', 'QSCStates', '$translateProvider', 'QSLangEn', 'QSLangFr', 'QSLangDe'
   ];
-  function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
+    function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
     $urlRouterProvider.when('', '/movie');
     $stateProvider.state(QSCStates.stateSettings, {
       url            : '/settings',
@@ -54,15 +54,5 @@
     $translateProvider.translations('en', QSLangEn);
     $translateProvider.translations('fr', QSLangFr);
     $translateProvider.translations('de', QSLangDe);
-  }
-
-  queersichtRun.$inject = ['$rootScope', 'BackHistoryService'];
-  function queersichtRun($rootScope, BackHistoryService) {
-    $rootScope.$on("$stateChangeStart", function (ev, to, toParams, from, fromParams) {
-      BackHistoryService.setHistory({
-        route  : from.name,
-        params : fromParams
-      });
-    });
   }
 })();

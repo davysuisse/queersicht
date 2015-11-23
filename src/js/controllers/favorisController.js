@@ -30,6 +30,10 @@
       });
     }
 
+    /**
+     * Add all movies that are in the favoris
+     * @param movies
+     */
     function sortFavoris(movies) {
       for (var i = 0; i < movies.length; i++) {
         if (FavorisService.isInFavoris(movies[i])) {

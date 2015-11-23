@@ -21,6 +21,10 @@
         'de' : 'LANG_GERMAN',
         'en' : 'LANG_ENGLISH',
         'fr' : 'LANG_FRENCH'
+      },
+
+      defaultSettings : {
+        'selectedLanguage' : 'de'
       }
     };
   }
@@ -28,11 +32,11 @@
   function qsCStates() {
     return {
       // States
+      stateCinema   : 'cinema',
+      stateDate     : 'date',
       stateDetail   : 'detail',
       stateFavoris  : 'favoris',
-      stateCinema   : 'cinema',
       stateMovie    : 'movie',
-      stateDate     : 'date',
       stateSettings : 'settings'
     };
   }

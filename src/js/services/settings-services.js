@@ -10,8 +10,9 @@
   settingsService.$inject = ['$window', 'QSConstants'];
   function settingsService($window, QSConstants) {
     var service = {
-      getSettings : getSettings,
-      setSettings : setSettings
+      defaultSettings : defaultSettings,
+      getSettings    : getSettings,
+      setSettings    : setSettings
     };
 
     return service;
@@ -21,7 +22,7 @@
      * @return either a list of settings or an empty array
      */
     function getSettings() {
-      return JSON.parse($window.localStorage.getItem(QSConstants.settingsKey) || '[]');
+      return JSON.parse($window.localStorage.getItem(QSConstants.settingsKey) || '{}');
     }
 
     /**
@@ -30,6 +31,10 @@
     function setSettings(settings) {
       settings = angular.extend({}, settings);
       $window.localStorage.setItem(QSConstants.settingsKey, JSON.stringify(settings));
+    }
+
+    function defaultSettings() {
+      return QSConstants.defaultSettings;
     }
   }
 })();
