@@ -113,6 +113,7 @@ gulp.task('livereload', function () {
     .pipe(connect.reload());
 });
 
+
 /*==================================
  =            Copy fonts            =
  ==================================*/
@@ -134,6 +135,7 @@ gulp.task('html', function () {
     .pipe(gulp.dest(config.dest));
 });
 
+
 /*=================================================
  =            Copy images to dest                  =
  =================================================*/
@@ -143,6 +145,7 @@ gulp.task('images', function () {
   gulp.src(['src/images/**/*'])
     .pipe(gulp.dest(path.join(config.dest, 'images')));
 });
+
 
 /*====================================================================
  =            Compile and minify js generating source maps            =
@@ -162,17 +165,6 @@ gulp.task('js', function () {
     .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 
-gulp.task('js-dev', function () {
-  streamqueue({objectMode : true},
-    gulp.src(config.vendor.js),
-    gulp.src('./src/js/**/*.js').pipe(ngFilesort()),
-    gulp.src(['src/templates/**/*.html']).pipe(templateCache({module : 'Queersicht'}))
-  )
-    .pipe(sourcemaps.init())
-    .pipe(concat('app-min.js'))
-    .pipe(gulp.dest(path.join(config.dest, 'js')));
-});
-
 
 /*====================================================================
  =            Compile and minify css                                  =
@@ -183,6 +175,7 @@ gulp.task('css', function () {
     .pipe(rename({suffix : '.min'}))
     .pipe(gulp.dest(path.join(config.dest, 'css')))
 });
+
 
 /*===================================================================
  =            Watch for source changes and rebuild/reload            =
@@ -208,14 +201,6 @@ gulp.task('build', function (done) {
   seq('clean', tasks, done);
 });
 
-/*======================================
- =            Build Test Sequence       =
- ======================================*/
-
-gulp.task('build-dev', function (done) {
-  var tasks = ['html', 'fonts', 'images', 'js-dev', 'css'];
-  seq('clean', tasks, done);
-});
 
 /*====================================
  =            Jasmine Task            =
@@ -230,6 +215,7 @@ gulp.task('jasmine-browser', function () {
     .pipe(jasmineBrowser.specRunner())
     .pipe(jasmineBrowser.server({port : 8888}));
 });
+
 
 /*====================================
  =            Default Task            =
@@ -246,21 +232,4 @@ gulp.task('default', function (done) {
   tasks.push('jasmine-browser');
 
   seq('build', tasks, done);
-});
-
-/*====================================
- =            Dev Task            =
- ====================================*/
-
-gulp.task('dev', function (done) {
-  var tasks = [];
-
-  if (typeof config.server === 'object') {
-    tasks.push('connect');
-  }
-
-  tasks.push('watch');
-  tasks.push('jasmine-browser');
-
-  seq('build-dev', tasks, done);
 });
