@@ -6,7 +6,7 @@
   queersichtConfig.$inject = [
     '$stateProvider', '$urlRouterProvider', 'QSCStates', '$translateProvider', 'QSLangEn', 'QSLangFr', 'QSLangDe'
   ];
-    function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
+  function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
     $urlRouterProvider.when('', '/movie');
     $stateProvider.state(QSCStates.stateSettings, {
       url            : '/settings',
@@ -50,9 +50,9 @@
     });
 
     $translateProvider.useSanitizeValueStrategy('escape');
-    $translateProvider.preferredLanguage('de');
     $translateProvider.translations('en', QSLangEn);
     $translateProvider.translations('fr', QSLangFr);
     $translateProvider.translations('de', QSLangDe);
+    $translateProvider.useLocalStorage();
   }
 })();

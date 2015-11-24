@@ -7,8 +7,8 @@
 			<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
 				<select style="color: black;" name="selectLanguage"
 				        id="selectLanguage"
-				        data-ng-model="settingsC.settings.selectedLanguage" data-ng-change="settingsC.applyLanguage()"
-				        ng-options="value as settingsC.getLabel(label) for (value, label) in settingsC.languageOptions">
+				        data-ng-model="settingsC.selectedLanguage" data-ng-change="settingsC.applyLanguage()"
+				        ng-options="value as settingsC.getLabel(label) for (value, label) in settingsC.settings.languageOptions">
 				</select>
 			</div>
 		</div>

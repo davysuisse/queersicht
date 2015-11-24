@@ -7,8 +7,8 @@
   /**
    * Manage the settings page
    */
-  settingsController.$inject = ['CommonService', 'QSConstants', 'SettingsService', '$filter', '$translate'];
-  function settingsController(CommonService, QSConstants, SettingsService, $filter, $translate) {
+  settingsController.$inject = ['CommonService', 'SettingsService', '$filter', 'TranslationService'];
+  function settingsController(CommonService, SettingsService, $filter, TranslationService) {
     var vm = this;
 
     vm.getLabel      = getLabel;
@@ -18,13 +18,11 @@
 
     function init() {
       CommonService.initTitle("SETTINGS_TITLE");
-      var l_setting      = SettingsService.defaultSettings();
-      var stored_setting = SettingsService.getSettings();
-      console.log(l_setting);
-      console.log(stored_setting);
-      console.log(angular.extend(l_setting, stored_setting));
-      vm.settings        = angular.extend({}, stored_setting, l_setting);
-      vm.languageOptions = QSConstants.languageOptions;
+
+      vm.settings  = SettingsService.getSettings();
+
+      // Language is stored elsewhere (angular-translate)
+      vm.selectedLanguage = TranslationService.getLanguage();
 
       saveSettings();
     }
@@ -40,10 +38,7 @@
 
     // Apply language setting and save the settings afterwards
     function applyLanguage() {
-      if (CommonService.isDefinedAndNotNull(vm.settings.selectedLanguage)) {
-        $translate.use(vm.settings.selectedLanguage);
-      }
-
+      TranslationService.setLanguage(vm.selectedLanguage);
       saveSettings();
     }
 

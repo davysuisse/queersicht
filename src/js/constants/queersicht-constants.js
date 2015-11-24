@@ -17,14 +17,13 @@
       localStorageKey : 'favoris',
       settingsKey     : 'settings',
 
-      languageOptions : {
-        'de' : 'LANG_GERMAN',
-        'en' : 'LANG_ENGLISH',
-        'fr' : 'LANG_FRENCH'
-      },
-
       defaultSettings : {
-        'selectedLanguage' : 'de'
+        'selectedLanguage' : 'de',
+        'languageOptions'  : {
+          'de' : 'LANG_GERMAN',
+          'en' : 'LANG_ENGLISH',
+          'fr' : 'LANG_FRENCH'
+        }
       }
     };
   }

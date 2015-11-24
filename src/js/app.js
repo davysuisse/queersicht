@@ -3,7 +3,7 @@
 
   angular.module('Queersicht', [
       'ui.router',
-      'ngSanitize',
+      'ngCookies',
       'mobile-angular-ui',
       'pascalprecht.translate',
       'Queersicht.controllers',
