@@ -19,7 +19,7 @@
     function init() {
       CommonService.initTitle("SETTINGS_TITLE");
 
-      vm.settings  = SettingsService.getSettings();
+      vm.settings = SettingsService.getSettings();
 
       // Language is stored elsewhere (angular-translate)
       vm.selectedLanguage = TranslationService.getLanguage();

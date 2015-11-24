@@ -4,8 +4,7 @@
   describe("Test Queersicht Controller", function () {
     var queersichtController, $rootScope, qsConstant;
 
-    beforeEach(module('Queersicht.constants'));
-    beforeEach(module('Queersicht.controllers'));
+    beforeEach(module('Queersicht'));
 
     beforeEach(inject(function ($injector, $controller, _$rootScope_) {
       $rootScope = _$rootScope_;

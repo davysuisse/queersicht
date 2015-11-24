@@ -5,9 +5,7 @@
   "use strict";
 
   angular.module('Queersicht.constants')
-    .constant('QSConstants', qsConstants())
-    .constant('QSCStates', qsCStates());
-
+    .constant('QSConstants', qsConstants());
   function qsConstants() {
     return {
       idProperty     : 'id',
@@ -25,18 +23,6 @@
           'fr' : 'LANG_FRENCH'
         }
       }
-    };
-  }
-
-  function qsCStates() {
-    return {
-      // States
-      stateCinema   : 'cinema',
-      stateDate     : 'date',
-      stateDetail   : 'detail',
-      stateFavoris  : 'favoris',
-      stateMovie    : 'movie',
-      stateSettings : 'settings'
     };
   }
 

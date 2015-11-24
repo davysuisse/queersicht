@@ -10,8 +10,8 @@
   settingsService.$inject = ['$window', 'QSConstants'];
   function settingsService($window, QSConstants) {
     var service = {
-      getSettings    : getSettings,
-      setSettings    : setSettings
+      getSettings : getSettings,
+      setSettings : setSettings
     };
 
     return service;

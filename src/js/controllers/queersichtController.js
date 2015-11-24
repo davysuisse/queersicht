@@ -23,7 +23,7 @@
       vm.navigation = title;
     }
 
-    function init(){
+    function init() {
       TranslationService.applyActualLanguage();
     }
   }
