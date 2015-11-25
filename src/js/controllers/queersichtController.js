@@ -24,7 +24,7 @@
     }
 
     function init() {
-      TranslationService.applyActualLanguage();
+      TranslationService.setLanguage(null); // Applying null, will set the actual language
     }
   }
 })();

@@ -11,8 +11,7 @@
   function translationService(QSConstants, CommonService, $translate) {
     var service = {
       setLanguage         : setLanguage,
-      getLanguage         : getLanguage,
-      applyActualLanguage : applyActualLanguage
+      getLanguage         : getLanguage
     };
 
     return service;
@@ -23,10 +22,6 @@
       } else {
         $translate.use(getLanguage());
       }
-    }
-
-    function applyActualLanguage() {
-      setLanguage(null);
     }
 
     function getLanguage() {
