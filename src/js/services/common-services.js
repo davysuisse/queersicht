@@ -18,20 +18,39 @@
 
     return service;
 
-    function initTitle(myTitle) {
+    /**
+     * Title of the application
+     * @param title
+     */
+    function initTitle(title) {
       $rootScope.$broadcast(QSConstants.broadCastTitle, {
-        title : myTitle
+        title : title
       });
     }
 
+    /**
+     * Tells if the obj is defined and not null
+     * @param obj
+     * @returns {*|boolean}
+     */
     function isDefinedAndNotNull(obj) {
       return angular.isDefined(obj) && obj != null;
     }
 
+    /**
+     * Determines the size of the map
+     * @param map
+     * @returns {Number}
+     */
     function lengthMap(map) {
       return Object.keys(map).length;
     }
 
+    /**
+     * Used when comparing a "possible" number with a string
+     * @param obj
+     * @returns {string}
+     */
     function stringify(obj) {
       return '' + obj;
     }

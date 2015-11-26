@@ -10,10 +10,10 @@
   programDetailController.$inject = ['$stateParams', 'CommonService', 'RestCallService', 'QSConstants'];
   function programDetailController($stateParams, CommonService, RestCallService, QSConstants) {
     var vm       = this;
-    vm.init      = init;
     vm.lengthMap = CommonService.lengthMap;
 
-    // Called from the GUI
+    init();
+
     function init() {
       CommonService.initTitle("FAVORIS_TITLE");
 

@@ -18,6 +18,7 @@
 
     init();
 
+    // Initialize by loading all the movies and takes only those that are in the favoris
     function init() {
       CommonService.initTitle("FAVORIS_TITLE");
 

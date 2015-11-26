@@ -30,9 +30,5 @@ To encapsulate the application in a android package (.apk):
 
     cordova build android
 
-# Test - Android Application 
-
-There is a file called "queersicht.apk". It's the android package. Install it in your mobile phone and you'll be able to launch the application and test it.
-
 # Features in modern releases
 No release

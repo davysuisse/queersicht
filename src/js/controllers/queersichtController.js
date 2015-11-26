@@ -13,16 +13,14 @@
 
     init();
 
+    // Listen to a broadcast and apply the title
     $scope.$on(QSConstants.broadCastTitle, function (event, args) {
-      affectTitle(args.title);
+      vm.navigation = args.title;
     });
 
-    function affectTitle(title) {
-      vm.navigation = title;
-    }
-
+    // Applying null, will set the actual language
     function init() {
-      TranslationService.setLanguage(null); // Applying null, will set the actual language
+      TranslationService.setLanguage(null);
     }
   }
 })();

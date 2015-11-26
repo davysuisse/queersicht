@@ -14,6 +14,8 @@
       getProgramPerMovie  : getProgramPerMovie,
       getProgramPerCinema : getProgramPerCinema,
       getProgramPerDate   : getProgramPerDate,
+
+      // MOCKS
       getDetailMock       : getDetailMock,
       getMovies           : getMovies,
       getCinemas          : getCinemas,

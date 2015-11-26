@@ -42,6 +42,7 @@
       saveSettings();
     }
 
+    // Store the settings in the local storage
     function saveSettings() {
       SettingsService.setSettings(vm.settings);
     }

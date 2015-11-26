@@ -13,6 +13,7 @@
     ]
   );
 
+  // Create modules
   angular.module('Queersicht.services', []);
   angular.module('Queersicht.directives', []);
   angular.module('Queersicht.controllers', []);

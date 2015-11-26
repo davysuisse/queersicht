@@ -49,6 +49,7 @@
       }
     });
 
+    // Translation part
     $translateProvider.useSanitizeValueStrategy('escape');
     $translateProvider.translations('en', QSLangEn);
     $translateProvider.translations('fr', QSLangFr);
