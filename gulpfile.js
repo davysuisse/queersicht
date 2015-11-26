@@ -61,6 +61,7 @@ var concat         = require('gulp-concat'),
     seq            = require('run-sequence'),
     sourcemaps     = require('gulp-sourcemaps'),
     streamqueue    = require('streamqueue'),
+    uglify        = require('gulp-uglify'),
     templateCache  = require('gulp-angular-templatecache'),
     watch          = require('gulp-watch');
 
@@ -165,6 +166,7 @@ gulp.task('js', function () {
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
     .pipe(minify())
+    .pipe(uglify())
     .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 
