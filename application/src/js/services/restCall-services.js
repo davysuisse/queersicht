@@ -30,7 +30,7 @@
      * @return a movie
      */
     function getDetail(id) {
-      return $http.get("http://localhost:8081/api/queersicht");
+      return $http.get(getUrl('/detail/' + id));
     }
 
     /**

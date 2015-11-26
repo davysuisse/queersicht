@@ -10,7 +10,7 @@
     return {
       idProperty     : 'id',
       broadCastTitle : 'menu-title',
-      urlService     : '/webservice/api', // http://www.queersicht.ch/webservice/api
+      urlService     : 'http://localhost:8081/api',
 
       // LocalStorage Key
       localStorageKey : 'favoris',
