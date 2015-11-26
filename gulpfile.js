@@ -2,8 +2,6 @@
  =        Default Configuration        =
  =====================================*/
 
-// Please use config.js to override these selectively:
-
 var config = {
   dest    : 'www',
   cordova : true,
@@ -34,12 +32,6 @@ var config = {
   }
 };
 
-
-if (require('fs').existsSync('./config.js')) {
-  var configFn = require('./config');
-  configFn(config);
-}
-
 /*-----  End of Configuration  ------*/
 
 
@@ -61,7 +53,7 @@ var concat         = require('gulp-concat'),
     seq            = require('run-sequence'),
     sourcemaps     = require('gulp-sourcemaps'),
     streamqueue    = require('streamqueue'),
-    uglify        = require('gulp-uglify'),
+    uglify         = require('gulp-uglify'),
     templateCache  = require('gulp-angular-templatecache'),
     watch          = require('gulp-watch');
 
@@ -133,9 +125,7 @@ gulp.task('fonts', function () {
  =================================================*/
 
 gulp.task('html', function () {
-  var inject = [];
   gulp.src(['src/html/**/*.html'])
-    .pipe(replace('<!-- inject:js -->', inject.join('\n    ')))
     .pipe(gulp.dest(config.dest));
 });
 
@@ -145,7 +135,6 @@ gulp.task('html', function () {
  =================================================*/
 
 gulp.task('images', function () {
-  var inject = [];
   gulp.src(['src/images/**/*'])
     .pipe(gulp.dest(path.join(config.dest, 'images')));
 });
@@ -154,9 +143,6 @@ gulp.task('images', function () {
 /*====================================================================
  =            Compile and minify js generating source maps            =
  ====================================================================*/
-// - Orders ng deps automatically
-// - Precompile templates to ng templateCache
-
 gulp.task('js', function () {
   streamqueue({objectMode : true},
     gulp.src(config.vendor.js),
@@ -190,8 +176,8 @@ gulp.task('watch', function () {
   if (typeof config.server === 'object') {
     gulp.watch([config.dest + '/**/*'], ['livereload']);
   }
-  gulp.watch(['./src/html/**/*'], ['html']);
-  gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
+  gulp.watch(['./src/html/**/*', './src/templates/**/*'], ['html']);
+  gulp.watch(['./src/js/**/*', config.vendor.js], ['js']);
   gulp.watch(['./src/css/*'], ['css']);
   gulp.watch(['./src/images/**/*'], ['images']);
 });
@@ -229,10 +215,7 @@ gulp.task('jasmine-browser', function () {
 gulp.task('default', function (done) {
   var tasks = [];
 
-  if (typeof config.server === 'object') {
-    tasks.push('connect');
-  }
-
+  tasks.push('connect');
   tasks.push('watch');
   tasks.push('jasmine-browser');
 
