@@ -25,7 +25,7 @@
     }
 
     function getLanguage() {
-      return $translate.use() || $translate.preferredLanguage() || QSConstants.defaultSettings.selectedLanguage;
+      return $translate.use() || QSConstants.defaultSettings.selectedLanguage;
     }
   }
 })();

@@ -23,7 +23,7 @@
      * @parameter movieToAdd is the movie that we want to add in the localStorage
      */
     function addFavoris(movieToAdd) {
-      if (CommonService.isDefinedAndNotNull(movieToAdd) && movieToAdd.hasOwnProperty(QSConstants.idProperty)) {
+      if (isValidObject(movieToAdd)) {
         var favoris = getFavoris();
         if (favoris.indexOf(movieToAdd.id) < 0) {
           favoris.push(movieToAdd.id);
@@ -37,7 +37,7 @@
      * @parameter movieToDelete is the movie that we want to delete
      */
     function deleteFavoris(movieToDelete) {
-      if (CommonService.isDefinedAndNotNull(movieToDelete) && movieToDelete.hasOwnProperty(QSConstants.idProperty)) {
+      if (isValidObject(movieToDelete)) {
         var favoris = getFavoris();
         var idx     = favoris.indexOf(movieToDelete.id);
         if (idx > -1) {
@@ -53,7 +53,7 @@
      * return {boolean}
      */
     function isInFavoris(movie) {
-      if (CommonService.isDefinedAndNotNull(movie) && movie.hasOwnProperty(QSConstants.idProperty)) {
+      if (isValidObject(movie)) {
         var favoris = getFavoris();
         for (var i in favoris) {
           if (angular.equals(CommonService.stringify(favoris[i]), CommonService.stringify(movie.id))) {
@@ -62,6 +62,14 @@
         }
       }
       return false;
+    }
+
+    /**
+     * Tells if an object is defined and has idProperty in it
+     * @returns {*|boolean}
+     */
+    function isValidObject(obj) {
+      return CommonService.isDefinedAndNotNull(obj) && obj.hasOwnProperty(QSConstants.idProperty);
     }
 
     /**

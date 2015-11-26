@@ -28,7 +28,7 @@
      * @return a movie
      */
     function getDetail(id) {
-      return $http.get('/queersicht/webservice/movies/' + id);
+      return $http.get(getUrl('/movies/' + id));
     }
 
     /**
@@ -36,7 +36,7 @@
      * @returns list []
      */
     function getProgramPerMovie() {
-      return $http.get('/queersicht/webservice/programs/movies');
+      return $http.get(getUrl('/programs/movies'));
     }
 
     /**
@@ -44,7 +44,7 @@
      * @returns list []
      */
     function getProgramPerCinema() {
-      return $http.get('/queersicht/webservice/programs/cinemas');
+      return $http.get(getUrl('/programs/cinemas'));
     }
 
     /**
@@ -52,10 +52,14 @@
      * @returns list []
      */
     function getProgramPerDate() {
-      return $http.get('/queersicht/webservice/programs/dates');
+      return $http.get(getUrl('/programs/dates'));
     }
 
-    // TODO : TO DELETE
+    function getUrl(partialPath){
+      return QSConstants.urlService + partialPath;
+    }
+
+    // TODO : To Delete when api created
     function getDetailMock() {
       return {
         id          : '2',
@@ -72,7 +76,7 @@
       };
     }
 
-    // TODO: To Delete when api created
+    // TODO : To Delete when api created
     function getMovies() {
       return [
         {

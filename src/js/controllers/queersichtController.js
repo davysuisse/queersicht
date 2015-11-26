@@ -11,8 +11,6 @@
   function queersichtController($scope, QSConstants, TranslationService) {
     var vm = this;
 
-    vm.init = init;
-
     init();
 
     $scope.$on(QSConstants.broadCastTitle, function (event, args) {
