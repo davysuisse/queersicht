@@ -7,8 +7,8 @@
   /**
    * Get all the REST calls for the application
    */
-  restCallService.$inject = ['$http'];
-  function restCallService($http) {
+  restCallService.$inject = ['$http', 'QSConstants'];
+  function restCallService($http, QSConstants) {
     var service = {
       getDetail           : getDetail,
       getProgramPerMovie  : getProgramPerMovie,
