@@ -5,7 +5,7 @@ var router  = express.Router();
 /**
  * Get a basic message from queersicht application
  */
-router.get('/queersicht', function (req, res) {
+router.get('/detail/:id', function (req, res) {
   res.json({
     id          : '2',
     title       : 'Pitch Perfect 2',
