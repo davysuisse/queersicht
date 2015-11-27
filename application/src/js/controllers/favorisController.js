@@ -26,8 +26,7 @@
         var movies = response.data;
         sortFavoris(movies || []);
       }, function (error) {
-        var movies = RestCallService.getMovies();
-        sortFavoris(movies || []);
+        // TODO : Error Message
       });
     }
 

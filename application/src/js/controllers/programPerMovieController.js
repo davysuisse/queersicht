@@ -19,7 +19,8 @@
       RestCallService.getProgramPerMovie().then(function (response) {
         vm.movies = response.data;
       }, function (error) {
-        vm.movies = RestCallService.getMovies();
+        vm.movies = [];
+        // TODO : Error Message
       });
     }
   }

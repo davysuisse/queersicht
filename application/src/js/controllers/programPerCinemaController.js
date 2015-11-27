@@ -19,7 +19,8 @@
       RestCallService.getProgramPerCinema().then(function (response) {
         vm.cinemas = response.data;
       }, function (error) {
-        vm.cinemas = RestCallService.getCinemas();
+        vm.cinemas = [];
+        // TODO : Error Message
       });
     }
   }

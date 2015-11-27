@@ -19,7 +19,8 @@
       RestCallService.getProgramPerDate().then(function (response) {
         vm.dates = response.data;
       }, function (error) {
-        vm.dates = RestCallService.getDates();
+        vm.dates = [];
+        // TODO : Error Message
       });
     }
   }

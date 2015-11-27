@@ -18,10 +18,10 @@
       CommonService.initTitle("FAVORIS_TITLE");
 
       RestCallService.getDetail($stateParams[QSConstants.idProperty]).then(function (response) {
-        console.log(response);
         vm.detail = response.data;
       }, function (error) {
-        vm.detail = RestCallService.getDetailMock();
+        vm.detail = [];
+        // TODO : Error Message
       });
     }
   }
