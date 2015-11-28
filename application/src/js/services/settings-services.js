@@ -22,7 +22,7 @@
      * @return either a list of settings or an empty array
      */
     function getSettings() {
-      return JSON.parse($window.localStorage.getItem(QSConstants.settingsKey)) || QSConstants.defaultSettings;
+      return angular.extend({}, QSConstants.defaultSettings, JSON.parse($window.localStorage.getItem(QSConstants.settingsKey) || '{}'));
     }
 
     /**
