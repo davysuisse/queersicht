@@ -15,6 +15,7 @@
       stateDetail   : 'detail',
       stateFavoris  : 'favoris',
       stateMovie    : 'movie',
+      stateNews     : 'news',
       stateSettings : 'settings'
     };
   }

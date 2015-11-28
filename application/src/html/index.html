@@ -44,6 +44,9 @@
 
 			<div data-ui-view></div>
 		</div>
+		<div class="alert alert-danger errorMessage" role="alert" data-ng-show="queersichtCtrl.errorMessage" dismiss-on-timeout="5" type="alert">
+			<span translate="{{queersichtCtrl.errorMessage}}"></span>
+		</div>
 	</div>
 
 </div>

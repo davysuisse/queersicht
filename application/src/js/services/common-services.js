@@ -7,9 +7,10 @@
   /**
    * Get all the common functions that are used in the application
    */
-  commonService.$inject = ['$rootScope', 'QSConstants'];
-  function commonService($rootScope, QSConstants) {
+  commonService.$inject = ['$rootScope', 'QSConstants', '$timeout', 'QSCStates', '$injector'];
+  function commonService($rootScope, QSConstants, $timeout, QSCStates, $injector) {
     var service = {
+      errorMessage        : errorMessage,
       initTitle           : initTitle,
       isDefinedAndNotNull : isDefinedAndNotNull,
       lengthMap           : lengthMap,
@@ -26,6 +27,32 @@
     function initTitle(title) {
       $rootScope.$broadcast(QSConstants.broadCastTitle, {
         title : title
+      });
+    }
+
+    /**
+     * Display an error message and redirect to home
+     * @param title
+     */
+    function errorMessage(errorMessage, redirecting) {
+      $rootScope.$broadcast(QSConstants.errorMessage, {
+        error : errorMessage
+      });
+
+      $timeout(hideErrorMessage, 5000);
+
+      if(isDefinedAndNotNull(redirecting) && redirecting) {
+        $injector.get('$state').go(QSCStates.stateNews);
+      }
+    }
+
+    /**
+     * Title of the application
+     * @param title
+     */
+    function hideErrorMessage() {
+      $rootScope.$broadcast(QSConstants.errorMessage, {
+        error : undefined
       });
     }
 

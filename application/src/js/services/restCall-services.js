@@ -11,12 +11,21 @@
   function restCallService($http, QSConstants) {
     var service = {
       getDetail           : getDetail,
+      getNews             : getNews,
       getProgramPerMovie  : getProgramPerMovie,
       getProgramPerCinema : getProgramPerCinema,
       getProgramPerDate   : getProgramPerDate
     };
 
     return service;
+
+    /**
+     * Get news
+     * @return an array of news
+     */
+    function getNews() {
+      return $http.get(getUrl('/news'));
+    }
 
     /**
      * Get a detail of a movie from its id

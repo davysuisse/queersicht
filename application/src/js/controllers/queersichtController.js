@@ -23,6 +23,11 @@
       vm.loading = args.loading;
     });
 
+    // Listen to a broadcast and apply the title
+    $scope.$on(QSConstants.errorMessage, function (event, args) {
+      vm.errorMessage = args.error;
+    });
+
     // Applying null, will set the actual language
     function init() {
       TranslationService.setLanguage(null);

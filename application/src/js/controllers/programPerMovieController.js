@@ -20,7 +20,7 @@
         vm.movies = response.data;
       }, function (error) {
         vm.movies = [];
-        // TODO : Error Message
+        CommonService.errorMessage('ERROR_500', true);
       });
     }
   }

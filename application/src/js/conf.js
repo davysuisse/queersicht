@@ -7,8 +7,14 @@
     '$stateProvider', '$urlRouterProvider', 'QSCStates', '$translateProvider', 'QSLangEn', 'QSLangFr', 'QSLangDe'
   ];
   function queersichtConfig($stateProvider, $urlRouterProvider, QSCStates, $translateProvider, QSLangEn, QSLangFr, QSLangDe) {
-    $urlRouterProvider.when('', '/movie');
-    $stateProvider.state(QSCStates.stateSettings, {
+    $urlRouterProvider.when('', '/');
+    $stateProvider.state(QSCStates.stateNews, {
+      url            : '/',
+      templateUrl    : 'news.html',
+      controller     : 'NewsController',
+      controllerAs   : 'newsC',
+      reloadOnSearch : false
+    }).state(QSCStates.stateSettings, {
       url            : '/settings',
       templateUrl    : 'settings.html',
       controller     : 'SettingsController',
@@ -48,6 +54,7 @@
         id : null
       }
     });
+    $urlRouterProvider.otherwise('/');
 
     // Translation part
     $translateProvider.useSanitizeValueStrategy('escape');

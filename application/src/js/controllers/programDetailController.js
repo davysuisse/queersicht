@@ -21,7 +21,7 @@
         vm.detail = response.data;
       }, function (error) {
         vm.detail = [];
-        // TODO : Error Message
+        CommonService.errorMessage('ERROR_500', true);
       });
     }
   }

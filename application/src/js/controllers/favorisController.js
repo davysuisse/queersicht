@@ -26,7 +26,7 @@
         var movies = response.data;
         sortFavoris(movies || []);
       }, function (error) {
-        // TODO : Error Message
+        CommonService.errorMessage('ERROR_500', true);
       });
     }
 

@@ -9,6 +9,7 @@
 
   function qsLangFr() {
     return {
+      ERROR_500               : 'Stefane est un ...',
       DETAIL_TITLE            : 'Détail',
       FAVORIS_TITLE           : 'Favoris',
       LANG_GERMAN             : 'Allemand',
@@ -16,6 +17,7 @@
       LANG_FRENCH             : 'Français',
       LANGUAGE_SETTINGS_TITLE : 'Langue',
       MENU                    : 'Menu',
+      NEWS_TITLE              : 'News',
       PROG_PER_CINEMA_TITLE   : 'Programme par cinéma',
       PROG_PER_DATE_TITLE     : 'Programme par date',
       PROG_PER_MOVIE_TITLE    : 'Programme par film',

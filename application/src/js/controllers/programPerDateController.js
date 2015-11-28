@@ -20,7 +20,7 @@
         vm.dates = response.data;
       }, function (error) {
         vm.dates = [];
-        // TODO : Error Message
+        CommonService.errorMessage('ERROR_500', true);
       });
     }
   }
