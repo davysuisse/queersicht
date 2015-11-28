@@ -23,7 +23,7 @@
       PROG_PER_DATE_TITLE     : 'Programme par date',
       PROG_PER_MOVIE_TITLE    : 'Programme par film',
       SETTINGS_TITLE          : 'Configurations',
-      SPINNER_TITLE           : 'Icône chargement'
+      SPINNER_TITLE           : 'Icône de chargement'
     };
   }
 
