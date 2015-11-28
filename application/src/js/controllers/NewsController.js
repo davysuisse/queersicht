@@ -7,11 +7,12 @@
   /**
    * Manage the favoris from the localStorage
    */
-  newsController.$inject = ['CommonService', 'RestCallService'];
-  function newsController(CommonService, RestCallService) {
+  newsController.$inject = ['CommonService', 'RestCallService', 'QSCStates'];
+  function newsController(CommonService, RestCallService, QSCStates) {
     var vm = this;
 
     vm.news = [];
+    vm.init = init;
 
     init();
 
@@ -21,7 +22,7 @@
       RestCallService.getNews().then(function (response) {
         vm.news = response.data;
       }, function (error) {
-        CommonService.errorMessage('ERROR_500', false);
+        CommonService.errorMessage('ERROR_500', QSCStates.stateNews);
       });
     }
   }

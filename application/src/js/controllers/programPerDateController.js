@@ -7,8 +7,8 @@
   /**
    * Manage the program per Date
    */
-  programPerDateController.$inject = ['CommonService', 'RestCallService'];
-  function programPerDateController(CommonService, RestCallService) {
+  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates'];
+  function programPerDateController(CommonService, RestCallService, QSCStates) {
     var vm = this;
 
     init();
@@ -20,7 +20,7 @@
         vm.dates = response.data;
       }, function (error) {
         vm.dates = [];
-        CommonService.errorMessage('ERROR_500', true);
+        CommonService.errorMessage('ERROR_500', QSCStates.stateDate);
       });
     }
   }

@@ -7,8 +7,8 @@
   /**
    * Manage the favoris from the localStorage
    */
-  favorisController.$inject = ['CommonService', 'RestCallService', 'FavorisService'];
-  function favorisController(CommonService, RestCallService, FavorisService) {
+  favorisController.$inject = ['CommonService', 'RestCallService', 'FavorisService', 'QSCStates'];
+  function favorisController(CommonService, RestCallService, FavorisService, QSCStates) {
     var vm = this;
 
     vm.favoris       = [];
@@ -26,7 +26,7 @@
         var movies = response.data;
         sortFavoris(movies || []);
       }, function (error) {
-        CommonService.errorMessage('ERROR_500', true);
+        CommonService.errorMessage('ERROR_500', QSCStates.stateFavoris);
       });
     }
 

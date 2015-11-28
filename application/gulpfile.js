@@ -178,8 +178,8 @@ gulp.task('watch', function () {
   if (typeof config.server === 'object') {
     gulp.watch([config.dest + '/**/*'], ['livereload']);
   }
-  gulp.watch(['./src/html/**/*', './src/templates/**/*'], ['html']);
-  gulp.watch(['./src/js/**/*', config.vendor.js], ['js']);
+  gulp.watch(['./src/html/**/*'], ['html']);
+  gulp.watch(['./src/js/**/*', './src/templates/**/*', config.vendor.js], ['js']);
   gulp.watch(['./src/css/*'], ['css']);
   gulp.watch(['./src/images/**/*'], ['images']);
 });

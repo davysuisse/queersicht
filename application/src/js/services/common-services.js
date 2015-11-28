@@ -31,18 +31,20 @@
     }
 
     /**
-     * Display an error message and redirect to home
-     * @param title
+     * Display an error message and redirect to callback with its params
+     * @param errorMessage to broadcast
+     * @param state where to go (when retrying)
+     * @param parameters of the state (if any)
      */
-    function errorMessage(errorMessage, redirecting) {
+    function errorMessage(errorMessage, state, parameters) {
       $rootScope.$broadcast(QSConstants.errorMessage, {
         error : errorMessage
       });
 
       $timeout(hideErrorMessage, 5000);
 
-      if(isDefinedAndNotNull(redirecting) && redirecting) {
-        $injector.get('$state').go(QSCStates.stateNews);
+      if (isDefinedAndNotNull(state)) {
+        $injector.get('$state').go(QSCStates.stateError, {callback : state, parameters : parameters});
       }
     }
 

@@ -13,6 +13,7 @@
       stateCinema   : 'cinema',
       stateDate     : 'date',
       stateDetail   : 'detail',
+      stateError    : 'error',
       stateFavoris  : 'favoris',
       stateMovie    : 'movie',
       stateNews     : 'news',

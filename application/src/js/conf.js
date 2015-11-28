@@ -53,6 +53,15 @@
       params         : {
         id : null
       }
+    }).state(QSCStates.stateError, {
+      url            : '/error',
+      templateUrl    : 'error.html',
+      controller     : 'ErrorController',
+      controllerAs   : 'errorC',
+      reloadOnSearch : false,
+      params         : {
+        callback : null
+      }
     });
     $urlRouterProvider.otherwise('/');
 

@@ -7,8 +7,8 @@
   /**
    * Manage the program per Cinema
    */
-  programPerCinemaController.$inject = ['CommonService', 'RestCallService'];
-  function programPerCinemaController(CommonService, RestCallService) {
+  programPerCinemaController.$inject = ['CommonService', 'RestCallService', 'QSCStates'];
+  function programPerCinemaController(CommonService, RestCallService, QSCStates) {
     var vm = this;
 
     init();
@@ -20,7 +20,7 @@
         vm.cinemas = response.data;
       }, function (error) {
         vm.cinemas = [];
-        CommonService.errorMessage('ERROR_500', true);
+        CommonService.errorMessage('ERROR_500', QSCStates.stateCinema);
       });
     }
   }

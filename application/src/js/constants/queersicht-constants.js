@@ -8,11 +8,13 @@
     .constant('QSConstants', qsConstants());
   function qsConstants() {
     return {
-      idProperty     : 'id',
-      broadCastTitle : 'menu-title',
-      errorMessage   : 'errorMessage',
-      loadingSpinner : 'loadingSpinner',
-      urlService     : 'http://localhost:8081/api',
+      idProperty        : 'id',
+      callbackProperty  : 'callback',
+      broadCastTitle    : 'menu-title',
+      errorMessage      : 'errorMessage',
+      loadingSpinner    : 'loadingSpinner',
+      parameterProperty : 'parameters',
+      urlService        : 'http://localhost:8081/api',
 
       // LocalStorage Key
       localStorageKey : 'favoris',

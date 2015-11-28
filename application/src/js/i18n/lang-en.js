@@ -9,8 +9,9 @@
 
   function qsLangEn() {
     return {
-      ERROR_500               : 'Stefane est un ...',
       DETAIL_TITLE            : 'Detail',
+      ERROR_500               : 'Error: Server is temporarily not available. Please try it again later.',
+      ERROR_TITLE             : 'Error',
       FAVORIS_TITLE           : 'Favoris',
       LANG_GERMAN             : 'German',
       LANG_ENGLISH            : 'English',
