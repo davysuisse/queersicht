@@ -10,6 +10,7 @@
     return {
       idProperty     : 'id',
       broadCastTitle : 'menu-title',
+      loadingSpinner : 'loadingSpinner',
       urlService     : 'http://localhost:8081/api',
 
       // LocalStorage Key

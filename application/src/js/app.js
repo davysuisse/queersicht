@@ -14,7 +14,7 @@
   );
 
   // Create modules
-  angular.module('Queersicht.services', []);
+  angular.module('Queersicht.services', ['ngResource']);
   angular.module('Queersicht.directives', []);
   angular.module('Queersicht.controllers', []);
   angular.module('Queersicht.constants', []);

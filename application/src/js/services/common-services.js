@@ -13,6 +13,7 @@
       initTitle           : initTitle,
       isDefinedAndNotNull : isDefinedAndNotNull,
       lengthMap           : lengthMap,
+      loadingSpinner      : loadingSpinner,
       stringify           : stringify
     };
 
@@ -25,6 +26,16 @@
     function initTitle(title) {
       $rootScope.$broadcast(QSConstants.broadCastTitle, {
         title : title
+      });
+    }
+
+    /**
+     * Show/Hide Loading Spinner
+     * @param title
+     */
+    function loadingSpinner(show) {
+      $rootScope.$broadcast(QSConstants.loadingSpinner, {
+        loading : show
       });
     }
 

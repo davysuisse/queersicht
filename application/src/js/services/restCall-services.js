@@ -13,13 +13,7 @@
       getDetail           : getDetail,
       getProgramPerMovie  : getProgramPerMovie,
       getProgramPerCinema : getProgramPerCinema,
-      getProgramPerDate   : getProgramPerDate,
-
-      // MOCKS
-      getDetailMock       : getDetailMock,
-      getMovies           : getMovies,
-      getCinemas          : getCinemas,
-      getDates            : getDates
+      getProgramPerDate   : getProgramPerDate
     };
 
     return service;
@@ -38,7 +32,7 @@
      * @returns list []
      */
     function getProgramPerMovie() {
-      return $http.get(getUrl('/programs/movies'));
+      return $http.get(getUrl('/program/movies'));
     }
 
     /**
@@ -46,7 +40,7 @@
      * @returns list []
      */
     function getProgramPerCinema() {
-      return $http.get(getUrl('/programs/cinemas'));
+      return $http.get(getUrl('/program/cinemas'));
     }
 
     /**
@@ -54,10 +48,10 @@
      * @returns list []
      */
     function getProgramPerDate() {
-      return $http.get(getUrl('/programs/dates'));
+      return $http.get(getUrl('/program/dates'));
     }
 
-    function getUrl(partialPath){
+    function getUrl(partialPath) {
       return QSConstants.urlService + partialPath;
     }
   }

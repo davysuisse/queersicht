@@ -18,6 +18,11 @@
       vm.navigation = args.title;
     });
 
+    // Listen to a broadcast and apply the title
+    $scope.$on(QSConstants.loadingSpinner, function (event, args) {
+      vm.loading = args.loading;
+    });
+
     // Applying null, will set the actual language
     function init() {
       TranslationService.setLanguage(null);

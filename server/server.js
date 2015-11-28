@@ -22,7 +22,7 @@ router.get('/detail/:id', function (req, res) {
 });
 
 router.get('/program/movies', function (req, res) {
-  res.json(
+  res.json([
     {
       id      : '1',
       title : 'Mad Max: Fury Road',
@@ -50,7 +50,7 @@ router.get('/program/movies', function (req, res) {
       image : 'http://de.web.img2.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/03/30/11/57/390217.jpg',
       summary : 'Die Polizisten und besten Freunde Andreas (Nikolaj Coster-Waldau) und Simon (Ulrich Thomsen) werden zu einem häuslichen Streit eines...',
       time    : '21:30'
-    });
+    }]);
 });
 
 router.get('/program/cinemas', function (req, res) {
