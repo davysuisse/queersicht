@@ -7,9 +7,11 @@
   /**
    * The Queersicht Controller [MainController]
    */
-  queersichtController.$inject = ['$scope', 'QSConstants', 'TranslationService'];
-  function queersichtController($scope, QSConstants, TranslationService) {
+  queersichtController.$inject = ['$scope', 'QSConstants', 'TranslationService', 'SettingsService'];
+  function queersichtController($scope, QSConstants, TranslationService, SettingsService) {
     var vm = this;
+
+    vm.settings = SettingsService;
 
     init();
 

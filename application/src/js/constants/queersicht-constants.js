@@ -21,11 +21,17 @@
       settingsKey     : 'settings',
 
       defaultSettings : {
+        'selectedSpinner' : 'fa-spinner',
         'selectedLanguage' : 'de',
         'languageOptions'  : {
           'de' : 'LANG_GERMAN',
           'en' : 'LANG_ENGLISH',
           'fr' : 'LANG_FRENCH'
+        },
+        'spinnerOptions'  : {
+          'spinner' : 'fa-spinner',
+          'refresh' : 'fa-refresh',
+          'cog' : 'fa-cog'
         }
       }
     };

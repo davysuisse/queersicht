@@ -13,6 +13,7 @@
 
     vm.getLabel      = getLabel;
     vm.applyLanguage = applyLanguage;
+    vm.saveSettings  = saveSettings;
 
     init();
 

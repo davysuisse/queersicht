@@ -22,7 +22,8 @@
       PROG_PER_CINEMA_TITLE   : 'Programm nach Kino',
       PROG_PER_DATE_TITLE     : 'Programm nach Datum',
       PROG_PER_MOVIE_TITLE    : 'Programm nach movie',
-      SETTINGS_TITLE          : 'Einstellungen'
+      SETTINGS_TITLE          : 'Einstellungen',
+      SPINNER_TITLE           : 'Laden Icon'
     };
   }
 

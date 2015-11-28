@@ -39,7 +39,7 @@
 	<div class="app-body">
 		<div class="app-content" style="overflow: auto !important;">
 			<div id="loading" data-ng-show="queersichtCtrl.loading">
-				<img data-ng-src="images/spinner.gif" class="spinner">
+				<i class="spinner fa fa-spin fa-3x" data-ng-class="[queersichtCtrl.settings.getSetting('selectedSpinner')]"></i>
 			</div>
 
 			<div data-ui-view></div>
