@@ -7,12 +7,13 @@
   /**
    * Manage the settings page
    */
-  settingsController.$inject = ['CommonService', 'SettingsService', '$filter', 'TranslationService'];
-  function settingsController(CommonService, SettingsService, $filter, TranslationService) {
+  settingsController.$inject = ['CommonService', 'SettingsService', '$filter', 'TranslationService', 'QSConstants'];
+  function settingsController(CommonService, SettingsService, $filter, TranslationService, QSConstants) {
     var vm = this;
 
     vm.getLabel      = getLabel;
     vm.applyLanguage = applyLanguage;
+    vm.resetSettings = resetSettings;
     vm.saveSettings  = saveSettings;
 
     init();
@@ -46,6 +47,16 @@
     // Store the settings in the local storage
     function saveSettings() {
       SettingsService.setSettings(vm.settings);
+    }
+
+    function resetSettings() {
+      vm.settings = QSConstants.defaultSettings;
+
+      // Language settings
+      TranslationService.setLanguage(QSConstants.defaultSettings.selectedLanguage);
+      vm.selectedLanguage = TranslationService.getLanguage();
+
+      saveSettings();
     }
   }
 })();

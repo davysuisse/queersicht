@@ -24,6 +24,7 @@
       PROG_PER_CINEMA_TITLE   : 'Programme par cinéma',
       PROG_PER_DATE_TITLE     : 'Programme par date',
       PROG_PER_MOVIE_TITLE    : 'Programme par film',
+      RESET                   : 'Réinitialiser',
       SETTINGS_TITLE          : 'Configurations',
       SPINNER_TITLE           : 'Icône de chargement',
       YES                     : 'Oui'

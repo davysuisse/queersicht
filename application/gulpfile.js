@@ -153,8 +153,8 @@ gulp.task('js', function () {
   )
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
-    //.pipe(minify())
-    //.pipe(uglify())
+    .pipe(minify())
+    .pipe(uglify())
     .pipe(gulp.dest(path.join(config.dest, 'js')));
 });
 

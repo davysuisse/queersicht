@@ -24,6 +24,7 @@
       PROG_PER_CINEMA_TITLE   : 'Programm nach Kino',
       PROG_PER_DATE_TITLE     : 'Programm nach Datum',
       PROG_PER_MOVIE_TITLE    : 'Programm nach movie',
+      RESET                   : 'Zurücksetzung',
       SETTINGS_TITLE          : 'Einstellungen',
       SPINNER_TITLE           : 'Laden Icon',
       YES                     : 'Ja'
