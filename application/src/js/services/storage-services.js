@@ -37,7 +37,6 @@
      * @parameter objectToDelete is the object that we want to delete
      */
     function deleteObjectInStorage(key, objectToDelete) {
-      console.log(key + ' ' + objectToDelete);
       if (isValidObject(objectToDelete)) {
         var object = getObjectInStorage(key);
         var idx    = object.indexOf(objectToDelete);

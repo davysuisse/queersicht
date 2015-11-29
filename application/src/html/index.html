@@ -27,7 +27,7 @@
 	<!-- Navbars -->
 	<div class="navbar navbar-app navbar-absolute-top">
 		<div class="navbar-brand navbar-brand-center" data-ui-yield-to="title"
-		     translate="{{queersichtCtrl.navigation}}">
+		     translate="{{queersichtCtrl.sharedItemsService.title}}">
 		</div>
 		<div class="btn-group pull-left">
 			<div data-ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
@@ -38,7 +38,7 @@
 		<!-- Refresh buttons -->
 		<div class="btn-group navbar-brand pull-right"
 		     data-ng-if="queersichtCtrl.isRefresh()"
-		     data-ng-click="queersichtCtrl.refreshCallback()">
+		     data-ng-click="queersichtCtrl.sharedItemsService.refreshCallback()">
 			<div style="cursor: pointer;">
 				<span><i class="fa fa-refresh"></i></span>
 			</div>
@@ -49,7 +49,7 @@
 	<div class="app-body">
 		<div class="app-content" style="overflow: auto !important;">
 			<!-- Loading Spinner -->
-			<div id="loading" data-ng-show="queersichtCtrl.loading">
+			<div id="loading" data-ng-show="queersichtCtrl.sharedItemsService.isLoading">
 				<span><i class="spinner fa fa-spin fa-3x"
 				         data-ng-class="[queersichtCtrl.settings.getSetting('selectedSpinner')]"></i></span>
 			</div>
@@ -60,10 +60,10 @@
 		<!-- Error Messages -->
 		<div class="alert alert-danger errorMessage"
 		     role="alert"
-		     data-ng-show="queersichtCtrl.errorMessage"
+		     data-ng-show="queersichtCtrl.sharedItemsService.errorMessage"
 		     dismiss-on-timeout="5"
 		     type="alert">
-			<span translate="{{queersichtCtrl.errorMessage}}"></span>
+			<span translate="{{queersichtCtrl.sharedItemsService.errorMessage}}"></span>
 		</div>
 	</div>
 

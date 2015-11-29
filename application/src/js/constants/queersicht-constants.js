@@ -16,11 +16,6 @@
       parameterProperty : 'parameters',
       callbackProperty  : 'callback',
 
-      // Broadcast variables
-      broadCastTitle : 'menu-title',
-      errorMessage   : 'errorMessage',
-      loadingSpinner : 'loadingSpinner',
-
       // Finding property localised in Settings
       saveStorageProperty : 'selectedSaveStorage',
 

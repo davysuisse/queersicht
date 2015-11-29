@@ -7,30 +7,26 @@
   /**
    * Get all the common functions that are used in the application
    */
-  commonService.$inject = ['$rootScope', 'QSConstants', '$timeout', 'QSCStates', '$injector'];
-  function commonService($rootScope, QSConstants, $timeout, QSCStates, $injector) {
+  commonService.$inject = ['$rootScope', 'QSConstants', '$timeout', 'QSCStates', '$injector', 'SharedItemsService'];
+  function commonService($rootScope, QSConstants, $timeout, QSCStates, $injector, SharedItemsService) {
     var service = {
       errorMessage        : errorMessage,
       init                : init,
       isDefinedAndNotNull : isDefinedAndNotNull,
       lengthMap           : lengthMap,
-      loadingSpinner      : loadingSpinner,
       stringify           : stringify
     };
 
     return service;
 
     /**
-     * Title of the application
+     * Title of the application and the refresh callback
      * @param title
      * @param callback
      */
     function init(title, callback) {
-      console.log(title + ' ' + callback);
-      $rootScope.$broadcast(QSConstants.broadCastTitle, {
-        title           : title,
-        refreshCallback : callback
-      });
+      SharedItemsService.title           = title;
+      SharedItemsService.refreshCallback = callback;
     }
 
     /**
@@ -40,35 +36,15 @@
      * @param parameters of the state (if any)
      */
     function errorMessage(errorMessage, state, parameters) {
-      $rootScope.$broadcast(QSConstants.errorMessage, {
-        error : errorMessage
-      });
+      SharedItemsService.errorMessage = errorMessage;
 
-      $timeout(hideErrorMessage, 5000);
+      $timeout(function () {
+        SharedItemsService.errorMessage = undefined;
+      }, 5000);
 
       if (isDefinedAndNotNull(state)) {
         $injector.get('$state').go(QSCStates.stateError, {callback : state, parameters : parameters});
       }
-    }
-
-    /**
-     * Title of the application
-     * @param title
-     */
-    function hideErrorMessage() {
-      $rootScope.$broadcast(QSConstants.errorMessage, {
-        error : undefined
-      });
-    }
-
-    /**
-     * Show/Hide Loading Spinner
-     * @param title
-     */
-    function loadingSpinner(show) {
-      $rootScope.$broadcast(QSConstants.loadingSpinner, {
-        loading : show
-      });
     }
 
     /**

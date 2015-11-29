@@ -8,30 +8,16 @@
    * The Queersicht Controller [MainController]
    */
   queersichtController.$inject = [
-    '$scope', 'QSConstants', 'TranslationService', 'SettingsService', 'CommonService'
+    'TranslationService', 'SettingsService', 'CommonService', 'SharedItemsService'
   ];
-  function queersichtController($scope, QSConstants, TranslationService, SettingsService, CommonService) {
+  function queersichtController(TranslationService, SettingsService, CommonService, SharedItemsService) {
     var vm = this;
 
-    vm.isRefresh   = isRefresh;
+    vm.isRefresh          = isRefresh;
+    vm.sharedItemsService = SharedItemsService;
+    vm.settings           = SettingsService;
 
     init();
-
-    // Listen to a broadcast and apply the title
-    $scope.$on(QSConstants.broadCastTitle, function (event, args) {
-      vm.navigation      = args.title;
-      vm.refreshCallback = args.refreshCallback;
-    });
-
-    // Listen to a broadcast and apply the title
-    $scope.$on(QSConstants.loadingSpinner, function (event, args) {
-      vm.loading = args.loading;
-    });
-
-    // Listen to a broadcast and apply the title
-    $scope.$on(QSConstants.errorMessage, function (event, args) {
-      vm.errorMessage = args.error;
-    });
 
     // Applying null, will set the actual language
     function init() {
@@ -39,7 +25,7 @@
     }
 
     function isRefresh() {
-      return SettingsService.getSetting('selectedSaveStorage') && CommonService.isDefinedAndNotNull(vm.refreshCallback);
+      return vm.settings.getSetting('selectedSaveStorage') && CommonService.isDefinedAndNotNull(vm.sharedItemsService.refreshCallback);
     }
   }
 })();

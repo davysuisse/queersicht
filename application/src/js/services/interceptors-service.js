@@ -8,26 +8,26 @@
     .config(httpInterceptor)
     .factory('QSHttpInterceptor', qsHttpInterceptor);
 
-  qsHttpInterceptor.$inject = ['$q', 'CommonService'];
-  function qsHttpInterceptor($q, CommonService) {
+  qsHttpInterceptor.$inject = ['$q', 'SharedItemsService'];
+  function qsHttpInterceptor($q, SharedItemsService) {
     return {
       'request' : function (config) {
-        CommonService.loadingSpinner(true);
+        SharedItemsService.isLoading = true;
         return config;
       },
 
       'requestError' : function (rejection) {
-        CommonService.loadingSpinner(true);
+        SharedItemsService.isLoading = true;
         return $q.reject(rejection);
       },
 
       'response' : function (response) {
-        CommonService.loadingSpinner(false);
+        SharedItemsService.isLoading = false;
         return response;
       },
 
       'responseError' : function (rejection) {
-        CommonService.loadingSpinner(false);
+        SharedItemsService.isLoading = false;
         return $q.reject(rejection);
       }
     };

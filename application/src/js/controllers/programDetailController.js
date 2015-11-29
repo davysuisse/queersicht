@@ -9,11 +9,11 @@
    */
   programDetailController.$inject = ['$stateParams', 'CommonService', 'RestCallService', 'QSConstants', 'QSCStates'];
   function programDetailController($stateParams, CommonService, RestCallService, QSConstants, QSCStates) {
-    var vm       = this;
+    var vm = this;
 
     vm.lengthMap = CommonService.lengthMap;
     vm.idDetail  = $stateParams[QSConstants.idProperty];
-    vm.refresh      = refresh;
+    vm.refresh   = refresh;
 
     init();
 
@@ -31,7 +31,7 @@
         vm.detail = response.data;
       }, function (error) {
         vm.detail = [];
-        CommonService.errorMessage('ERROR_500', QSCStates.stateDetail, idDetail);
+        CommonService.errorMessage('ERROR_500', QSCStates.stateDetail, vm.idDetail);
       });
     }
   }
