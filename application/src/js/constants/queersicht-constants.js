@@ -17,8 +17,8 @@
       urlService        : 'http://localhost:8081/api',
 
       // LocalStorage Key
-      localStorageKey : 'favoris',
-      settingsKey     : 'settings',
+      favorisKey  : 'favoris',
+      settingsKey : 'settings',
 
       defaultSettings : {
         'selectedSpinner'  : 'fa-spinner',

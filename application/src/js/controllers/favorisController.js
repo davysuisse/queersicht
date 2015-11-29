@@ -7,14 +7,15 @@
   /**
    * Manage the favoris from the localStorage
    */
-  favorisController.$inject = ['CommonService', 'RestCallService', 'FavorisService', 'QSCStates'];
-  function favorisController(CommonService, RestCallService, FavorisService, QSCStates) {
+  favorisController.$inject = ['CommonService', 'RestCallService', 'StorageService', 'QSCStates', 'QSConstants'];
+  function favorisController(CommonService, RestCallService, StorageService, QSCStates, QSConstants) {
     var vm = this;
 
     vm.favoris       = [];
-    vm.addFavoris    = FavorisService.addFavoris;
-    vm.isInFavoris   = FavorisService.isInFavoris;
-    vm.deleteFavoris = FavorisService.deleteFavoris;
+    vm.addFavoris    = StorageService.addObjectInStorage;
+    vm.isInFavoris   = StorageService.isObjectInStorage;
+    vm.deleteFavoris = StorageService.deleteObjectInStorage;
+    vm.keyFavoris    = QSConstants.favorisKey;
 
     init();
 
@@ -36,7 +37,7 @@
      */
     function sortFavoris(movies) {
       for (var i = 0; i < movies.length; i++) {
-        if (FavorisService.isInFavoris(movies[i])) {
+        if (StorageService.isObjectInStorage(vm.keyFavoris, movies[i].id)) {
           vm.favoris.push(movies[i]);
         }
       }

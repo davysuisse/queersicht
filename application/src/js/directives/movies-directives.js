@@ -8,14 +8,15 @@
   /**
    * Controller that
    */
-  moviesController.$inject = ['FavorisService'];
-  function moviesController(FavorisService) {
+  moviesController.$inject = ['StorageService', 'QSConstants'];
+  function moviesController(StorageService, QSConstants) {
     var vm = this;
 
     // Get functions' references from FavorisService
-    vm.addFavoris    = FavorisService.addFavoris;
-    vm.isInFavoris   = FavorisService.isInFavoris;
-    vm.deleteFavoris = FavorisService.deleteFavoris;
+    vm.addFavoris    = StorageService.addObjectInStorage;
+    vm.isInFavoris   = StorageService.isObjectInStorage;
+    vm.deleteFavoris = StorageService.deleteObjectInStorage;
+    vm.keyFavoris    = QSConstants.favorisKey;
   }
 
   /**

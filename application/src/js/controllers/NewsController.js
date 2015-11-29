@@ -5,7 +5,7 @@
     .controller('NewsController', newsController);
 
   /**
-   * Manage the favoris from the localStorage
+   * Manage the news
    */
   newsController.$inject = ['CommonService', 'RestCallService', 'QSCStates'];
   function newsController(CommonService, RestCallService, QSCStates) {
