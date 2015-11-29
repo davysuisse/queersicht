@@ -11,7 +11,7 @@
   function commonService($rootScope, QSConstants, $timeout, QSCStates, $injector) {
     var service = {
       errorMessage        : errorMessage,
-      initTitle           : initTitle,
+      init                : init,
       isDefinedAndNotNull : isDefinedAndNotNull,
       lengthMap           : lengthMap,
       loadingSpinner      : loadingSpinner,
@@ -23,10 +23,12 @@
     /**
      * Title of the application
      * @param title
+     * @param callback
      */
-    function initTitle(title) {
+    function init(title, callback) {
       $rootScope.$broadcast(QSConstants.broadCastTitle, {
-        title : title
+        title           : title,
+        refreshCallback : callback
       });
     }
 

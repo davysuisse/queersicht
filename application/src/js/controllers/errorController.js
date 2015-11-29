@@ -16,7 +16,7 @@
     init();
 
     function init() {
-      CommonService.initTitle("ERROR_TITLE");
+      CommonService.init("ERROR_TITLE");
 
       vm.callback  = $stateParams[QSConstants.callbackProperty] || QSCStates.stateNews;
       vm.paramters = $stateParams[QSConstants.parameterProperty] || null;

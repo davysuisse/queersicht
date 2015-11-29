@@ -11,11 +11,12 @@
   function programDetailController($stateParams, CommonService, RestCallService, QSConstants, QSCStates) {
     var vm       = this;
     vm.lengthMap = CommonService.lengthMap;
+    vm.init      = init;
 
     init();
 
     function init() {
-      CommonService.initTitle("FAVORIS_TITLE");
+      CommonService.init("FAVORIS_TITLE", vm.init);
 
       var idDetail = $stateParams[QSConstants.idProperty];
       RestCallService.getDetail($stateParams[QSConstants.idProperty]).then(function (response) {

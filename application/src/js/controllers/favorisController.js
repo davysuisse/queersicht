@@ -16,12 +16,14 @@
     vm.isInFavoris   = StorageService.isObjectInStorage;
     vm.deleteFavoris = StorageService.deleteObjectInStorage;
     vm.keyFavoris    = QSConstants.favorisKey;
+    vm.init          = init;
 
     init();
 
     // Initialize by loading all the movies and takes only those that are in the favoris
     function init() {
-      CommonService.initTitle("FAVORIS_TITLE");
+      CommonService.init("FAVORIS_TITLE", init);
+
       RestCallService.getProgram().then(function (response) {
         var movies = response.data;
         sortFavoris(movies || []);

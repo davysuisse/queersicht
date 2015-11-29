@@ -19,7 +19,7 @@
     init();
 
     function init() {
-      CommonService.initTitle("SETTINGS_TITLE");
+      CommonService.init("SETTINGS_TITLE");
 
       vm.settings = SettingsService.getSettings();
 

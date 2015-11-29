@@ -11,10 +11,12 @@
   function programPerCinemaController(CommonService, RestCallService, QSCStates) {
     var vm = this;
 
+    vm.init = init;
+
     init();
 
     function init() {
-      CommonService.initTitle("PROG_PER_CINEMA_TITLE");
+      CommonService.init("PROG_PER_CINEMA_TITLE", vm.init);
 
       RestCallService.getProgram().then(function (response) {
         vm.cinemas = response.data;

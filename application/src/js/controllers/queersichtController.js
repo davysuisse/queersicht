@@ -8,19 +8,20 @@
    * The Queersicht Controller [MainController]
    */
   queersichtController.$inject = [
-    '$scope', 'QSConstants', 'TranslationService', 'SettingsService', 'RestCallService', '$injector', 'CommonService'
+    '$scope', 'QSConstants', 'TranslationService', 'SettingsService', 'CommonService'
   ];
-  function queersichtController($scope, QSConstants, TranslationService, SettingsService, RestCallService, $injector, CommonService) {
+  function queersichtController($scope, QSConstants, TranslationService, SettingsService, CommonService) {
     var vm = this;
 
-    vm.settings    = SettingsService;
     vm.loadProgram = loadProgram;
+    vm.isRefresh   = isRefresh;
 
     init();
 
     // Listen to a broadcast and apply the title
     $scope.$on(QSConstants.broadCastTitle, function (event, args) {
-      vm.navigation = args.title;
+      vm.navigation      = args.title;
+      vm.refreshCallback = args.refreshCallback;
     });
 
     // Listen to a broadcast and apply the title
@@ -31,7 +32,6 @@
     // Listen to a broadcast and apply the title
     $scope.$on(QSConstants.errorMessage, function (event, args) {
       vm.errorMessage = args.error;
-      console.log('dsa');
     });
 
     // Applying null, will set the actual language
@@ -40,11 +40,11 @@
     }
 
     function loadProgram() {
-      RestCallService.callProgram().then(function (response) {
-        $injector.get('$state').reload();
-      }, function (error) {
-        CommonService.errorMessage('ERROR_500');
-      });
+      vm.refreshCallback();
+    }
+
+    function isRefresh() {
+      return SettingsService.getSetting('selectedSaveStorage') && CommonService.isDefinedAndNotNull(vm.refreshCallback);
     }
   }
 })();

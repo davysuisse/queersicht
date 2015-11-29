@@ -35,9 +35,12 @@
 			</div>
 		</div>
 
-		<div class="navbar-brand pull-right">
+		<!-- Refresh buttons -->
+		<div class="btn-group navbar-brand pull-right"
+		     data-ng-if="queersichtCtrl.isRefresh()"
+		     data-ng-click="queersichtCtrl.loadProgram()">
 			<div style="cursor: pointer;">
-				<i class="fa fa-refresh" data-ng-if="queersichtCtrl.settings.getSetting('selectedSaveStorage')" data-ng-click="queersichtCtrl.loadProgram()"></i>
+				<span><i class="fa fa-refresh"></i></span>
 			</div>
 		</div>
 	</div>
@@ -45,12 +48,21 @@
 	<!-- App Body -->
 	<div class="app-body">
 		<div class="app-content" style="overflow: auto !important;">
+			<!-- Loading Spinner -->
 			<div id="loading" data-ng-show="queersichtCtrl.loading">
-				<i class="spinner fa fa-spin fa-3x" data-ng-class="[queersichtCtrl.settings.getSetting('selectedSpinner')]"></i>
+				<span><i class="spinner fa fa-spin fa-3x"
+				         data-ng-class="[queersichtCtrl.settings.getSetting('selectedSpinner')]"></i></span>
 			</div>
+			<!-- Templates -->
 			<div data-ui-view></div>
 		</div>
-		<div class="alert alert-danger errorMessage" role="alert" data-ng-show="queersichtCtrl.errorMessage" dismiss-on-timeout="5" type="alert">
+
+		<!-- Error Messages -->
+		<div class="alert alert-danger errorMessage"
+		     role="alert"
+		     data-ng-show="queersichtCtrl.errorMessage"
+		     dismiss-on-timeout="5"
+		     type="alert">
 			<span translate="{{queersichtCtrl.errorMessage}}"></span>
 		</div>
 	</div>
