@@ -10,10 +10,9 @@
   restCallService.$inject = ['$http', 'QSConstants', 'SettingsService', 'StorageService', '$q'];
   function restCallService($http, QSConstants, SettingsService, StorageService, $q) {
     var service = {
-      callProgram : callProgram,
-      getDetail   : getDetail,
-      getNews     : getNews,
-      getProgram  : getProgram
+      callService  : callService,
+      forceService : forceService,
+      getDetail    : getDetail
     };
 
     return service;
@@ -22,8 +21,33 @@
      * Get news
      * @return an array of news
      */
-    function getNews() {
-      return $http.get(getUrl('/news'));
+    function callService(key, url) {
+      if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
+        var objectInStorage = StorageService.getObjectInStorage(key);
+        if (objectInStorage.length > 0) {
+          var defer = $q.defer();
+          defer.resolve({'data' : objectInStorage});
+          return defer.promise;
+        }
+      }
+      return forceService(key, url);
+    }
+
+    /**
+     * Get a list of movies from server and store them in local
+     * @returns {*}
+     */
+    function forceService(key, url) {
+      var defer = $q.defer();
+      $http.get(getUrl(url)).then(function (response) {
+        if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
+          StorageService.setObjectInStorage(key, response.data);
+        }
+        defer.resolve(response);
+      }, function (error) {
+        defer.reject(error);
+      });
+      return defer.promise;
     }
 
     /**
@@ -33,39 +57,6 @@
      */
     function getDetail(id) {
       return $http.get(getUrl('/detail/' + id));
-    }
-
-    /**
-     * Get a list of movies from storage or server (Depends on the settings choice)
-     * @returns a promise
-     */
-    function getProgram() {
-      if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
-        var objectInStorage = StorageService.getObjectInStorage(QSConstants.programKey);
-        if (objectInStorage.length > 0) {
-          var defer = $q.defer();
-          defer.resolve({'data' : objectInStorage});
-          return defer.promise;
-        }
-      }
-      return callProgram();
-    }
-
-    /**
-     * Get a list of movies from server and store them in local
-     * @returns {*}
-     */
-    function callProgram() {
-      var defer = $q.defer();
-      $http.get(getUrl('/program')).then(function (response) {
-        if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
-          StorageService.setObjectInStorage(QSConstants.programKey, response.data);
-        }
-        defer.resolve(response);
-      }, function (error) {
-        defer.reject(error);
-      });
-      return defer.promise;
     }
 
     /**

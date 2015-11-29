@@ -7,8 +7,8 @@
   /**
    * Manage the program per Movie
    */
-  programPerMovieController.$inject = ['CommonService', 'RestCallService', 'QSCStates'];
-  function programPerMovieController(CommonService, RestCallService, QSCStates) {
+  programPerMovieController.$inject = ['CommonService', 'RestCallService', 'QSCStates', 'QSConstants'];
+  function programPerMovieController(CommonService, RestCallService, QSCStates, QSConstants) {
     var vm = this;
 
     vm.refresh = refresh;
@@ -17,11 +17,11 @@
 
     function init() {
       CommonService.init("PROG_PER_MOVIE_TITLE", vm.refresh);
-      loadDatas(RestCallService.getProgram());
+      loadDatas(RestCallService.callService(QSConstants.programService.key, QSConstants.programService.url));
     }
 
     function refresh() {
-      loadDatas(RestCallService.callProgram());
+      loadDatas(RestCallService.forceService(QSConstants.programService.key, QSConstants.programService.url));
     }
 
     function loadDatas(promise) {

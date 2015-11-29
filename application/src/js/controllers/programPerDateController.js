@@ -7,8 +7,8 @@
   /**
    * Manage the program per Date
    */
-  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates'];
-  function programPerDateController(CommonService, RestCallService, QSCStates) {
+  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates', 'QSConstants'];
+  function programPerDateController(CommonService, RestCallService, QSCStates, QSConstants) {
     var vm = this;
 
     vm.refresh = refresh;
@@ -17,11 +17,11 @@
 
     function init() {
       CommonService.init("PROG_PER_DATE_TITLE", vm.refresh);
-      loadDatas(RestCallService.getProgram());
+      loadDatas(RestCallService.callService(QSConstants.programService.key, QSConstants.programService.url));
     }
 
     function refresh() {
-      loadDatas(RestCallService.callProgram());
+      loadDatas(RestCallService.forceService(QSConstants.programService.key, QSConstants.programService.url));
     }
 
     function loadDatas(promise) {

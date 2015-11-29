@@ -20,9 +20,10 @@
       saveStorageProperty : 'selectedSaveStorage',
 
       // LocalStorage Key
-      favorisKey  : 'favoris',
-      settingsKey : 'settings',
-      programKey  : 'program',
+      favorisKey     : 'favoris',
+      settingsKey    : 'settings',
+      programService : {'key' : 'program', url : '/program'},
+      newsService    : {'key' : 'news', url : '/news'},
 
       // Default settings
       defaultSettings : {
