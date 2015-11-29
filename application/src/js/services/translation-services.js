@@ -10,8 +10,8 @@
   translationService.$inject = ['QSConstants', 'CommonService', '$translate'];
   function translationService(QSConstants, CommonService, $translate) {
     var service = {
-      setLanguage         : setLanguage,
-      getLanguage         : getLanguage
+      setLanguage : setLanguage,
+      getLanguage : getLanguage
     };
 
     return service;

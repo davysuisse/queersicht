@@ -32,7 +32,7 @@
     /**
      * Get the key value of a translation
      * @param value
-     * @returns the translated value or an empty string
+     * @returns the translated value or the actual value
      */
     function getLabel(value) {
       return $filter('translate')(value);

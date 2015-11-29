@@ -68,6 +68,11 @@
       return defer.promise;
     }
 
+    /**
+     * Get the full path
+     * @param partialPath
+     * @returns string of the full path
+     */
     function getUrl(partialPath) {
       return QSConstants.urlService + partialPath;
     }

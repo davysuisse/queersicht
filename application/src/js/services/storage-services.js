@@ -25,7 +25,6 @@
     function addObjectInStorage(key, objectToAdd) {
       if (isValidObject(objectToAdd)) {
         var object = getObjectInStorage(key);
-        console.log(object);
         if (object.indexOf(key, objectToAdd) < 0) {
           object.push(objectToAdd);
           $window.localStorage.setItem(key, JSON.stringify(object));

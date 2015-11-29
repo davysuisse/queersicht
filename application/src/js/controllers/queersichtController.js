@@ -7,24 +7,22 @@
   /**
    * The Queersicht Controller [MainController]
    */
-  queersichtController.$inject = [
-    'TranslationService', 'SettingsService', 'CommonService', 'SharedItemsService'
-  ];
+  queersichtController.$inject = ['TranslationService', 'SettingsService', 'CommonService', 'SharedItemsService'];
   function queersichtController(TranslationService, SettingsService, CommonService, SharedItemsService) {
     var vm = this;
 
-    vm.isRefresh          = isRefresh;
+    vm.isRefreshAvailable = isRefreshAvailable;
     vm.sharedItemsService = SharedItemsService;
     vm.settings           = SettingsService;
 
     init();
 
-    // Applying null, will set the actual language
+    // Applying null, will set the actual language or default one
     function init() {
       TranslationService.setLanguage(null);
     }
 
-    function isRefresh() {
+    function isRefreshAvailable() {
       return vm.settings.getSetting('selectedSaveStorage') && CommonService.isDefinedAndNotNull(vm.sharedItemsService.refreshCallback);
     }
   }

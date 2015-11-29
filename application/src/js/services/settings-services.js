@@ -38,7 +38,8 @@
      * Set settings in the localStorage
      */
     function setSettings(settings) {
-      settings = angular.extend({}, settings); // To be able to stringify, it's needed to wrap it in an object
+      // To be able to stringify, it's needed to wrap it in an object
+      settings = angular.extend({}, settings);
       $window.localStorage.setItem(QSConstants.settingsKey, JSON.stringify(settings));
     }
   }

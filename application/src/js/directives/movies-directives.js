@@ -13,10 +13,10 @@
     var vm = this;
 
     // Get functions' references from FavorisService
+    vm.keyFavoris    = QSConstants.favorisKey;
     vm.addFavoris    = StorageService.addObjectInStorage;
     vm.isInFavoris   = StorageService.isObjectInStorage;
     vm.deleteFavoris = StorageService.deleteObjectInStorage;
-    vm.keyFavoris    = QSConstants.favorisKey;
   }
 
   /**

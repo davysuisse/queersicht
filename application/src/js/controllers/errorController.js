@@ -5,7 +5,7 @@
     .controller('ErrorController', errorController);
 
   /**
-   * Manage the error
+   * Manage the error and refresh the actual page by calling the callback function
    */
   errorController.$inject = ['$stateParams', 'CommonService', 'QSConstants', 'QSCStates', '$injector'];
   function errorController($stateParams, CommonService, QSConstants, QSCStates, $injector) {
@@ -19,11 +19,11 @@
       CommonService.init("ERROR_TITLE");
 
       vm.callback  = $stateParams[QSConstants.callbackProperty] || QSCStates.stateNews;
-      vm.paramters = $stateParams[QSConstants.parameterProperty] || null;
+      vm.parameters = $stateParams[QSConstants.parameterProperty] || null;
     }
 
     function retry() {
-      $injector.get('$state').go(vm.callback, vm.paramters);
+      $injector.get('$state').go(vm.callback, vm.parameters);
     }
   }
 })();

@@ -7,8 +7,8 @@
   /**
    * Get all the common functions that are used in the application
    */
-  commonService.$inject = ['$rootScope', 'QSConstants', '$timeout', 'QSCStates', '$injector', 'SharedItemsService'];
-  function commonService($rootScope, QSConstants, $timeout, QSCStates, $injector, SharedItemsService) {
+  commonService.$inject = ['$timeout', 'QSCStates', '$injector', 'SharedItemsService'];
+  function commonService($timeout, QSCStates, $injector, SharedItemsService) {
     var service = {
       errorMessage        : errorMessage,
       init                : init,
