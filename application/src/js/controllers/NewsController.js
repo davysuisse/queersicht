@@ -11,15 +11,21 @@
   function newsController(CommonService, RestCallService, QSCStates) {
     var vm = this;
 
-    vm.news = [];
-    vm.init = init;
+    vm.refresh = refresh;
 
     init();
 
     function init() {
-      CommonService.initTitle("NEWS_TITLE");
+      CommonService.init("NEWS_TITLE", vm.refresh);
+      loadDatas(RestCallService.getNews());
+    }
 
-      RestCallService.getNews().then(function (response) {
+    function refresh() {
+      loadDatas(RestCallService.getNews());
+    }
+
+    function loadDatas(promise) {
+      promise.then(function (response) {
         vm.news = response.data;
       }, function (error) {
         CommonService.errorMessage('ERROR_500', QSCStates.stateNews);

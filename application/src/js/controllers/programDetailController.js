@@ -10,16 +10,24 @@
   programDetailController.$inject = ['$stateParams', 'CommonService', 'RestCallService', 'QSConstants', 'QSCStates'];
   function programDetailController($stateParams, CommonService, RestCallService, QSConstants, QSCStates) {
     var vm       = this;
+
     vm.lengthMap = CommonService.lengthMap;
-    vm.init      = init;
+    vm.idDetail  = $stateParams[QSConstants.idProperty];
+    vm.refresh      = refresh;
 
     init();
 
     function init() {
-      CommonService.init("FAVORIS_TITLE", vm.init);
+      CommonService.init("DETAIL_TITLE", vm.refresh);
+      loadDatas(RestCallService.getDetail(vm.idDetail));
+    }
 
-      var idDetail = $stateParams[QSConstants.idProperty];
-      RestCallService.getDetail($stateParams[QSConstants.idProperty]).then(function (response) {
+    function refresh() {
+      loadDatas(RestCallService.getDetail(vm.idDetail));
+    }
+
+    function loadDatas(promise) {
+      promise.then(function (response) {
         vm.detail = response.data;
       }, function (error) {
         vm.detail = [];

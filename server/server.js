@@ -34,20 +34,6 @@
         time    : '20:30'
       },
       {
-        id      : '5',
-        title   : 'asdsa',
-        image   : 'http://de.web.img3.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/04/27/10/46/356365.jpg',
-        summary : 'test',
-        time    : '20:30'
-      },
-      {
-        id      : '3',
-        title   : 'Ostwind 2',
-        image   : 'http://de.web.img2.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/04/13/15/13/184338.jpg',
-        summary : 'Nichts macht Mika (Hanna Binke) mehr Freude, als Zeit mit ihrem geliebten schwarzen Hengst Ostwind zu verbringen. Daher ist sie umso glücklicher,...',
-        time    : '18:15'
-      },
-      {
         id      : '2',
         title   : 'Pitch Perfect 2',
         image   : 'http://de.web.img1.acsta.net/cx_160_213/b_1_d6d6d6/pictures/15/03/18/12/28/270190.jpg',

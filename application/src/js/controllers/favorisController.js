@@ -11,20 +11,26 @@
   function favorisController(CommonService, RestCallService, StorageService, QSCStates, QSConstants) {
     var vm = this;
 
-    vm.favoris       = [];
     vm.addFavoris    = StorageService.addObjectInStorage;
     vm.isInFavoris   = StorageService.isObjectInStorage;
     vm.deleteFavoris = StorageService.deleteObjectInStorage;
     vm.keyFavoris    = QSConstants.favorisKey;
-    vm.init          = init;
+    vm.refresh       = refresh;
 
     init();
 
     // Initialize by loading all the movies and takes only those that are in the favoris
     function init() {
-      CommonService.init("FAVORIS_TITLE", init);
+      CommonService.init("FAVORIS_TITLE", vm.refresh);
+      loadDatas(RestCallService.getProgram());
+    }
 
-      RestCallService.getProgram().then(function (response) {
+    function refresh() {
+      loadDatas(RestCallService.callProgram());
+    }
+
+    function loadDatas(promise) {
+      promise.then(function (response) {
         var movies = response.data;
         sortFavoris(movies || []);
       }, function (error) {
@@ -37,6 +43,7 @@
      * @param movies
      */
     function sortFavoris(movies) {
+      vm.favoris = [];
       for (var i = 0; i < movies.length; i++) {
         if (StorageService.isObjectInStorage(vm.keyFavoris, movies[i].id)) {
           vm.favoris.push(movies[i]);

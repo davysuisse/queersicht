@@ -13,7 +13,6 @@
   function queersichtController($scope, QSConstants, TranslationService, SettingsService, CommonService) {
     var vm = this;
 
-    vm.loadProgram = loadProgram;
     vm.isRefresh   = isRefresh;
 
     init();
@@ -37,10 +36,6 @@
     // Applying null, will set the actual language
     function init() {
       TranslationService.setLanguage(null);
-    }
-
-    function loadProgram() {
-      vm.refreshCallback();
     }
 
     function isRefresh() {

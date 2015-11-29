@@ -11,14 +11,21 @@
   function programPerDateController(CommonService, RestCallService, QSCStates) {
     var vm = this;
 
-    vm.init = init;
+    vm.refresh = refresh;
 
     init();
 
     function init() {
-      CommonService.init("PROG_PER_DATE_TITLE", vm.init);
+      CommonService.init("PROG_PER_DATE_TITLE", vm.refresh);
+      loadDatas(RestCallService.getProgram());
+    }
 
-      RestCallService.getProgram().then(function (response) {
+    function refresh() {
+      loadDatas(RestCallService.callProgram());
+    }
+
+    function loadDatas(promise) {
+      promise.then(function (response) {
         vm.dates = response.data;
       }, function (error) {
         vm.dates = [];

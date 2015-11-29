@@ -13,8 +13,8 @@
 	<link rel="stylesheet" href="css/responsive.min.css"/>
 
 	<!-- inject:js -->
-	<script src="js/app-min.js"></script>
-	<!--<script src="js/app.js"></script>-->
+	<!--<script src="js/app-min.js"></script>-->
+	<script src="js/app.js"></script>
 </head>
 <body data-ng-app="Queersicht" data-ng-controller="QueersichtController as queersichtCtrl"
       style="font-family: 'GloberRegular' !important;">
@@ -38,7 +38,7 @@
 		<!-- Refresh buttons -->
 		<div class="btn-group navbar-brand pull-right"
 		     data-ng-if="queersichtCtrl.isRefresh()"
-		     data-ng-click="queersichtCtrl.loadProgram()">
+		     data-ng-click="queersichtCtrl.refreshCallback()">
 			<div style="cursor: pointer;">
 				<span><i class="fa fa-refresh"></i></span>
 			</div>

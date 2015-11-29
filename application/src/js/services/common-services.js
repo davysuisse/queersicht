@@ -26,6 +26,7 @@
      * @param callback
      */
     function init(title, callback) {
+      console.log(title + ' ' + callback);
       $rootScope.$broadcast(QSConstants.broadCastTitle, {
         title           : title,
         refreshCallback : callback
