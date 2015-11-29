@@ -22,8 +22,7 @@
     // Initialize by loading all the movies and takes only those that are in the favoris
     function init() {
       CommonService.initTitle("FAVORIS_TITLE");
-
-      RestCallService.getProgramPerMovie().then(function (response) {
+      RestCallService.getProgram().then(function (response) {
         var movies = response.data;
         sortFavoris(movies || []);
       }, function (error) {

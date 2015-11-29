@@ -7,14 +7,13 @@
   /**
    * Get all the REST calls for the application
    */
-  restCallService.$inject = ['$http', 'QSConstants'];
-  function restCallService($http, QSConstants) {
+  restCallService.$inject = ['$http', 'QSConstants', 'SettingsService', 'StorageService', '$q'];
+  function restCallService($http, QSConstants, SettingsService, StorageService, $q) {
     var service = {
-      getDetail           : getDetail,
-      getNews             : getNews,
-      getProgramPerMovie  : getProgramPerMovie,
-      getProgramPerCinema : getProgramPerCinema,
-      getProgramPerDate   : getProgramPerDate
+      callProgram : callProgram,
+      getDetail   : getDetail,
+      getNews     : getNews,
+      getProgram  : getProgram
     };
 
     return service;
@@ -37,27 +36,36 @@
     }
 
     /**
-     * Get a list of movies sorted by movies
-     * @returns list []
+     * Get a list of movies from storage or server (Depends on the settings choice)
+     * @returns a promise
      */
-    function getProgramPerMovie() {
-      return $http.get(getUrl('/program/movies'));
+    function getProgram() {
+      if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
+        var objectInStorage = StorageService.getObjectInStorage(QSConstants.programKey);
+        if (objectInStorage.length > 0) {
+          var defer = $q.defer();
+          defer.resolve({'data' : objectInStorage});
+          return defer.promise;
+        }
+      }
+      return callProgram();
     }
 
     /**
-     * Get a list of movies sorted by cinemas
-     * @returns list []
+     * Get a list of movies from server and store them in local
+     * @returns {*}
      */
-    function getProgramPerCinema() {
-      return $http.get(getUrl('/program/cinemas'));
-    }
-
-    /**
-     * Get a list of movies sorted by dates
-     * @returns list []
-     */
-    function getProgramPerDate() {
-      return $http.get(getUrl('/program/dates'));
+    function callProgram() {
+      var defer = $q.defer();
+      $http.get(getUrl('/program')).then(function (response) {
+        if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
+          StorageService.setObjectInStorage(QSConstants.programKey, response.data);
+        }
+        defer.resolve(response);
+      }, function (error) {
+        defer.reject(error);
+      });
+      return defer.promise;
     }
 
     function getUrl(partialPath) {

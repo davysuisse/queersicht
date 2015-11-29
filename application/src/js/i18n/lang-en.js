@@ -17,13 +17,16 @@
       LANG_ENGLISH            : 'English',
       LANG_FRENCH             : 'French',
       LANGUAGE_SETTINGS_TITLE : 'Language',
+      LOCAL_MOVIE_TITLE       : 'Save program',
       MENU                    : 'Menu',
       NEWS_TITLE              : 'News',
+      NO                      : 'No',
       PROG_PER_CINEMA_TITLE   : 'Program per cinema',
       PROG_PER_DATE_TITLE     : 'Program per date',
       PROG_PER_MOVIE_TITLE    : 'Program per movie',
       SETTINGS_TITLE          : 'Settings',
-      SPINNER_TITLE           : 'Loading Icon'
+      SPINNER_TITLE           : 'Loading Icon',
+      YES                     : 'Yes'
     };
   }
 

@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/responsive.min.css"/>
 
 	<!-- inject:js -->
-	<script src="js/app-min.js"></script>
+	<script src="js/app.js"></script>
 </head>
 <body data-ng-app="Queersicht" data-ng-controller="QueersichtController as queersichtCtrl"
       style="font-family: 'GloberRegular' !important;">
@@ -31,6 +31,12 @@
 		<div class="btn-group pull-left">
 			<div data-ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
 				<i class="fa fa-bars"></i> <span translate="MENU"></span>
+			</div>
+		</div>
+
+		<div class="navbar-brand pull-right">
+			<div style="cursor: pointer;">
+				<i class="fa fa-refresh" data-ng-if="queersichtCtrl.settings.getSetting('selectedSaveStorage')" data-ng-click="queersichtCtrl.loadProgram()"></i>
 			</div>
 		</div>
 	</div>

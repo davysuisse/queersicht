@@ -16,7 +16,7 @@
     function init() {
       CommonService.initTitle("PROG_PER_DATE_TITLE");
 
-      RestCallService.getProgramPerDate().then(function (response) {
+      RestCallService.getProgram().then(function (response) {
         vm.dates = response.data;
       }, function (error) {
         vm.dates = [];

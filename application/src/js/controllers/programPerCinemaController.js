@@ -16,7 +16,7 @@
     function init() {
       CommonService.initTitle("PROG_PER_CINEMA_TITLE");
 
-      RestCallService.getProgramPerCinema().then(function (response) {
+      RestCallService.getProgram().then(function (response) {
         vm.cinemas = response.data;
       }, function (error) {
         vm.cinemas = [];

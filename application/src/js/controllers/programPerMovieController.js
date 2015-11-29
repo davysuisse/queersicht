@@ -15,8 +15,8 @@
 
     function init() {
       CommonService.initTitle("PROG_PER_MOVIE_TITLE");
-
-      RestCallService.getProgramPerMovie().then(function (response) {
+  console.log('sds');
+      RestCallService.getProgram().then(function (response) {
         vm.movies = response.data;
       }, function (error) {
         vm.movies = [];
