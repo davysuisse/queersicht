@@ -26,7 +26,15 @@
 
     function loadDatas(promise) {
       promise.then(function (response) {
-        vm.cinemas = response.data;
+        vm.cinemas = {};
+
+        angular.forEach(response.data, function(data){
+          if(!CommonService.isDefinedAndNotNull(this[data.cinema])) {
+            this[data.cinema] = [];
+          }
+          this[data.cinema].push(data);
+        }, vm.cinemas);
+
       }, function (error) {
         vm.cinemas = [];
         CommonService.errorMessage('ERROR_500', QSCStates.stateCinema);

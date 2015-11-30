@@ -26,11 +26,27 @@
 
     function loadDatas(promise) {
       promise.then(function (response) {
-        vm.movies = response.data;
+        vm.movies = [];
+
+        angular.forEach(response.data, function (data) {
+          if (!isInList(data, this)) {
+            this.push(data);
+          }
+        }, vm.movies);
+
       }, function (error) {
         vm.movies = [];
         CommonService.errorMessage('ERROR_500', QSCStates.stateMovie);
       });
+    }
+
+    function isInList(data, list) {
+      for (var i = 0; i < list.length; i++) {
+        if (angular.equals(data.title, list[i].title)) {
+          return true;
+        }
+      }
+      return false;
     }
   }
 })();

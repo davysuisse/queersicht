@@ -1,6 +1,6 @@
 <section class="section container-fluid">
-	<div class="col-sm-12" data-ng-repeat="(date, movies) in ppdC.dates">
-		<h2>{{date}}</h2>
+	<div class="col-sm-12" data-ng-repeat="(date_title, movies) in ppdC.dates">
+		<h2>{{date_title | date: 'EEE dd.MM.yyyy'}}</h2>
 
 		<div movies="movies"></div>
 	</div>

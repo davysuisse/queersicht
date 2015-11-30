@@ -7,8 +7,8 @@
   /**
    * Manage the program per Date
    */
-  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates', 'QSConstants'];
-  function programPerDateController(CommonService, RestCallService, QSCStates, QSConstants) {
+  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates', 'QSConstants', '$filter'];
+  function programPerDateController(CommonService, RestCallService, QSCStates, QSConstants, $filter) {
     var vm = this;
 
     vm.refresh = refresh;
@@ -26,7 +26,17 @@
 
     function loadDatas(promise) {
       promise.then(function (response) {
-        vm.dates = response.data;
+        vm.dates = {};
+
+        angular.forEach(response.data, function (data) {
+          var date = $filter('date')(data.date, 'EEE dd.MM.yyyy');
+          console.log(date);
+          if (!CommonService.isDefinedAndNotNull(this[date])) {
+            this[date] = [];
+          }
+          this[date].push(data);
+        }, vm.dates);
+
       }, function (error) {
         vm.dates = [];
         CommonService.errorMessage('ERROR_500', QSCStates.stateDate);
