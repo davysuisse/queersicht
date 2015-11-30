@@ -18,7 +18,7 @@
             <span data-ng-if="movie.image" style="float:left; width:10%;">
                 <img class="img-responsive" data-ng-src="{{movie.image}}"/>
             </span>
-			<span>{{movie.description_de}}</span>
+			<span>{{moviesCtrl.translationService.getDescription(movie)}}</span>
 		</div>
 	</div>
 </div> 

@@ -7,11 +7,14 @@
   /**
    * Manage the program detail
    */
-  programDetailController.$inject = ['$stateParams', 'CommonService', 'QSConstants', '$injector', 'QSCStates'];
-  function programDetailController($stateParams, CommonService, QSConstants, $injector, QSCStates) {
+  programDetailController.$inject = [
+    '$stateParams', 'CommonService', 'QSConstants', '$injector', 'QSCStates', 'TranslationService'
+  ];
+  function programDetailController($stateParams, CommonService, QSConstants, $injector, QSCStates, TranslationService) {
     var vm = this;
 
     vm.lengthMap = CommonService.lengthMap;
+    vm.translationService = TranslationService;
 
     init();
 

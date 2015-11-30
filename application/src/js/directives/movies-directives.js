@@ -8,9 +8,11 @@
   /**
    * Controller that
    */
-  moviesController.$inject = ['StorageService', 'QSConstants'];
-  function moviesController(StorageService, QSConstants) {
+  moviesController.$inject = ['StorageService', 'QSConstants', 'TranslationService'];
+  function moviesController(StorageService, QSConstants, TranslationService) {
     var vm = this;
+
+    vm.translationService = TranslationService;
 
     // Get functions' references from FavorisService
     vm.keyFavoris    = QSConstants.favorisKey;

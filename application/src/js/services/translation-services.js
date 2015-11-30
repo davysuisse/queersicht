@@ -10,8 +10,9 @@
   translationService.$inject = ['QSConstants', 'CommonService', '$translate'];
   function translationService(QSConstants, CommonService, $translate) {
     var service = {
-      setLanguage : setLanguage,
-      getLanguage : getLanguage
+      setLanguage    : setLanguage,
+      getLanguage    : getLanguage,
+      getDescription : getDescription
     };
 
     return service;
@@ -34,6 +35,19 @@
      */
     function getLanguage() {
       return $translate.use() || QSConstants.defaultSettings.selectedLanguage;
+    }
+
+
+    /**
+     * Determined the correct description to give
+     * @param movie
+     * @returns {*}
+     */
+    function getDescription(movie) {
+      if (!angular.equals(QSConstants.defaultSettings.selectedLanguage, getLanguage())) {
+        return movie.description_fr;
+      }
+      return movie.description_de;
     }
   }
 })();
