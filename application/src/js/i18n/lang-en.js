@@ -40,8 +40,8 @@
       // Country
       BR : 'Great Britain',
       CH : 'Switzerland',
-      GE : 'Germany',
-      FR : 'France'
+      FR : 'France',
+      GE : 'Germany'
     };
   }
 
