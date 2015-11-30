@@ -11,8 +11,8 @@ The different plugins used for the development are the followings:
 #Installation
 The instructions are located in each repository [Application, Server]. 
 
-Application: gulp [command line]
-Server: node server.js [command line]
+  Application: gulp [command line]
+  Server: node server.js [command line]
 
 # Features in modern releases
 No release
