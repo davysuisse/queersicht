@@ -44,10 +44,12 @@
      * @returns {*}
      */
     function getDescription(movie) {
-      if (!angular.equals(QSConstants.defaultSettings.selectedLanguage, getLanguage())) {
-        return movie.description_fr;
+      switch (getLanguage()) {
+        case QSConstants.defaultSettings.languageOptions.LANG_FRENCH:
+          return movie.description_fr;
+        default :
+          return movie.description_de;
       }
-      return movie.description_de;
     }
   }
 })();
