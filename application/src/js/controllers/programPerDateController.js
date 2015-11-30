@@ -28,9 +28,9 @@
       promise.then(function (response) {
         vm.dates = {};
 
+        // Sorting movies by date
         angular.forEach(response.data, function (data) {
           var date = $filter('date')(data.date, 'EEE dd.MM.yyyy');
-          console.log(date);
           if (!CommonService.isDefinedAndNotNull(this[date])) {
             this[date] = [];
           }
@@ -38,7 +38,6 @@
         }, vm.dates);
 
       }, function (error) {
-        vm.dates = [];
         CommonService.errorMessage('ERROR_500', QSCStates.stateDate);
       });
     }

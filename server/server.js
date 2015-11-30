@@ -1,20 +1,20 @@
 (function () {
   'use strict';
 
+  var mysql   = require("mysql");
   var express = require('express');
   var app     = express();
   var router  = express.Router();
 
-  var mysql = require("mysql");
-
-  // First you need to create a connection to the db
+  // Configuration of the DB
   var con = mysql.createConnection({
     host     : "localhost",
-    user     : "clauded",
-    password : "clauded",
+    user     : "clauded", // To change
+    password : "clauded", // To change
     database : "queersicht"
   });
 
+  // Connecting the database
   con.connect(function (err) {
     if (err) {
       console.log('Error connecting to Db');
@@ -23,6 +23,10 @@
     console.log('Connection established');
   });
 
+  /**
+   * Movies are organized per program, because a movie can appear in two programs.
+   * This route will get all the programs
+   */
   router.get('/program', function (req, res) {
     con.query('SELECT * FROM program, movie where program.movie_id = movie.id order by movie.title', function (err, rows) {
       if (err) throw err;
@@ -43,6 +47,7 @@
           movie.description_de = row.description_de;
           movie.description_fr = row.description_fr;
 
+          // Further information of the movie
           movie.informations          = {};
           movie.informations.duration = row.duration;
           movie.informations.year     = row.year;
@@ -75,6 +80,7 @@
     ]);
   });
 
+  // The application will be able to call our REST api with a different url
   app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');

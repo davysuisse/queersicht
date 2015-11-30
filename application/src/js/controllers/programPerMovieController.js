@@ -28,6 +28,7 @@
       promise.then(function (response) {
         vm.movies = [];
 
+        // Sorting movies by title and ignoring duplicating ones
         angular.forEach(response.data, function (data) {
           if (!isInList(data, this)) {
             this.push(data);
@@ -35,7 +36,6 @@
         }, vm.movies);
 
       }, function (error) {
-        vm.movies = [];
         CommonService.errorMessage('ERROR_500', QSCStates.stateMovie);
       });
     }
