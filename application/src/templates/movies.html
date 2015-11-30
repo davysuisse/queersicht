@@ -1,20 +1,24 @@
 <div class="col-sm-12 movies" data-ng-repeat="movie in moviesCtrl.movies">
-    <div class="row">
-        <div class="movie-title title_padding">
+	<div class="row">
+		<div class="movie-title title_padding">
+			<!-- Favoris -->
             <span class="fa fa-star-o favoris" data-ng-show="!moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
                   data-ng-click="moviesCtrl.addFavoris(moviesCtrl.keyFavoris, movie.id)"></span>
             <span class="fa fa-star favoris" data-ng-show="moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
                   data-ng-click="moviesCtrl.deleteFavoris(moviesCtrl.keyFavoris, movie.id)"></span>
-            <span class="title">{{movie.title}} - {{movie.time}}</span>
-            <a data-ui-sref="detail({id: movie.id})" class="fa fa-chevron-right pull-right detail"></a>
-        </div>
-    </div>
-    <div class="row lightGray">
-        <div>
+			<!-- Title -->
+			<div data-ui-sref="detail({'movie': movie})" style="cursor: pointer;">
+				<span class="title">{{movie.title}} - {{movie.date | date:'EEE dd.MM.yy hh:mm'}} - {{movie.cinema}}</span>
+				<i class="fa fa-chevron-right pull-right detail"></i>
+			</div>
+		</div>
+	</div>
+	<div class="row lightGray">
+		<div>
             <span data-ng-if="movie.image" style="float:left; width:10%;">
                 <img class="img-responsive" data-ng-src="{{movie.image}}"/>
             </span>
-            <span>{{movie.summary}}</span>
-        </div>
-    </div>
+			<span>{{movie.description_de}}</span>
+		</div>
+	</div>
 </div> 

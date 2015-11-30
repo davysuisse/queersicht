@@ -7,32 +7,21 @@
   /**
    * Manage the program detail
    */
-  programDetailController.$inject = ['$stateParams', 'CommonService', 'RestCallService', 'QSConstants', 'QSCStates'];
-  function programDetailController($stateParams, CommonService, RestCallService, QSConstants, QSCStates) {
+  programDetailController.$inject = ['$stateParams', 'CommonService', 'QSConstants', '$injector', 'QSCStates'];
+  function programDetailController($stateParams, CommonService, QSConstants, $injector, QSCStates) {
     var vm = this;
 
     vm.lengthMap = CommonService.lengthMap;
-    vm.idDetail  = $stateParams[QSConstants.idProperty];
-    vm.refresh   = refresh;
 
     init();
 
     function init() {
-      CommonService.init("DETAIL_TITLE", vm.refresh);
-      loadDatas(RestCallService.getDetail(vm.idDetail));
-    }
+      CommonService.init("DETAIL_TITLE");
+      vm.detail = $stateParams[QSConstants.movieProperty];
 
-    function refresh() {
-      loadDatas(RestCallService.getDetail(vm.idDetail));
-    }
-
-    function loadDatas(promise) {
-      promise.then(function (response) {
-        vm.detail = response.data;
-      }, function (error) {
-        vm.detail = [];
-        CommonService.errorMessage('ERROR_500', QSCStates.stateDetail, vm.idDetail);
-      });
+      if (!CommonService.isDefinedAndNotNull(vm.detail)) {
+        $injector.get('$state').go(QSCStates.stateMovie);
+      }
     }
   }
 })();

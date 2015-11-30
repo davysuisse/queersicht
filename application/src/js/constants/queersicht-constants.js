@@ -12,7 +12,7 @@
       urlService : 'http://localhost:8081/api',
 
       // Property passed through states
-      idProperty        : 'id',
+      movieProperty     : 'movie',
       parameterProperty : 'parameters',
       callbackProperty  : 'callback',
 

@@ -51,7 +51,7 @@
       controllerAs   : 'pdC',
       reloadOnSearch : false,
       params         : {
-        id : null
+        movie : null
       }
     }).state(QSCStates.stateError, {
       url            : '/error',

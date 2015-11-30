@@ -60,8 +60,7 @@
 		<!-- Error Messages -->
 		<div class="alert alert-danger errorMessage"
 		     role="alert"
-		     data-ng-show="queersichtCtrl.sharedItemsService.errorMessage"
-		     dismiss-on-timeout="5"
+		     data-ng-if="queersichtCtrl.sharedItemsService.errorMessage"
 		     type="alert">
 			<span translate="{{queersichtCtrl.sharedItemsService.errorMessage}}"></span>
 		</div>
