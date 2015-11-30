@@ -58,9 +58,9 @@
 		</div>
 
 		<!-- Error Messages -->
-		<div class="alert alert-danger errorMessage"
+		<div data-ng-if="queersichtCtrl.sharedItemsService.errorMessage"
+		     class="alert alert-danger errorMessage"
 		     role="alert"
-		     data-ng-if="queersichtCtrl.sharedItemsService.errorMessage"
 		     type="alert">
 			<span translate="{{queersichtCtrl.sharedItemsService.errorMessage}}"></span>
 		</div>

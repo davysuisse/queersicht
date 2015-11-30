@@ -62,7 +62,7 @@
      * @returns {Number}
      */
     function lengthMap(map) {
-      return Object.keys(map).length;
+      return Object.keys(map).length + 1;
     }
 
     /**

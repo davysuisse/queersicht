@@ -11,6 +11,7 @@
   function queersichtController(TranslationService, SettingsService, CommonService, SharedItemsService) {
     var vm = this;
 
+    vm.cleanErrorMessage  = cleanErrorMessage;
     vm.isRefreshAvailable = isRefreshAvailable;
     vm.sharedItemsService = SharedItemsService;
     vm.settings           = SettingsService;
@@ -24,6 +25,11 @@
 
     function isRefreshAvailable() {
       return vm.settings.getSetting('selectedSaveStorage') && CommonService.isDefinedAndNotNull(vm.sharedItemsService.refreshCallback);
+    }
+
+    function cleanErrorMessage() {
+      console.log("dsad");
+      vm.sharedItemsService.errorMessage = undefined;
     }
   }
 })();
