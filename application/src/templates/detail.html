@@ -15,8 +15,8 @@
 						</td>
 					</tr>
 					<tr data-ng-repeat="(key, value) in pdC.detail.informations">
-						<td>{{key}}</td>
-						<td>{{value}}</td>
+						<td>{{key | uppercase | translate}}</td>
+						<td>{{value | translate}}</td>
 					</tr>
 					</tbody>
 				</table>

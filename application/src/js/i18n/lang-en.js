@@ -16,6 +16,8 @@
       LANG_GERMAN             : 'German',
       LANG_ENGLISH            : 'English',
       LANG_FRENCH             : 'French',
+      LANG_SPAIN              : 'Spanish',
+      LANG_RUSSIAN            : 'Russian',
       LANGUAGE_SETTINGS_TITLE : 'Language',
       LOCAL_MOVIE_TITLE       : 'Save program',
       MENU                    : 'Menu',
@@ -27,7 +29,19 @@
       RESET                   : 'Reset',
       SETTINGS_TITLE          : 'Settings',
       SPINNER_TITLE           : 'Loading Icon',
-      YES                     : 'Yes'
+      YES                     : 'Yes',
+      DURATION                : 'Duration',
+      YEAR                    : 'Year',
+      COUNTRY                 : 'Country',
+      LANGUAGE                : 'Language',
+      SUBTITLE                : 'Subtitle',
+      AUTOR                   : 'Author',
+
+      // Country
+      BR : 'Great Britain',
+      CH : 'Switzerland',
+      GE : 'Germany',
+      FR : 'France'
     };
   }
 
