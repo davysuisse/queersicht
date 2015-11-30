@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="movie-title title_padding">
 				<span class="fa fa-star favoris" data-ng-click="favC.deleteFavoris(favC.keyFavoris, movie.id)"></span>
-				<span class="title">{{movie.title}} - {{movie.time}}</span>
+				<span class="title">{{movie.title}} - {{movie.date | date:'EEE dd.MM.yy hh:mm'}} - {{movie.cinema}}</span>
 				<a data-ui-sref="detail({id: movie.id})" class="fa fa-chevron-right pull-right detail"></a>
 			</div>
 		</div>

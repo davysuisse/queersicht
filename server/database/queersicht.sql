@@ -3,7 +3,7 @@ CREATE DATABLE queersicht;
 use queersicht;
 
 CREATE TABLE movie (
-	id int(11) NOT NULL AUTO_INCREMENT,
+	movieId int(11) NOT NULL AUTO_INCREMENT,
 	title varchar(255),
 	image varchar(255),
 	description_de varchar(4000),
@@ -18,10 +18,10 @@ CREATE TABLE movie (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5;
 
 CREATE TABLE program (
-	id int(11) NOT NULL AUTO_INCREMENT,
+	programId int(11) NOT NULL AUTO_INCREMENT,
 	date datetime,
 	cinema varchar(255),
-	movie_id int(11),
+	movieId int(11),
 	PRIMARY KEY (id),
-	FOREIGN KEY (movie_id) REFERENCES movie(id)
+	FOREIGN KEY (movieId) REFERENCES movie(movieId)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5;

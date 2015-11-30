@@ -11,7 +11,7 @@
   var con = mysql.createConnection({
     host     : "localhost",
     user     : "clauded",
-    password : "D@vyclaude2",
+    password : "****",
     database : "queersicht"
   });
 
@@ -33,7 +33,7 @@
           var movie = {};
 
           // Program
-          movie.id     = row.id;
+          movie.id     = row.programId;
           movie.date   = row.date;
           movie.cinema = row.cinema;
 
