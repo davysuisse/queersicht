@@ -12,8 +12,9 @@
   function moviesController(StorageService, QSConstants, TranslationService, $attrs) {
     var vm = this;
 
-    vm.hideDates       = hideDates;
-    vm.hideCinemas     = hideCinemas;
+    vm.hideDates          = hideDates;
+    vm.hideCinemas        = hideCinemas;
+    vm.formatDate         = formatDate;
     vm.translationService = TranslationService;
 
     // Get functions' references from FavorisService
@@ -28,6 +29,10 @@
 
     function hideCinemas() {
       return $attrs && $attrs.hideCinemas;
+    }
+
+    function formatDate(date) {
+      return TranslationService.getMoment(date);
     }
   }
 

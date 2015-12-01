@@ -12,7 +12,8 @@
     var service = {
       setLanguage    : setLanguage,
       getLanguage    : getLanguage,
-      getDescription : getDescription
+      getDescription : getDescription,
+      getMoment      : getMoment
     };
 
     return service;
@@ -50,6 +51,10 @@
         default :
           return movie.description_de;
       }
+    }
+
+    function getMoment(date) {
+      return moment(date).locale(getLanguage()).format('dddd DD MMMM YYYY HH');
     }
   }
 })();

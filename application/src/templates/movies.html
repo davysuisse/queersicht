@@ -9,7 +9,7 @@
 			<!-- Title -->
 			<div data-ui-sref="detail({'movie': movie})" class="title" style="cursor: pointer;">
 				<span>{{movie.title}}</span>
-				<span data-ng-hide="moviesCtrl.hideDates()"> - {{movie.date | date:'EEE dd.MM.yy hh:mm'}}</span>
+				<span data-ng-hide="moviesCtrl.hideDates()"> - {{moviesCtrl.formatDate(movie.date)}}</span>
 				<span data-ng-hide="moviesCtrl.hideCinemas()"> - {{movie.cinema}}</span>
 				<i class="fa fa-chevron-right pull-right detail"></i>
 			</div>
