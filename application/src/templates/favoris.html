@@ -1,5 +1,5 @@
 <section class="section container-fluid">
-	<div class="col-sm-12 movies" data-ng-repeat="movie in favC.favoris" data-ng-if="favC.isInFavoris(favC.keyFavoris, movie.id)">
+	<div class="col-sm-12 movies" data-ng-repeat="movie in favC.favoris | orderBy : 'date'" data-ng-if="favC.isInFavoris(favC.keyFavoris, movie.id)">
 		<div class="row">
 			<div class="movie-title title_padding">
 				<span class="fa fa-star favoris" data-ng-click="favC.deleteFavoris(favC.keyFavoris, movie.id)"></span>
