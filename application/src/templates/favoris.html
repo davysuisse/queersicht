@@ -1,5 +1,7 @@
 <section class="section container-fluid">
-	<div class="col-sm-12 movies" data-ng-repeat="movie in favC.favoris | orderBy : 'date'" data-ng-if="favC.isInFavoris(favC.keyFavoris, movie.id)">
+	<div class="col-sm-12 movies"
+	     data-ng-repeat="movie in favC.favoris | orderBy : 'date'"
+	     data-ng-if="favC.isInFavoris(favC.keyFavoris, movie.id)">
 		<div class="row">
 			<div class="movie-title title_padding">
 				<span class="fa fa-star favoris" data-ng-click="favC.deleteFavoris(favC.keyFavoris, movie.id)"></span>
@@ -7,13 +9,12 @@
 				<a data-ui-sref="detail({id: movie.id})" class="fa fa-chevron-right pull-right detail"></a>
 			</div>
 		</div>
-		<div style="background-color: lightgrey;" class="row">
-			<div>
-                <span data-ng-if="movie.image" style="float:left; width:10%;">
-                    <img class="img-responsive" data-ng-src="{{movie.image}}"/>
-                </span>
-				<span>{{movie.summary}}</span>
+		<div class="row lightGray">
+			<div class="imageLeft">
+				<img data-ng-if="movie.image" class="img-responsive"
+				     data-ng-src="{{movie.image}}"/>
 			</div>
+			<span>{{favC.translationService.getDescription(movie)}}</span>
 		</div>
 	</div>
 </section>

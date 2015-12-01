@@ -20,14 +20,7 @@ var config = {
       './node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       './node_modules/angular-translate-storage-local/angular-translate-storage-local.js',
       './node_modules/angular-resource/angular-resource.js',
-      './node_modules/angular-animate/angular-animate.js',
       './node_modules/moment/min/moment-with-locales.js',
-      './node_modules/angular-aria/angular-aria.js',
-      './node_modules/angular-material/angular-material.js'
-    ],
-
-    css : [
-      './node_modules/angular-material/angular-material.css'
     ],
 
     fonts : [
@@ -172,7 +165,6 @@ gulp.task('js', function () {
  ====================================================================*/
 gulp.task('css', function () {
   streamqueue({objectMode : true},
-    gulp.src(config.vendor.css),
     gulp.src('./src/css/*.css')
   )
     .pipe(cssmin())

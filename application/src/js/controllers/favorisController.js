@@ -7,15 +7,18 @@
   /**
    * Manage the favoris stored in the localStorage
    */
-  favorisController.$inject = ['CommonService', 'RestCallService', 'StorageService', 'QSCStates', 'QSConstants'];
-  function favorisController(CommonService, RestCallService, StorageService, QSCStates, QSConstants) {
+  favorisController.$inject = [
+    'CommonService', 'RestCallService', 'StorageService', 'QSCStates', 'QSConstants', 'TranslationService'
+  ];
+  function favorisController(CommonService, RestCallService, StorageService, QSCStates, QSConstants, TranslationService) {
     var vm = this;
 
-    vm.keyFavoris    = QSConstants.favorisKey;
-    vm.addFavoris    = StorageService.addObjectInStorage;
-    vm.isInFavoris   = StorageService.isObjectInStorage;
-    vm.deleteFavoris = StorageService.deleteObjectInStorage;
-    vm.refresh       = refresh;
+    vm.keyFavoris         = QSConstants.favorisKey;
+    vm.addFavoris         = StorageService.addObjectInStorage;
+    vm.isInFavoris        = StorageService.isObjectInStorage;
+    vm.deleteFavoris      = StorageService.deleteObjectInStorage;
+    vm.translationService = TranslationService;
+    vm.refresh            = refresh;
 
     init();
 
