@@ -2,9 +2,10 @@
 
 This is the server containing the REST api (http://queersicht.ch/)
 
-The different plugins used for the development are the followings:
-- Node : https://nodejs.org/en/
-- Mysql : http://www.mysql.com
+The different steps to do to be able to run the server are the followings:
+- Node : https://nodejs.org/en/ // To launch the server.js
+- Mysql : http://www.mysql.com // You need to install MySQL on your machine
+- SQL Script : database/queersicht.sql // It will create a database and tables 
 
 # Installation instructions
 
@@ -12,12 +13,10 @@ First make sure these components are globally installed, by running:
 
     npm install -g express
 
-- You will need to launch the SQL script located in 'database'. It will create the database 'queersicht' and two tables 'movie' and 'program' . 
-
 After cloning the project, run the following commands:
 
     npm install // Install all the dependencies
-    node server.js // Start compiling and running server
+    node server.js // Start compiling and running server (In this file, you'll need to configure your MySQL configuration)
 
 This will start the server, it should be available at the following url:
 
