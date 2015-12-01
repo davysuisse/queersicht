@@ -8,11 +8,12 @@
   /**
    * Controller that
    */
-  moviesController.$inject = ['StorageService', 'QSConstants', 'TranslationService'];
-  function moviesController(StorageService, QSConstants, TranslationService) {
+  moviesController.$inject = ['StorageService', 'QSConstants', 'TranslationService', '$attrs'];
+  function moviesController(StorageService, QSConstants, TranslationService, $attrs) {
     var vm = this;
 
-    console.log(vm.predicate);
+    vm.hideDates       = hideDates;
+    vm.hideCinemas     = hideCinemas;
     vm.translationService = TranslationService;
 
     // Get functions' references from FavorisService
@@ -20,6 +21,14 @@
     vm.addFavoris    = StorageService.addObjectInStorage;
     vm.isInFavoris   = StorageService.isObjectInStorage;
     vm.deleteFavoris = StorageService.deleteObjectInStorage;
+
+    function hideDates() {
+      return $attrs && $attrs.hideDates;
+    }
+
+    function hideCinemas() {
+      return $attrs && $attrs.hideCinemas;
+    }
   }
 
   /**
@@ -34,7 +43,7 @@
       template         : $templateCache.get('movies.html'),
       bindToController : true,
       scope            : {
-        movies : '=',
+        movies    : '=',
         predicate : '@'
       }
     };

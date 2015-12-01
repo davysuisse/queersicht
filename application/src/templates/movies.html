@@ -8,7 +8,10 @@
                   data-ng-click="moviesCtrl.deleteFavoris(moviesCtrl.keyFavoris, movie.id)"></span>
 			<!-- Title -->
 			<div data-ui-sref="detail({'movie': movie})" style="cursor: pointer;">
-				<span class="title">{{movie.title}} - {{movie.date | date:'EEE dd.MM.yy hh:mm'}} - {{movie.cinema}}</span>
+				<span class="title">{{movie.title}}</span>
+				<span class="title"
+				      data-ng-hide="moviesCtrl.hideDates()"> - {{movie.date | date:'EEE dd.MM.yy hh:mm'}}</span>
+				<span class="title" data-ng-hide="moviesCtrl.hideCinemas()"> - {{movie.cinema}}</span>
 				<i class="fa fa-chevron-right pull-right detail"></i>
 			</div>
 		</div>
