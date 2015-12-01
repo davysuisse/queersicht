@@ -12,6 +12,7 @@
   function moviesController(StorageService, QSConstants, TranslationService) {
     var vm = this;
 
+    console.log(vm.predicate);
     vm.translationService = TranslationService;
 
     // Get functions' references from FavorisService
@@ -33,7 +34,8 @@
       template         : $templateCache.get('movies.html'),
       bindToController : true,
       scope            : {
-        movies : '=movies'
+        movies : '=',
+        predicate : '@'
       }
     };
   }

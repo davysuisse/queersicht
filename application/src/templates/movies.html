@@ -1,4 +1,4 @@
-<div class="col-sm-12 movies" data-ng-repeat="movie in moviesCtrl.movies">
+<div class="col-sm-12 movies" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
 	<div class="row">
 		<div class="movie-title title_padding">
 			<!-- Favoris -->
