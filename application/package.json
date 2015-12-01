@@ -11,6 +11,7 @@
     "angular-translate": "^2.8.1",
     "angular-translate-storage-cookie": "^2.8.1",
     "angular-translate-storage-local": "^2.8.1",
+    "angular-ui-layout": "^1.4.0",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.5",
     "cordova": "^5.4.0",
@@ -35,5 +36,10 @@
     "moment": "^2.10.6",
     "run-sequence": "^0.3.7",
     "streamqueue": "^0.1.1"
+  },
+  "dependencies": {
+    "angular-animate": "^1.4.8",
+    "angular-aria": "^1.4.8",
+    "angular-material": "^0.11.4"
   }
 }

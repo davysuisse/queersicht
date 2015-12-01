@@ -4,6 +4,9 @@
   angular.module('Queersicht', [
       'ui.router',
       'ngCookies',
+      'ngAria',
+      'ngAnimate',
+      'ngMaterial',
       'mobile-angular-ui',
       'pascalprecht.translate',
       'Queersicht.controllers',

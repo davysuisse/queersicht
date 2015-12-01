@@ -1,4 +1,5 @@
-<div class="col-sm-12 movies" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
+<div class="col-sm-12 movies"
+     data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
 	<div class="row">
 		<div class="movie-title title_padding">
 			<!-- Favoris -->
@@ -16,11 +17,10 @@
 		</div>
 	</div>
 	<div class="row lightGray">
-		<div>
-            <span data-ng-if="movie.image" style="float:left; width:10%;">
-                <img class="img-responsive" data-ng-src="{{movie.image}}"/>
-            </span>
-			<span>{{moviesCtrl.translationService.getDescription(movie)}}</span>
+		<div class="imageLeft">
+			<img data-ng-if="movie.image" class="img-responsive"
+			     data-ng-src="{{movie.image}}"/>
 		</div>
+		<span>{{moviesCtrl.translationService.getDescription(movie)}}</span>
 	</div>
-</div> 
+</div>

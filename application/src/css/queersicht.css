@@ -18,8 +18,8 @@
 }
 
 .movies {
+    margin: 0.5em;
     background-color: grey;
-    margin: 4px 0px;
     border: 1px solid black;
 }
 
@@ -91,6 +91,7 @@ a.list-group-item {
 
 .lightGray {
     background-color: lightgray;
+    padding: 0.5em;
 }
 
 #loading {
@@ -134,4 +135,13 @@ a.list-group-item {
     z-index: 1002;
     position: absolute;
     bottom: 0;
+}
+
+.imageLeft {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    float: left;
+    margin-right: 1em;
 }

@@ -20,7 +20,14 @@ var config = {
       './node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       './node_modules/angular-translate-storage-local/angular-translate-storage-local.js',
       './node_modules/angular-resource/angular-resource.js',
-      './node_modules/moment/min/moment-with-locales.js'
+      './node_modules/angular-animate/angular-animate.js',
+      './node_modules/moment/min/moment-with-locales.js',
+      './node_modules/angular-aria/angular-aria.js',
+      './node_modules/angular-material/angular-material.js'
+    ],
+
+    css : [
+      './node_modules/angular-material/angular-material.css'
     ],
 
     fonts : [
@@ -164,7 +171,10 @@ gulp.task('js', function () {
  =            Compile and minify css                                  =
  ====================================================================*/
 gulp.task('css', function () {
-  gulp.src('./src/css/*.css')
+  streamqueue({objectMode : true},
+    gulp.src(config.vendor.css),
+    gulp.src('./src/css/*.css')
+  )
     .pipe(cssmin())
     .pipe(rename({suffix : '.min'}))
     .pipe(gulp.dest(path.join(config.dest, 'css')))
