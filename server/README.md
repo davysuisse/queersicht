@@ -12,7 +12,7 @@ First make sure these components are globally installed, by running:
 
     npm install -g express
 
-You will need to launch the SQL script located in 'database'. It will create the datable 'queersicht' and two tables. 
+- You will need to launch the SQL script located in 'database'. It will create the database 'queersicht' and two tables 'movie' and 'program' . 
 
 After cloning the project, run the following commands:
 
