@@ -53,8 +53,8 @@
       }
     }
 
-    function getMoment(date) {
-      return moment(date).locale(getLanguage()).format('dddd DD MMMM YYYY HH');
+    function getMoment(date, format) {
+      return moment(date).locale(getLanguage()).format(format);
     }
   }
 })();

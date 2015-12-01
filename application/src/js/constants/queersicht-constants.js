@@ -25,6 +25,9 @@
       programService : {'key' : 'program', url : '/program'},
       newsService    : {'key' : 'news', url : '/news'},
 
+      formatDateTime : 'dddd DD MMMM YYYY HH:MM',
+      formatDate     : 'dddd DD MMMM YY',
+
       // Default settings
       defaultSettings : {
         'selectedSpinner'     : 'fa-spinner',

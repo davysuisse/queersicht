@@ -32,7 +32,7 @@
     }
 
     function formatDate(date) {
-      return TranslationService.getMoment(date);
+      return TranslationService.getMoment(date, QSConstants.formatDateTime);
     }
   }
 

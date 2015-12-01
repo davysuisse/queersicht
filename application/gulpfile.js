@@ -20,7 +20,7 @@ var config = {
       './node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       './node_modules/angular-translate-storage-local/angular-translate-storage-local.js',
       './node_modules/angular-resource/angular-resource.js',
-      './node_modules/moment/min/moment-with-locales.js.js'
+      './node_modules/moment/min/moment-with-locales.js'
     ],
 
     fonts : [

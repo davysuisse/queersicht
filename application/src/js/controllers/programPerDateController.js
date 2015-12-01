@@ -7,8 +7,8 @@
   /**
    * Manage the program per Date
    */
-  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates', 'QSConstants', '$filter'];
-  function programPerDateController(CommonService, RestCallService, QSCStates, QSConstants, $filter) {
+  programPerDateController.$inject = ['CommonService', 'RestCallService', 'QSCStates', 'QSConstants', 'TranslationService'];
+  function programPerDateController(CommonService, RestCallService, QSCStates, QSConstants, TranslationService) {
     var vm = this;
 
     vm.refresh = refresh;
@@ -30,7 +30,7 @@
 
         // Sorting movies by date
         angular.forEach(response.data, function (data) {
-          var date = $filter('date')(data.date, 'EEE dd.MM.yyyy');
+          var date = TranslationService.getMoment(date, QSConstants.formatDate);
           if (!CommonService.isDefinedAndNotNull(this[date])) {
             this[date] = [];
           }
