@@ -25,8 +25,9 @@
       programService : {'key' : 'program', url : '/program'},
       newsService    : {'key' : 'news', url : '/news'},
 
-      formatDateTime : 'dddd DD MMMM YYYY HH:MM',
-      formatDate     : 'dddd DD MMMM YY',
+      formatFullDate : 'dddd DD MMMM YYYY',
+      formatDate     : 'dd DD MMM YY',
+      formatTime     : 'HH:MM',
 
       // Default settings
       defaultSettings : {

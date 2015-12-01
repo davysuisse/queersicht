@@ -30,7 +30,7 @@
 
         // Sorting movies by date
         angular.forEach(response.data, function (data) {
-          var date = TranslationService.getMoment(date, QSConstants.formatDate);
+          var date = TranslationService.getMoment(date, QSConstants.formatFullDate);
           if (!CommonService.isDefinedAndNotNull(this[date])) {
             this[date] = [];
           }

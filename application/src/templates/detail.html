@@ -1,8 +1,14 @@
 <section class="section container-fluid">
 	<div class="col-sm-12 movies" data-ng-if="!!pdC.detail">
 		<div class="row">
-			<div class="movie-title title_padding">
-				<span class="title">{{pdC.detail.title}}</span>
+			<div class="movie-title title title_padding">
+				<span class="col-sm-3" style="text-align: center !important;">{{pdC.detail.title}}</span>
+					<span class="col-sm-3"
+					      style="text-align: center !important;">{{pdC.detail.cinema}}</span>
+					<span class="col-sm-3"
+					      style="text-align: center !important;">{{pdC.formatDate(pdC.detail.date)}}</span>
+					<span class="col-sm-3"
+					      style="text-align: center !important;">{{pdC.formatTime(pdC.detail.date)}}</span>
 			</div>
 		</div>
 		<div class="row lightGray">

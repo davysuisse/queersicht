@@ -18,6 +18,8 @@
     vm.isInFavoris        = StorageService.isObjectInStorage;
     vm.deleteFavoris      = StorageService.deleteObjectInStorage;
     vm.translationService = TranslationService;
+    vm.formatDate         = formatDate;
+    vm.formatTime         = formatTime;
     vm.refresh            = refresh;
 
     init();
@@ -39,6 +41,14 @@
       }, function (error) {
         CommonService.errorMessage('ERROR_500', QSCStates.stateFavoris);
       });
+    }
+
+    function formatDate(date) {
+      return TranslationService.getMoment(date, QSConstants.formatDate);
+    }
+
+    function formatTime(date) {
+      return TranslationService.getMoment(date, QSConstants.formatTime);
     }
 
     /**

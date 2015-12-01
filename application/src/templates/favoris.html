@@ -4,9 +4,20 @@
 	     data-ng-if="favC.isInFavoris(favC.keyFavoris, movie.id)">
 		<div class="row">
 			<div class="movie-title title_padding">
-				<span class="fa fa-star favoris" data-ng-click="favC.deleteFavoris(favC.keyFavoris, movie.id)"></span>
-				<span class="title">{{movie.title}} - {{movie.date | date:'EEE dd.MM.yy hh:mm'}} - {{movie.cinema}}</span>
-				<a data-ui-sref="detail({id: movie.id})" class="fa fa-chevron-right pull-right detail"></a>
+				<!-- Favoris -->
+	            <span class="fa fa-star favoris" data-ng-show="favC.isInFavoris(favC.keyFavoris, movie.id)"
+	                  data-ng-click="moviesCtrl.deleteFavoris(favC.keyFavoris, movie.id)"></span>
+				<!-- Title -->
+				<div data-ui-sref="detail({'movie': movie})" class="title" style="cursor: pointer;">
+					<span class="col-sm-3" style="text-align: center !important;">{{movie.title}}</span>
+					<span class="col-sm-3"
+					      style="text-align: center !important;">{{movie.cinema}}</span>
+					<span class="col-sm-3"
+					      style="text-align: center !important;">{{favC.formatDate(movie.date)}}</span>
+					<span class="col-sm-3"
+					      style="text-align: center !important;">{{favC.formatTime(movie.date)}}</span>
+					<i class="fa fa-chevron-right pull-right detail"></i>
+				</div>
 			</div>
 		</div>
 		<div class="row lightGray">
@@ -14,7 +25,7 @@
 				<img data-ng-if="movie.image" class="img-responsive"
 				     data-ng-src="{{movie.image}}"/>
 			</div>
-			<span>{{favC.translationService.getDescription(movie)}}</span>
+			<span>{{moviesCtrl.translationService.getDescription(movie)}}</span>
 		</div>
 	</div>
 </section>

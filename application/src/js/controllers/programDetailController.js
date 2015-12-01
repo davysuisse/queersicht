@@ -13,8 +13,10 @@
   function programDetailController($stateParams, CommonService, QSConstants, $injector, QSCStates, TranslationService) {
     var vm = this;
 
-    vm.lengthMap = CommonService.lengthMap;
     vm.translationService = TranslationService;
+    vm.lengthMap          = CommonService.lengthMap;
+    vm.formatDate         = formatDate;
+    vm.formatTime         = formatTime;
 
     init();
 
@@ -25,6 +27,14 @@
       if (!CommonService.isDefinedAndNotNull(vm.detail)) {
         $injector.get('$state').go(QSCStates.stateMovie);
       }
+    }
+
+    function formatDate(date) {
+      return TranslationService.getMoment(date, QSConstants.formatDate);
+    }
+
+    function formatTime(date) {
+      return TranslationService.getMoment(date, QSConstants.formatTime);
     }
   }
 })();
