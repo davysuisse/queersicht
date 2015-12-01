@@ -9,7 +9,7 @@
       'Queersicht.controllers',
       'Queersicht.services',
       'Queersicht.directives',
-      'Queersicht.constants'
+      'Queersicht.constants',
     ]
   );
 
