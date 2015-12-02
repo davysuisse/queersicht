@@ -26,7 +26,7 @@
       newsService    : {'key' : 'news', url : '/news'},
 
       formatFullDate : 'dddd DD MMMM YYYY',
-      formatDate     : 'dd DD MMM YY',
+      formatDate     : 'DD.MM.YY',
       formatTime     : 'HH:MM',
 
       // Default settings

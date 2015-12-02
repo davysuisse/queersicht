@@ -1,36 +1,26 @@
 <section class="section container-fluid">
-	<div class="col-sm-12 movies"
-	     data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
-		<div class="row">
-			<div class="movie-title title_padding">
-				<!-- Favoris -->
-	            <span class="fa fa-star-o favoris"
-	                  data-ng-show="!moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
-	                  data-ng-click="moviesCtrl.addFavoris(moviesCtrl.keyFavoris, movie.id)"></span>
-	            <span class="fa fa-star favoris" data-ng-show="moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
-	                  data-ng-click="moviesCtrl.deleteFavoris(moviesCtrl.keyFavoris, movie.id)"></span>
-				<!-- Title -->
-				<div data-ui-sref="detail({'movie': movie})" class="title" style="cursor: pointer;">
-					<span class="col-sm-3" style="text-align: center !important;">{{movie.title}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;"
-					      data-ng-show="moviesCtrl.isPerDate">{{movie.cinema}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;"
-					      data-ng-show="moviesCtrl.isPerCinema">{{moviesCtrl.formatDate(movie.date)}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;"
-					      data-ng-show="moviesCtrl.isPerCinema || moviesCtrl.isPerDate">{{moviesCtrl.formatTime(movie.date)}}</span>
-					<i class="fa fa-chevron-right pull-right detail"></i>
+	<div class="row">
+		<div class="col-sm-6 col-md-3" data-ui-sref="detail({'movie': movie})" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
+			<div style="background-color: lightgrey; cursor: pointer; border: 1px solid black; margin-bottom:20px; padding: 4px;">
+				<div class="title_padding movie-title">
+	                <span style="z-index: 1000;" class="fa fa-star-o favoris"
+	                      data-ng-show="!moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
+	                      data-ng-click="moviesCtrl.addFavoris(moviesCtrl.keyFavoris, movie.id); $event.stopPropagation();"></span>
+		            <span style="z-index: 1000;" class="fa fa-star favoris" data-ng-show="moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
+		                  data-ng-click="moviesCtrl.deleteFavoris(moviesCtrl.keyFavoris, movie.id); $event.stopPropagation();"></span>
+					<div class="title" style="width: 100%;">
+						{{moviesCtrl.getTitle(movie)}}
+					</div>
+				</div>
+				<img data-ng-if="movie.image"
+				     style="width: 100%; border: 1px solid black;"
+				     class="img-responsive"
+				     src="http://placeimg.com/400/200/people"/>
+
+				<div class="caption lightGray">
+					<p>{{moviesCtrl.translationService.getDescription(movie)}}</p>
 				</div>
 			</div>
-		</div>
-		<div class="row lightGray">
-			<div class="imageLeft">
-				<img data-ng-if="movie.image" class="img-responsive"
-				     data-ng-src="{{movie.image}}"/>
-			</div>
-			<span>{{moviesCtrl.translationService.getDescription(movie)}}</span>
 		</div>
 	</div>
 </section>
