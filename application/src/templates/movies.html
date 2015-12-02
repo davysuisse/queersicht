@@ -3,10 +3,10 @@
 		<div class="col-sm-6 col-md-3" data-ui-sref="detail({'movie': movie})" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
 			<div style="background-color: lightgrey; cursor: pointer; border: 1px solid black; margin-bottom:20px; padding: 4px;">
 				<div class="title_padding movie-title">
-	                <span style="z-index: 1000;" class="fa fa-star-o favoris"
+	                <span class="fa fa-star-o favoris"
 	                      data-ng-show="!moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
 	                      data-ng-click="moviesCtrl.addFavoris(moviesCtrl.keyFavoris, movie.id); $event.stopPropagation();"></span>
-		            <span style="z-index: 1000;" class="fa fa-star favoris" data-ng-show="moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
+		            <span class="fa fa-star favoris" data-ng-show="moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
 		                  data-ng-click="moviesCtrl.deleteFavoris(moviesCtrl.keyFavoris, movie.id); $event.stopPropagation();"></span>
 					<div class="title" style="width: 100%;">
 						{{moviesCtrl.getTitle(movie)}}
