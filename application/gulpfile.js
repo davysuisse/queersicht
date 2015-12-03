@@ -29,7 +29,7 @@ var config = {
 
     fonts : [
       './node_modules/font-awesome/fonts/fontawesome-webfont.*',
-      './src/css/GloberRegular.otf'
+      './src/font/GloberRegular.otf'
     ]
   },
 
