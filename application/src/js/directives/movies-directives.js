@@ -12,27 +12,19 @@
   function moviesController(StorageService, QSConstants, TranslationService, $attrs) {
     var vm = this;
 
-    vm.formatDate = formatDate;
-    vm.formatTime = formatTime;
-    vm.getTitle   = getTitle;
-
-    vm.isPerDate          = $attrs && $attrs.isPerDate;
-    vm.isPerCinema        = $attrs && $attrs.isPerCinema;
-    vm.translationService = TranslationService;
-
-    // Get functions' references from FavorisService
-    vm.keyFavoris    = QSConstants.favorisKey;
-    vm.addFavoris    = StorageService.addObjectInStorage;
-    vm.isInFavoris   = StorageService.isObjectInStorage;
-    vm.deleteFavoris = StorageService.deleteObjectInStorage;
+    vm.getTitle           = getTitle;
+    vm.getDescription     = getDescription;
+    vm.addOrDeleteFavoris = addOrDeleteFavoris;
+    vm.isInFavoris        = isInFavoris;
+    vm.isFavoris          = $attrs && $attrs.isFavoris;
 
     function getTitle(movie) {
       var title = movie.title;
 
-      if (vm.isPerCinema) {
+      if ($attrs && $attrs.isPerCinema) {
         title += ' - ' + formatDate(movie.date) + ' ' + formatTime(movie.date);
       }
-      else if (vm.isPerDate) {
+      else if ($attrs && ($attrs.isPerDate || $attrs.isFavoris)) {
         title += ' - ' + movie.cinema + ' - ' + formatTime(movie.date);
       }
 
@@ -46,6 +38,22 @@
     function formatTime(date) {
       return TranslationService.getMoment(date, QSConstants.formatTime);
     }
+
+    function getDescription(movie) {
+      return TranslationService.getDescription(movie);
+    }
+
+    function isInFavoris(movieId) {
+      return StorageService.isObjectInStorage(QSConstants.favorisKey, movieId);
+    }
+
+    function addOrDeleteFavoris(movieId) {
+      if (!StorageService.isObjectInStorage(QSConstants.favorisKey, movieId)) {
+        StorageService.addObjectInStorage(QSConstants.favorisKey, movieId);
+      } else {
+        StorageService.deleteObjectInStorage(QSConstants.favorisKey, movieId);
+      }
+    }
   }
 
   /**
@@ -56,7 +64,7 @@
     return {
       restrict         : 'AE',
       controller       : 'MoviesController',
-      controllerAs     : 'moviesCtrl',
+      controllerAs     : 'mC',
       template         : $templateCache.get('movies.html'),
       bindToController : true,
       scope            : {

@@ -24,7 +24,7 @@ var config = {
     ],
 
     css : [
-      './node_modules/bootstrap/dist/css/*.css'
+      './node_modules/bootstrap/dist/css/bootstrap.css'
     ],
 
     fonts : [

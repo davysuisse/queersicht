@@ -13,14 +13,8 @@
   function favorisController(CommonService, RestCallService, StorageService, QSCStates, QSConstants, TranslationService) {
     var vm = this;
 
-    vm.keyFavoris         = QSConstants.favorisKey;
-    vm.addFavoris         = StorageService.addObjectInStorage;
-    vm.isInFavoris        = StorageService.isObjectInStorage;
-    vm.deleteFavoris      = StorageService.deleteObjectInStorage;
-    vm.translationService = TranslationService;
-    vm.formatDate         = formatDate;
-    vm.formatTime         = formatTime;
-    vm.refresh            = refresh;
+    vm.refresh      = refresh;
+    vm.stillFavoris = stillFavoris;
 
     init();
 
@@ -36,19 +30,25 @@
 
     function loadDatas(promise) {
       promise.then(function (response) {
-        var movies = response.data;
-        sortFavoris(movies || []);
+        vm.dates = {};
+
+        // Sorting favoris by date
+        var favoris = sortFavoris(response.data);
+        angular.forEach(favoris, function (data) {
+          var date = TranslationService.getMoment(data.date, QSConstants.formatFullDate);
+          if (!CommonService.isDefinedAndNotNull(this[date])) {
+            this[date] = [];
+          }
+          this[date].push(data);
+        }, vm.dates);
+
       }, function (error) {
         CommonService.errorMessage('ERROR_500', QSCStates.stateFavoris);
       });
     }
 
-    function formatDate(date) {
-      return TranslationService.getMoment(date, QSConstants.formatDate);
-    }
-
-    function formatTime(date) {
-      return TranslationService.getMoment(date, QSConstants.formatTime);
+    function stillFavoris(movies) {
+      return sortFavoris(movies).length > 0;
     }
 
     /**
@@ -56,12 +56,13 @@
      * @param movies
      */
     function sortFavoris(movies) {
-      vm.favoris = [];
+      var favoris = [];
       for (var i = 0; i < movies.length; i++) {
-        if (StorageService.isObjectInStorage(vm.keyFavoris, movies[i].id)) {
-          vm.favoris.push(movies[i]);
+        if (StorageService.isObjectInStorage(QSConstants.favorisKey, movies[i].id)) {
+          favoris.push(movies[i]);
         }
       }
+      return favoris;
     }
   }
 })();

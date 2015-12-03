@@ -3,19 +3,6 @@
     src: url(../fonts/GloberRegular.otf);
 }
 
-.movie-title {
-    padding: 6px 10px;
-    font-size: 15px;
-    font-weight: 300;
-    color: #fff;
-    background: #2f3336;
-}
-
-.favoris {
-    color: yellow;
-    float: left;
-}
-
 .movies {
     margin: 0.5em;
     background-color: grey;
@@ -26,14 +13,6 @@ h2 {
     border-top: 2px solid #2f3336;
     border-bottom: 2px solid #2f3336;
     margin-top: 50px !important;
-}
-
-.title {
-    padding-left: 20px;
-}
-
-.title_padding {
-    padding-top: 10px;
 }
 
 .detail:hover {
@@ -71,7 +50,7 @@ a.list-group-item {
     background-color: #2f3336 !important;
 }
 
-.list-group-item.active, .list-group-item.active:focus {
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     z-index: 2;
     color: black !important;
     background-color: white !important;
@@ -82,15 +61,10 @@ a.list-group-item {
     background: white !important;
 }
 
-.pull-down {
+.scrollable-content .list-group .pull-down {
     position: absolute;
     bottom: 0;
     width: 100%;
-}
-
-.lightGray {
-    background-color: lightgray;
-    padding: 0.5em;
 }
 
 #loading {
@@ -105,7 +79,7 @@ a.list-group-item {
     text-align: center;
 }
 
-.spinner {
+#loading .spinner {
     position: initial;
     color: black;
     z-index: 1001;
@@ -122,13 +96,15 @@ a.list-group-item {
     background-color: lightgrey;
 }
 
-.errorIcon {
+#errorPage .errorIcon {
     position: initial;
     top: 50%;
     left: 50%;
+    display: block;
+    text-align: center;
 }
 
-.errorMessage {
+.app .app-body .errorMessage {
     margin: auto;
     width: 100%;
     z-index: 1002;
@@ -136,11 +112,39 @@ a.list-group-item {
     bottom: 0;
 }
 
-.imageLeft {
-    position: relative;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    float: left;
-    margin-right: 1em;
+section .row .margin-b-2 {
+    margin-bottom: 2em !important;
+}
+
+div .tile-movie {
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+div .tile-movie .img-movie {
+    width: 100%;
+    height: auto;
+    border: 1px solid black;
+}
+
+div .tile-movie .description-movie {
+    background-color: lightgray;
+    padding: 0.5em;
+    min-height: 150px;
+    border: 1px solid black;
+}
+
+div .title-movie {
+    padding: 4px 8px;
+    color: #fff;
+    background: #2f3336;
+}
+
+div .title-movie .favoris {
+    color: yellow;
+}
+
+div .title-movie span {
+    vertical-align: middle;
 }

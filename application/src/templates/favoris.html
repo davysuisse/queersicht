@@ -1,31 +1,7 @@
 <section class="section container-fluid">
-	<div class="col-sm-12 movies"
-	     data-ng-repeat="movie in favC.favoris | orderBy : 'date'"
-	     data-ng-if="favC.isInFavoris(favC.keyFavoris, movie.id)">
-		<div class="row">
-			<div class="movie-title title_padding">
-				<!-- Favoris -->
-	            <span class="fa fa-star favoris" data-ng-show="favC.isInFavoris(favC.keyFavoris, movie.id)"
-	                  data-ng-click="favC.deleteFavoris(favC.keyFavoris, movie.id)"></span>
-				<!-- Title -->
-				<div data-ui-sref="detail({'movie': movie})" class="title" style="cursor: pointer;">
-					<span class="col-sm-3" style="text-align: center !important;">{{movie.title}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;">{{movie.cinema}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;">{{favC.formatDate(movie.date)}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;">{{favC.formatTime(movie.date)}}</span>
-					<i class="fa fa-chevron-right pull-right detail"></i>
-				</div>
-			</div>
-		</div>
-		<div class="row lightGray">
-			<div class="imageLeft">
-				<img data-ng-if="movie.image" class="img-responsive"
-				     data-ng-src="{{movie.image}}"/>
-			</div>
-			<span>{{favC.translationService.getDescription(movie)}}</span>
-		</div>
+	<div class="col-sm-12" data-ng-repeat="(date_title, movies) in favC.dates" data-ng-show="favC.stillFavoris(movies)">
+		<h2>{{date_title}}</h2>
+
+		<div movies="movies" predicate="date" is-favoris="true"></div>
 	</div>
 </section>

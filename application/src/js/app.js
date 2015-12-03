@@ -9,6 +9,7 @@
       'Queersicht.controllers',
       'Queersicht.services',
       'Queersicht.directives',
+      'Queersicht.filters',
       'Queersicht.constants'
     ]
   );
@@ -18,5 +19,6 @@
   angular.module('Queersicht.directives', []);
   angular.module('Queersicht.controllers', []);
   angular.module('Queersicht.constants', []);
+  angular.module('Queersicht.filters', []);
 
 })();
