@@ -1,18 +1,18 @@
 <section class="section container-fluid">
 	<div class="row">
 		<div class="col-sm-6 col-md-6 col-lg-6 margin-b-2"
-		     data-ui-sref="detail({'movie': movie})"
-		     data-ng-repeat="movie in mC.movies | orderBy : mC.predicate" data-ng-hide="mC.isFavoris && !mC.isInFavoris(movie.id)">
+		     data-ng-click="mC.goDetail(movie)"
+		     data-ng-repeat="movie in mC.movies | orderBy : mC.predicate"
+		     data-ng-hide="mC.isFavoris && !mC.isInFavoris(movie.id)">
 			<div class="tile-movie">
-				<div class="title-movie">
+				<div class="title-movie" data-ng-class="{'tile-movie-cursor' : mc.isNews}">
 	                <span class="fa favoris"
 	                      data-ng-class="{'fa-star-o' : !mC.isInFavoris(movie.id), 'fa-star' : mC.isInFavoris(movie.id)}"
 	                      data-ng-click="mC.addOrDeleteFavoris(movie.id); $event.stopPropagation();"></span>
 					<span>{{mC.getTitle(movie)}}</span>
 				</div>
-				<img data-ng-if="movie.image"
-				     class="img-responsive img-movie"
-				     src="http://placeimg.com/400/200/people"/>
+				<img class="img-responsive img-movie"
+				     data-ng-src="{{mC.getImage(movie)}}"/>
 
 				<div class="description-movie">
 					<p>{{mC.getDescription(movie) | truncate:true:450}}</p>

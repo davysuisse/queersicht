@@ -1,17 +1,3 @@
 <section class="section container-fluid">
-	<div class="col-sm-12 movies" data-ng-repeat="news in newsC.news">
-		<div class="row">
-			<div class="title-movie title_padding">
-				<span class="title">{{news.time}} - {{news.title}}</span>
-			</div>
-		</div>
-		<div style="background-color: lightgrey;" class="row">
-			<div>
-                <span data-ng-if="news.image" style="float:left; width:10%;">
-                    <img class="img-responsive" data-ng-src="{{news.image}}"/>
-                </span>
-				<span>{{news.summary}}</span>
-			</div>
-		</div>
-	</div>
+	<div movies="newsC.news" predicate="title" is-news="true"></div>
 </section>

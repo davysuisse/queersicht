@@ -6,17 +6,22 @@
     .directive('movies', moviesDirective);
 
   /**
-   * Controller that
+   * Controller that manages movies
    */
-  moviesController.$inject = ['StorageService', 'QSConstants', 'TranslationService', '$attrs'];
-  function moviesController(StorageService, QSConstants, TranslationService, $attrs) {
+  moviesController.$inject = [
+    'StorageService', 'QSConstants', 'TranslationService', '$attrs', '$injector', 'QSCStates'
+  ];
+  function moviesController(StorageService, QSConstants, TranslationService, $attrs, $injector, QSCStates) {
     var vm = this;
 
     vm.getTitle           = getTitle;
     vm.getDescription     = getDescription;
     vm.addOrDeleteFavoris = addOrDeleteFavoris;
     vm.isInFavoris        = isInFavoris;
+    vm.goDetail           = goDetail;
+    vm.getImage           = getImage;
     vm.isFavoris          = $attrs && $attrs.isFavoris;
+    vm.isNews             = $attrs && $attrs.isNews;
 
     function getTitle(movie) {
       var title = movie.title;
@@ -52,6 +57,16 @@
         StorageService.addObjectInStorage(QSConstants.favorisKey, movieId);
       } else {
         StorageService.deleteObjectInStorage(QSConstants.favorisKey, movieId);
+      }
+    }
+
+    function getImage(movie) {
+      return movie.image || 'http://placeimg.com/400/200/people';
+    }
+
+    function goDetail(movie) {
+      if (!vm.isNews) {
+        $injector.get('$state').go(QSCStates.stateDetail, {'movie' : movie});
       }
     }
   }

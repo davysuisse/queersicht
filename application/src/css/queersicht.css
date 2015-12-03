@@ -117,9 +117,12 @@ section .row .margin-b-2 {
 }
 
 div .tile-movie {
-    cursor: pointer;
     border: 1px solid black;
     padding: 4px;
+}
+
+div .tile-movie-cursor {
+    cursor: pointer;
 }
 
 div .tile-movie .img-movie {
