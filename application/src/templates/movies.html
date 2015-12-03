@@ -1,6 +1,6 @@
 <section class="section container-fluid">
 	<div class="row">
-		<div class="col-sm-6 col-md-3" data-ui-sref="detail({'movie': movie})" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
+		<div class="col-sm-6 col-md-4 col-lg-4" data-ui-sref="detail({'movie': movie})" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
 			<div style="background-color: lightgrey; cursor: pointer; border: 1px solid black; margin-bottom:20px; padding: 4px;">
 				<div class="title_padding movie-title">
 	                <span class="fa fa-star-o favoris"
@@ -13,7 +13,29 @@
 					</div>
 				</div>
 				<img data-ng-if="movie.image"
-				     style="width: 100%; border: 1px solid black;"
+				     style="width: 100%; height: auto;; border: 1px solid black;"
+				     class="img-responsive"
+				     src="http://placeimg.com/400/200/people"/>
+
+				<div class="caption lightGray">
+					<p>{{moviesCtrl.translationService.getDescription(movie)}}</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-6 col-md-4 col-lg-4" data-ui-sref="detail({'movie': movie})" data-ng-repeat="movie in moviesCtrl.movies | orderBy : moviesCtrl.predicate">
+			<div style="background-color: lightgrey; cursor: pointer; border: 1px solid black; margin-bottom:20px; padding: 4px;">
+				<div class="title_padding movie-title">
+	                <span class="fa fa-star-o favoris"
+	                      data-ng-show="!moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
+	                      data-ng-click="moviesCtrl.addFavoris(moviesCtrl.keyFavoris, movie.id); $event.stopPropagation();"></span>
+		            <span class="fa fa-star favoris" data-ng-show="moviesCtrl.isInFavoris(moviesCtrl.keyFavoris, movie.id)"
+		                  data-ng-click="moviesCtrl.deleteFavoris(moviesCtrl.keyFavoris, movie.id); $event.stopPropagation();"></span>
+					<div class="title" style="width: 100%;">
+						{{moviesCtrl.getTitle(movie)}}
+					</div>
+				</div>
+				<img data-ng-if="movie.image"
+				     style="width: 100%; height: auto;; border: 1px solid black;"
 				     class="img-responsive"
 				     src="http://placeimg.com/400/200/people"/>
 

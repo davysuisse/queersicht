@@ -23,6 +23,10 @@ var config = {
       './node_modules/moment/min/moment-with-locales.js'
     ],
 
+    css : [
+      './node_modules/bootstrap/dist/css/*.css'
+    ],
+
     fonts : [
       './node_modules/font-awesome/fonts/fontawesome-webfont.*',
       './src/css/GloberRegular.otf'
@@ -165,9 +169,11 @@ gulp.task('js', function () {
  ====================================================================*/
 gulp.task('css', function () {
   streamqueue({objectMode : true},
+    gulp.src(config.vendor.css),
     gulp.src('./src/css/*.css')
   )
     .pipe(cssmin())
+    .pipe(concat('app.css'))
     .pipe(rename({suffix : '.min'}))
     .pipe(gulp.dest(path.join(config.dest, 'css')))
 });
