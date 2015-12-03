@@ -60,10 +60,19 @@
       }
     }
 
+    /**
+     * Get image of the movie, if none get the default one
+     * @param movie
+     * @returns {*|string}
+     */
     function getImage(movie) {
-      return movie.image || 'http://placeimg.com/400/200/people';
+      return movie.image || QSConstants.defaultImage;
     }
 
+    /**
+     * Go to the details, only if it's not the news page
+     * @param movie
+     */
     function goDetail(movie) {
       if (!vm.isNews) {
         $injector.get('$state').go(QSCStates.stateDetail, {'movie' : movie});

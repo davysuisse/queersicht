@@ -9,7 +9,8 @@
   function qsConstants() {
     return {
       // Server url
-      urlService : 'http://localhost:8081/api',
+      urlService   : 'http://localhost:8081/api',
+      defaultImage : 'http://placeimg.com/400/200/people',
 
       // Property passed through states
       movieProperty     : 'movie',
