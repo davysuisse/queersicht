@@ -21,6 +21,7 @@
       LANGUAGE_SETTINGS_TITLE : 'Langue',
       LOCAL_MOVIE_TITLE       : 'Sauvegarder le programme',
       MENU                    : 'Menu',
+      MORE_INFOS              : 'Infos',
       NEWS_TITLE              : 'News',
       NO                      : 'Non',
       PROG_PER_CINEMA_TITLE   : 'Programme par cinéma',

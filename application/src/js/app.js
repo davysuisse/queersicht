@@ -5,6 +5,7 @@
       'ui.router',
       'ngCookies',
       'mobile-angular-ui',
+      'ui.bootstrap',
       'pascalprecht.translate',
       'Queersicht.controllers',
       'Queersicht.services',

@@ -72,7 +72,6 @@
       }
     }
 
-
     function formatDate(date) {
       return TranslationService.getMoment(date, QSConstants.formatDate);
     }

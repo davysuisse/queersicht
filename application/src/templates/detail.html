@@ -1,34 +1,17 @@
 <section class="section container-fluid">
-	<div class="col-sm-12 movies" data-ng-if="!!pdC.detail">
-		<div class="row">
-			<div class="title-movie title title_padding">
-				<span class="col-sm-3" style="text-align: center !important;">{{pdC.detail.title}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;">{{pdC.detail.cinema}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;">{{pdC.formatDate(pdC.detail.date)}}</span>
-					<span class="col-sm-3"
-					      style="text-align: center !important;">{{pdC.formatTime(pdC.detail.date)}}</span>
-			</div>
-		</div>
-		<div class="row lightGray">
-			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-				<table class="table">
-					<tbody>
-					<tr>
-						<td rowspan="{{pdC.lengthMap(pdC.detail.informations)+1}}">
-							<img class="img-responsive" data-ng-src="{{pdC.detail.image}}"/>
-						</td>
-					</tr>
-					<tr data-ng-repeat="(key, value) in pdC.detail.informations">
-						<td>{{key | uppercase | translate}}</td>
-						<td>{{value | translate}}</td>
-					</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-				<span>{{pdC.translationService.getDescription(pdC.detail)}}</span>
+	<div class="row">
+		<div class="col-sm-12 col-md-6 col-lg-6">
+			<div class="tile-movie">
+				<div class="title-movie">
+					<span>{{pdC.detail.title}}</span>
+					<button class="btn btn-default btn-xs infoButton" data-ng-click="pdC.openInfo(pdC.detail)" ><span translate="MORE_INFOS"></span></button>
+				</div>
+				<img class="img-responsive img-movie"
+				     data-ng-src="{{pdC.getImage(pdC.detail)}}"/>
+
+				<div class="description-movie">
+					<p>{{pdC.getDescription(pdC.detail)}}</p>
+				</div>
 			</div>
 		</div>
 	</div>

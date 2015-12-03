@@ -12,7 +12,8 @@ var config = {
       './node_modules/angular-sanitize/angular-sanitize.js',
       './node_modules/angular-route/angular-route.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js',
-      './node_modules/angular-bootstrap/ui-bootstrap.js',
+      './node_modules/angular-ui-bootstrap/ui-bootstrap.js',
+      './node_modules/angular-ui-bootstrap/ui-bootstrap-tpls.js',
       './node_modules/angular-mocks/angular-mocks.js',
       './src/js/scripts/mobile-angular-ui.js',
       './src/js/scripts/angular-cookies.js',
@@ -20,7 +21,8 @@ var config = {
       './node_modules/angular-translate-storage-cookie/angular-translate-storage-cookie.js',
       './node_modules/angular-translate-storage-local/angular-translate-storage-local.js',
       './node_modules/angular-resource/angular-resource.js',
-      './node_modules/moment/min/moment-with-locales.js'
+      './node_modules/moment/min/moment-with-locales.js',
+      './node_modules/jquery/dist/jquery.js'
     ],
 
     css : [

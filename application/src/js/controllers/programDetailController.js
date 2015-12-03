@@ -8,15 +8,16 @@
    * Manage the program detail
    */
   programDetailController.$inject = [
-    '$stateParams', 'CommonService', 'QSConstants', '$injector', 'QSCStates', 'TranslationService'
+    '$stateParams', 'CommonService', 'QSConstants', '$injector', 'QSCStates', 'TranslationService', '$uibModal',
+    '$templateCache'
   ];
-  function programDetailController($stateParams, CommonService, QSConstants, $injector, QSCStates, TranslationService) {
+  function programDetailController($stateParams, CommonService, QSConstants, $injector, QSCStates, TranslationService, $uibModal, $templateCache) {
     var vm = this;
 
-    vm.translationService = TranslationService;
-    vm.lengthMap          = CommonService.lengthMap;
-    vm.formatDate         = formatDate;
-    vm.formatTime         = formatTime;
+    vm.lengthMap      = CommonService.lengthMap;
+    vm.getImage       = getImage;
+    vm.getDescription = getDescription;
+    vm.openInfo       = openInfo;
 
     init();
 
@@ -29,12 +30,38 @@
       }
     }
 
-    function formatDate(date) {
-      return TranslationService.getMoment(date, QSConstants.formatDate);
+    /**
+     * Get image of the movie, if none get the default one
+     * @param movie
+     * @returns {*|string}
+     */
+    function getImage(movie) {
+      if (CommonService.isDefinedAndNotNull(movie.image)){
+        return movie.image;
+      }
+      return QSConstants.defaultImage;
     }
 
-    function formatTime(date) {
-      return TranslationService.getMoment(date, QSConstants.formatTime);
+    function getDescription(movie) {
+      return TranslationService.getDescription(movie);
+    }
+
+    function openInfo(movie) {
+      $uibModal.open({
+        animation    : true,
+        template     : $templateCache.get('infos.html'),
+        controller   : function (movie) {
+          var vm   = this;
+          vm.movie = movie;
+        },
+        controllerAs : 'infoC',
+        size         : 'sm',
+        resolve      : {
+          movie : function () {
+            return movie;
+          }
+        }
+      });
     }
   }
 })();
