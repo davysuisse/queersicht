@@ -23,6 +23,11 @@
     vm.isFavoris          = $attrs && $attrs.isFavoris;
     vm.isNews             = $attrs && $attrs.isNews;
 
+    /**
+     * Get the movies title in function of some criteria
+     * @param movie
+     * @returns {*}
+     */
     function getTitle(movie) {
       var title = movie.title;
 
@@ -36,22 +41,10 @@
       return title;
     }
 
-    function formatDate(date) {
-      return TranslationService.getMoment(date, QSConstants.formatDate);
-    }
-
-    function formatTime(date) {
-      return TranslationService.getMoment(date, QSConstants.formatTime);
-    }
-
-    function getDescription(movie) {
-      return TranslationService.getDescription(movie);
-    }
-
-    function isInFavoris(movieId) {
-      return StorageService.isObjectInStorage(QSConstants.favorisKey, movieId);
-    }
-
+    /**
+     * Delete or Add a favoris
+     * @param movieId
+     */
     function addOrDeleteFavoris(movieId) {
       if (!StorageService.isObjectInStorage(QSConstants.favorisKey, movieId)) {
         StorageService.addObjectInStorage(QSConstants.favorisKey, movieId);
@@ -77,6 +70,23 @@
       if (!vm.isNews) {
         $injector.get('$state').go(QSCStates.stateDetail, {'movie' : movie});
       }
+    }
+
+
+    function formatDate(date) {
+      return TranslationService.getMoment(date, QSConstants.formatDate);
+    }
+
+    function formatTime(date) {
+      return TranslationService.getMoment(date, QSConstants.formatTime);
+    }
+
+    function getDescription(movie) {
+      return TranslationService.getDescription(movie);
+    }
+
+    function isInFavoris(movieId) {
+      return StorageService.isObjectInStorage(QSConstants.favorisKey, movieId);
     }
   }
 
