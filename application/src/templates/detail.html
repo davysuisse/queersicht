@@ -1,4 +1,4 @@
-<section class="section container-fluid">
+<section class="section container-fluid" data-ng-if="!!pdC.detail">
 	<div class="row">
 		<form class="form-group">
 			<div class="col-sm-12 col-md-6 col-lg-6">
@@ -6,7 +6,7 @@
 					<div class="title-movie">
 						<span>{{pdC.detail.title}}</span>
 					</div>
-					<img class="img-responsive img-movie" data-ng-if="pdC.detail.image"
+					<img class="img-responsive img-movie"
 					     data-ng-src="{{pdC.getImage(pdC.detail)}}"/>
 
 					<div class="description-movie">

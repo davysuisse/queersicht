@@ -58,7 +58,7 @@ a.list-group-item {
 }
 
 .app {
-    background: white !important;
+    background: #B7B7B7 !important;
 }
 
 .scrollable-content .list-group .pull-down {
@@ -119,6 +119,7 @@ section .row .margin-b-2 {
 div .tile-movie {
     border: 1px solid black;
     padding: 4px;
+    background: white;
 }
 
 div .tile-movie-cursor {
@@ -173,4 +174,8 @@ div .title-movie span {
 
 .modal-body {
     background-color: lightgray !important;
+}
+
+.section {
+    background-color: #B7B7B7 !important;
 }
