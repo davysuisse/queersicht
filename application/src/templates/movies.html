@@ -1,16 +1,16 @@
-<div class="row">
+<div class="row" data-ng-if="!!mC.movies">
 	<div class="col-sm-6 col-md-6 col-lg-6 margin-b-2"
 	     data-ng-click="mC.goDetail(movie)"
 	     data-ng-repeat="movie in mC.movies | orderBy : mC.predicate : mC.reverse"
 	     data-ng-hide="mC.isFavoris && !mC.isInFavoris(movie.id)">
 		<div class="tile-movie" data-ng-class="{'tile-movie-cursor' : !mC.isNews}">
 			<div class="title-movie">
-	                <span class="fa"
+	                <span class="fa" data-ng-if="!mC.isNews"
 	                      data-ng-class="{'fa-star-o' : !mC.isInFavoris(movie.id), 'fa-star' : mC.isInFavoris(movie.id)}"
 	                      data-ng-click="mC.addOrDeleteFavoris(movie.id); $event.stopPropagation();"></span>
 				<span>{{mC.getTitle(movie)}}</span>
 			</div>
-			<img class="img-responsive img-movie" data-ng-if="movie.image"
+			<img class="img-responsive img-movie"
 			     data-ng-src="{{mC.getImage(movie)}}"/>
 
 			<div class="description-movie">
