@@ -1,18 +1,23 @@
 <section class="section container-fluid">
 	<div class="row">
-		<div class="col-sm-12 col-md-6 col-lg-6">
-			<div class="tile-movie">
-				<div class="title-movie">
-					<span>{{pdC.detail.title}}</span>
-					<button class="btn btn-default btn-xs infoButton" data-ng-click="pdC.openInfo(pdC.detail)" ><span translate="MORE_INFOS"></span></button>
-				</div>
-				<img class="img-responsive img-movie"
-				     data-ng-src="{{pdC.getImage(pdC.detail)}}"/>
+		<form class="form-group">
+			<div class="col-sm-12 col-md-6 col-lg-6">
+				<div class="tile-movie">
+					<div class="title-movie">
+						<span>{{pdC.detail.title}}</span>
+					</div>
+					<img class="img-responsive img-movie"
+					     data-ng-src="{{pdC.getImage(pdC.detail)}}"/>
 
-				<div class="description-movie">
-					<p>{{pdC.getDescription(pdC.detail)}}</p>
+					<div class="description-movie">
+						<p>{{pdC.getDescription(pdC.detail)}}</p>
+					</div>
+					<div>
+						<button class="btn form-control infoButton" data-ng-click="pdC.openInfo(pdC.detail)">
+							<span translate="MORE_INFOS"></span></button>
+					</div>
 				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </section>

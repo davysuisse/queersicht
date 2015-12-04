@@ -152,7 +152,8 @@ div .title-movie span {
     vertical-align: middle;
 }
 
-div .title-movie .infoButton {
-    float: right;
-    background-color: lightgrey;
+div .tile-movie .infoButton {
+    background-color: grey !important;
+    margin-top: 4px;
+    color: white;
 }
