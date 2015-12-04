@@ -1,0 +1,18 @@
+<section class="section container-fluid">
+	<div class="modal-header">
+		<h3 class="modal-title">{{pmC.getTitle(pmC.movie)}}</h3>
+	</div>
+	<div class="modal-body">
+		<table class="table table-striped">
+			<tr data-ng-repeat="program in pmC.programs">
+				<td><span class="fa"
+				          data-ng-class="{'fa-star-o' : !pmC.isInFavoris(program.id), 'fa-star' : pmC.isInFavoris(program.id)}"
+				          data-ng-click="pmC.addOrDeleteFavoris(program.id); $event.stopPropagation();">
+				</span>
+				</td>
+				<td>{{program.date}}</td>
+				<td>{{program.cinema}}</td>
+			</tr>
+		</table>
+	</div>
+</section>
