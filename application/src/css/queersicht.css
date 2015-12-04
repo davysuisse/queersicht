@@ -154,3 +154,23 @@ div .tile-movie .infoButton {
     color: white;
 }
 
+.table-striped>tbody>tr:nth-of-type(odd) {
+    background-color: grey;
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+    background-color: darkgrey;
+}
+
+.modalBackground {
+    color: white !important;
+    padding: 4px 4px;
+}
+
+.modal-header {
+    background-color: #2f3336 !important;
+}
+
+.modal-body {
+    background-color: lightgray !important;
+}
