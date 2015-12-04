@@ -17,7 +17,6 @@
     vm.lengthMap      = CommonService.lengthMap;
     vm.getImage       = getImage;
     vm.getDescription = getDescription;
-    vm.openInfo       = openInfo;
 
     init();
 
@@ -44,24 +43,6 @@
 
     function getDescription(movie) {
       return TranslationService.getDescription(movie);
-    }
-
-    function openInfo(movie) {
-      $uibModal.open({
-        animation    : true,
-        template     : $templateCache.get('infos.html'),
-        controller   : function (movie) {
-          var vm   = this;
-          vm.movie = movie;
-        },
-        controllerAs : 'infoC',
-        size         : 'sm',
-        resolve      : {
-          movie : function () {
-            return movie;
-          }
-        }
-      });
     }
   }
 })();

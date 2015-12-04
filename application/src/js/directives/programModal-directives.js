@@ -6,7 +6,7 @@
     .directive('programModal', programModalDirective);
 
   /**
-   * Controller that manages movies
+   * Controller that manages the program's modal
    */
   programModalController.$inject = [
     'movie', 'TranslationService', 'CommonService', 'QSConstants', 'RestCallService', 'StorageService'
@@ -25,6 +25,10 @@
       loadDatas(RestCallService.callService(QSConstants.programService));
     }
 
+    /**
+     * Get all the program where the movie is and extract infos from it
+     * @param promise
+     */
     function loadDatas(promise) {
       promise.then(function (response) {
         vm.programs = [];
