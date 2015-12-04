@@ -157,9 +157,9 @@ div .title-movie span {
 }
 
 .infoButton {
-    background-color: grey !important;
+    background-color: #2f3336 !important;
     margin-top: 4px;
-    color: white;
+    color: white !important;
 }
 
 .modalBackground {
