@@ -64,21 +64,34 @@
     });
   });
 
+  /**
+   * News appear in the home page of the application.
+   * This route will get the 10 last news
+   */
   router.get('/news', function (req, res) {
-    res.json([
-      {
-        title   : 'Ostwind 2',
-        description_de : 'Nichts macht Mika (Hanna Binke) mehr Freude, als Zeit mit ihrem geliebten schwarzen Hengst Ostwind zu verbringen. Daher ist sie umso glücklicher,...',
-        description_fr : 'Nichts macht Mika (Hanna Binke) mehr Freude, als Zeit mit ihrem geliebten schwarzen Hengst Ostwind zu verbringen. Daher ist sie umso glücklicher,...',
-        time    : '30.09.2015 18:15'
-      },
-      {
-        title   : 'Zweite Chance',
-        description_de : 'Nichts macht Mika (Hanna Binke) mehr Freude, als Zeit mit ihrem geliebten schwarzen Hengst Ostwind zu verbringen. Daher ist sie umso glücklicher,...',
-        description_fr : 'Nichts macht Mika (Hanna Binke) mehr Freude, als Zeit mit ihrem geliebten schwarzen Hengst Ostwind zu verbringen. Daher ist sie umso glücklicher,...',
-        time    : '30.09.2015 21:30'
+    con.query('SELECT * FROM news ORDER BY newsId DESC LIMIT 10)', function (err, rows) {
+      if (err) throw err;
+
+      var newsList = [];
+      if (rows) {
+        rows.forEach(function (row) {
+          var news = {};
+
+          // News
+          news.id             = row.newsId;
+          news.date           = row.date;
+          news.image          = row.image;
+          news.title          = row.title;
+          news.title_fr       = row.title_fr;
+          news.description_de = row.description_de;
+          news.description_fr = row.description_fr;
+
+          newsList.push(news);
+        });
       }
-    ]);
+
+      res.json(newsList);
+    });
   });
 
   // The application will be able to call our REST api with a different url
