@@ -28,7 +28,7 @@
    * This route will get all the programs
    */
   router.get('/program', function (req, res) {
-    con.query('SELECT * FROM program, movie where program.movie_id = movie.id order by movie.title', function (err, rows) {
+    con.query('SELECT * FROM program, movie where program.movie_id = movie.movieId order by movie.title', function (err, rows) {
       if (err) throw err;
 
       var programs = [];
@@ -37,9 +37,10 @@
           var movie = {};
 
           // Program
-          movie.id     = row.programId;
-          movie.date   = row.date;
-          movie.cinema = row.cinema;
+          movie.id      = row.programId;
+          movie.movieId = row.movieId;
+          movie.date    = row.date;
+          movie.cinema  = row.cinema;
 
           // Movie
           movie.title          = row.title;
@@ -69,7 +70,7 @@
    * This route will get the 10 last news
    */
   router.get('/news', function (req, res) {
-    con.query('SELECT * FROM news ORDER BY newsId DESC LIMIT 10)', function (err, rows) {
+    con.query('SELECT * FROM news ORDER BY newsId DESC LIMIT 10', function (err, rows) {
       if (err) throw err;
 
       var newsList = [];

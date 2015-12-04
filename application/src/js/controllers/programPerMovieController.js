@@ -17,11 +17,11 @@
 
     function init() {
       CommonService.init("PROG_PER_MOVIE_TITLE", vm.refresh);
-      loadDatas(RestCallService.callService(QSConstants.programService.key, QSConstants.programService.url));
+      loadDatas(RestCallService.callService(QSConstants.programService));
     }
 
     function refresh() {
-      loadDatas(RestCallService.forceService(QSConstants.programService.key, QSConstants.programService.url));
+      loadDatas(RestCallService.forceService(QSConstants.programService));
     }
 
     function loadDatas(promise) {

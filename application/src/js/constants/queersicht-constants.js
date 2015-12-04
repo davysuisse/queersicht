@@ -9,7 +9,7 @@
   function qsConstants() {
     return {
       // Server url
-      urlService   : 'http://192.168.192.100:8081/api',
+      urlService   : 'http://127.0.0.1:8081/api',
       defaultImage : 'http://placeimg.com/400/200/people',
 
       // Property passed through states
@@ -26,7 +26,7 @@
       programService : {'key' : 'program', url : '/program'},
       newsService    : {'key' : 'news', url : '/news'},
 
-      formatFullDate : 'dddd DD MMMM YYYY',
+      formatFullDate : 'ddd DD MMM YY',
       formatDate     : 'DD.MM.YY',
       formatTime     : 'HH:MM',
 

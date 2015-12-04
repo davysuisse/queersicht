@@ -1,10 +1,10 @@
 <section class="section container-fluid">
 	<form class="form-horizontal col-sm-12">
 		<div class="form-group title-movie title_padding">
-			<label for="selectLanguage" class="col-sm-2 control-label" translate="LANGUAGE_SETTINGS_TITLE"></label>
+			<label for="selectLanguage" class="col-sm-4 col-md-4 col-lg-4 control-label" translate="LANGUAGE_SETTINGS_TITLE"></label>
 
-			<div class="col-sm-10">
-				<select style="color: black;" name="selectLanguage"
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<select name="selectLanguage"
 				        id="selectLanguage" class="form-control"
 				        data-ng-model="settingsC.selectedLanguage"
 				        data-ng-change="settingsC.applyLanguage()"
@@ -14,13 +14,13 @@
 		</div>
 
 		<div class="form-group title-movie title_padding">
-			<label for="selectLanguage" class="col-sm-2 control-label">
+			<label for="selectLanguage" class="col-sm-4 col-md-4 col-lg-4 control-label">
 				{{'SPINNER_TITLE' | translate}}&nbsp;
 				<i class="fa fa-spin {{settingsC.settings.selectedSpinner}}"></i>
 			</label>
 
-			<div class="col-sm-10">
-				<select style="color: black;" name="selectSpinner"
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<select name="selectSpinner"
 				        id="selectSpinner" class="form-control"
 				        data-ng-model="settingsC.settings.selectedSpinner"
 				        data-ng-change="settingsC.saveSettings()">
@@ -34,12 +34,12 @@
 		</div>
 
 		<div class="form-group title-movie title_padding">
-			<label for="selectLanguage" class="col-sm-2 control-label">
+			<label for="selectLanguage" class="col-sm-4 col-md-4 col-lg-4 control-label">
 				{{'LOCAL_MOVIE_TITLE' | translate}}
 			</label>
 
-			<div class="col-sm-10">
-				<select style="color: black;" name="selectedSaveStorage"
+			<div class="col-sm-8 col-md-8 col-lg-8">
+				<select name="selectedSaveStorage"
 				        id="selectedSaveStorage" class="form-control"
 				        data-ng-model="settingsC.settings.selectedSaveStorage"
 				        data-ng-change="settingsC.saveSettings()"
@@ -49,12 +49,8 @@
 		</div>
 
 		<div class="form-group title-movie title_padding">
-			<label for="selectLanguage" class="col-sm-2 control-label">
-				{{'LOCAL_MOVIE_TITLE' | translate}}
-			</label>
-
-			<div class="col-sm-10">
-				<input type="button" data-ng-click="settingsC.resetSettings()" class="btn btn-default" value="{{'RESET' | translate}}" />
+			<div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-offset-4 col-lg-8">
+				<input type="button" data-ng-click="settingsC.resetSettings()" class="btn btn-danger" value="{{'RESET' | translate}}" />
 			</div>
 		</div>
 	</form>

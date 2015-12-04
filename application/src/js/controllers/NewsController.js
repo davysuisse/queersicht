@@ -17,11 +17,11 @@
 
     function init() {
       CommonService.init("NEWS_TITLE", vm.refresh);
-      loadDatas(RestCallService.callService(QSConstants.newsService.key, QSConstants.newsService.url));
+      loadDatas(RestCallService.callService(QSConstants.newsService));
     }
 
     function refresh() {
-      loadDatas(RestCallService.forceService(QSConstants.newsService.key, QSConstants.newsService.url));
+      loadDatas(RestCallService.forceService(QSConstants.newsService));
     }
 
     function loadDatas(promise) {

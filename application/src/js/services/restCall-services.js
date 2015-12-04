@@ -21,27 +21,27 @@
      * Get news
      * @return an array of news
      */
-    function callService(key, url) {
+    function callService(service) {
       if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
-        var objectInStorage = StorageService.getObjectInStorage(key);
+        var objectInStorage = StorageService.getObjectInStorage(service.key);
         if (objectInStorage.length > 0) {
           var defer = $q.defer();
           defer.resolve({'data' : objectInStorage});
           return defer.promise;
         }
       }
-      return forceService(key, url);
+      return forceService(service);
     }
 
     /**
      * Get a list of movies from server and store them in local
      * @returns {*}
      */
-    function forceService(key, url) {
+    function forceService(service) {
       var defer = $q.defer();
-      $http.get(getUrl(url)).then(function (response) {
+      $http.get(getUrl(service.url)).then(function (response) {
         if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
-          StorageService.setObjectInStorage(key, response.data);
+          StorageService.setObjectInStorage(service.key, response.data);
         }
         defer.resolve(response);
       }, function (error) {

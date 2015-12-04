@@ -37,6 +37,7 @@
       LANGUAGE                : 'Language',
       SUBTITLE                : 'Subtitle',
       AUTOR                   : 'Author',
+      PROGRAM                 : 'Program',
 
       // Country
       BR : 'Great Britain',

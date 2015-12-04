@@ -13,6 +13,7 @@
       setLanguage    : setLanguage,
       getLanguage    : getLanguage,
       getDescription : getDescription,
+      getTitle       : getTitle,
       getMoment      : getMoment
     };
 
@@ -47,9 +48,23 @@
     function getDescription(movie) {
       switch (getLanguage()) {
         case QSConstants.defaultSettings.languageOptions.LANG_FRENCH:
-          return movie.description_fr;
+          return movie.description_fr || movie.description_de;
         default :
           return movie.description_de;
+      }
+    }
+
+    /**
+     * Determined the correct title to give
+     * @param movie
+     * @returns {*}
+     */
+    function getTitle(movie) {
+      switch (getLanguage()) {
+        case QSConstants.defaultSettings.languageOptions.LANG_FRENCH:
+          return movie.title_fr || movie.title;
+        default :
+          return movie.title;
       }
     }
 

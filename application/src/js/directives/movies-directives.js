@@ -22,6 +22,7 @@
     vm.getImage           = getImage;
     vm.isFavoris          = $attrs && $attrs.isFavoris;
     vm.isNews             = $attrs && $attrs.isNews;
+    vm.reverse            = $attrs.reverse || false;
 
     /**
      * Get the movies title in function of some criteria
@@ -29,9 +30,9 @@
      * @returns {*}
      */
     function getTitle(movie) {
-      var title = movie.title;
+      var title = TranslationService.getTitle(movie);
 
-      if ($attrs && $attrs.isPerCinema) {
+      if ($attrs && $attrs.isPerCinema || $attrs.isNews) {
         title += ' - ' + formatDate(movie.date) + ' ' + formatTime(movie.date);
       }
       else if ($attrs && ($attrs.isPerDate || $attrs.isFavoris)) {

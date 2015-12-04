@@ -6,15 +6,21 @@
 					<div class="title-movie">
 						<span>{{pdC.detail.title}}</span>
 					</div>
-					<img class="img-responsive img-movie"
+					<img class="img-responsive img-movie" data-ng-if="pdC.detail.image"
 					     data-ng-src="{{pdC.getImage(pdC.detail)}}"/>
 
 					<div class="description-movie">
 						<p>{{pdC.getDescription(pdC.detail)}}</p>
 					</div>
-					<div>
-						<button class="btn form-control infoButton" data-ng-click="pdC.openInfo(pdC.detail)">
-							<span translate="MORE_INFOS"></span></button>
+					<div class="row">
+						<div class="col-sm-6 col-md-6 col-lg-6">
+							<button class="btn form-control infoButton" data-ng-click="pdC.openInfo(pdC.detail)">
+								<span translate="MORE_INFOS"></span></button>
+						</div>
+						<div class="col-sm-6 col-md-6 col-lg-6">
+							<button class="btn form-control infoButton" program-modal movie="pdC.detail">
+								<span translate="PROGRAM"></span></button>
+						</div>
 					</div>
 				</div>
 			</div>
