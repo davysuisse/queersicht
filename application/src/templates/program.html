@@ -4,7 +4,7 @@
 	</div>
 	<div class="modal-body">
 		<table class="table table-striped">
-			<tr data-ng-repeat="program in pmC.programs">
+			<tr data-ng-repeat="program in pmC.programs | orderBy : 'date'">
 				<td><span class="fa"
 				          data-ng-class="{'fa-star-o' : !pmC.isInFavoris(program.id), 'fa-star' : pmC.isInFavoris(program.id)}"
 				          data-ng-click="pmC.addOrDeleteFavoris(program.id); $event.stopPropagation();">
@@ -14,5 +14,9 @@
 				<td>{{program.cinema}}</td>
 			</tr>
 		</table>
+		<button type="button"
+		        class="btn btn-default form-control infoButton"
+		        translate="CLOSE"
+		        data-ng-click="pmC.close()"></button>
 	</div>
 </section>

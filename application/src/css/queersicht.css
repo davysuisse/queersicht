@@ -148,18 +148,18 @@ div .title-movie span {
     vertical-align: middle;
 }
 
-div .tile-movie .infoButton {
-    background-color: grey !important;
-    margin-top: 4px;
-    color: white;
-}
-
 .table-striped>tbody>tr:nth-of-type(odd) {
-    background-color: grey;
+    background-color: #909090 !important;
 }
 
 .table-striped>tbody>tr:nth-of-type(even) {
-    background-color: darkgrey;
+    background-color: darkgrey !important;
+}
+
+.infoButton {
+    background-color: grey !important;
+    margin-top: 4px;
+    color: white;
 }
 
 .modalBackground {

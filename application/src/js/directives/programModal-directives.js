@@ -9,15 +9,17 @@
    * Controller that manages the program's modal
    */
   programModalController.$inject = [
-    'movie', 'TranslationService', 'CommonService', 'QSConstants', 'RestCallService', 'StorageService'
+    'movie', 'TranslationService', 'CommonService', 'QSConstants', 'RestCallService', 'StorageService',
+    '$uibModalInstance'
   ];
-  function programModalController(movie, TranslationService, CommonService, QSConstants, RestCallService, StorageService) {
+  function programModalController(movie, TranslationService, CommonService, QSConstants, RestCallService, StorageService, $uibModalInstance) {
     var vm = this;
 
     vm.movie              = movie;
     vm.getTitle           = getTitle;
     vm.addOrDeleteFavoris = addOrDeleteFavoris;
     vm.isInFavoris        = isInFavoris;
+    vm.close              = $uibModalInstance.close;
 
     init();
 

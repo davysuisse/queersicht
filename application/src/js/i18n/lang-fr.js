@@ -38,6 +38,7 @@
       SUBTITLE                : 'Sous-titre',
       AUTOR                   : 'Auteur',
       PROGRAM                 : 'Programme',
+      CLOSE                   : 'Fermer',
 
       // Country
       BR : 'Grande Bretagne',

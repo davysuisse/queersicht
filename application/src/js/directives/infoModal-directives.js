@@ -8,12 +8,13 @@
   /**
    * Controller that manages the info's modal
    */
-  infoController.$inject = ['movie', 'TranslationService'];
-  function infoController(movie, TranslationService) {
+  infoController.$inject = ['movie', 'TranslationService', '$uibModalInstance'];
+  function infoController(movie, TranslationService, $uibModalInstance) {
     var vm = this;
 
-    vm.movie              = movie;
-    vm.getTitle           = getTitle;
+    vm.movie    = movie;
+    vm.getTitle = getTitle;
+    vm.close    = $uibModalInstance.close;
 
     function getTitle(movie) {
       return TranslationService.getTitle(movie);
