@@ -9,19 +9,12 @@
 					<img class="img-responsive img-movie"
 					     data-ng-src="data:image/png;base64,{{pdC.detail.image}}"/>
 
-					<div class="description-movie">
-						<p>{{pdC.getDescription(pdC.detail)}}</p>
-					</div>
-					<div class="row">
-						<div class="col-sm-6 col-md-6 col-lg-6">
-							<button class="btn form-control infoButton" info-modal movie="pdC.detail">
-								<span translate="MORE_INFOS"></span></button>
-						</div>
-						<div class="col-sm-6 col-md-6 col-lg-6">
-							<button class="btn form-control infoButton" program-modal movie="pdC.detail">
-								<span translate="PROGRAM"></span></button>
-						</div>
-					</div>
+					<uib-tabset class="description-movie">
+						<uib-tab heading="{{'DETAIL_TITLE' | translate}}"><span>{{pdC.getDescription(pdC.detail)}}</span>
+						</uib-tab>
+						<uib-tab heading="{{'MORE_INFOS' | translate}}"><span info-modal movie="pdC.detail"></span></uib-tab>
+						<uib-tab heading="{{'PROGRAM' | translate}}"><span program-modal movie="pdC.detail"></span></uib-tab>
+					</uib-tabset>
 				</div>
 			</div>
 		</form>

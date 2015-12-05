@@ -1,22 +1,13 @@
-<section class="section container-fluid modalBackground">
-	<div class="modal-header">
-		<h3 class="modal-title">{{pmC.getTitle(pmC.movie)}}</h3>
-	</div>
-	<div class="modal-body">
-		<table class="table table-striped">
-			<tr data-ng-repeat="program in pmC.programs | orderBy : 'dateRaw'">
-				<td><span class="fa"
-				          data-ng-class="{'fa-star-o' : !pmC.isInFavoris(program.id), 'fa-star' : pmC.isInFavoris(program.id)}"
-				          data-ng-click="pmC.addOrDeleteFavoris(program.id); $event.stopPropagation();">
+<div class="modalBackground" data-ng-if="pmC.movie">
+	<table class="table table-striped">
+		<tr data-ng-repeat="program in pmC.programs | orderBy : 'dateRaw'">
+			<td><span class="fa"
+			          data-ng-class="{'fa-star-o' : !pmC.isInFavoris(program.id), 'fa-star' : pmC.isInFavoris(program.id)}"
+			          data-ng-click="pmC.addOrDeleteFavoris(program.id); $event.stopPropagation();">
 				</span>
-				</td>
-				<td>{{program.date}}</td>
-				<td>{{program.cinema}}</td>
-			</tr>
-		</table>
-		<button type="button"
-		        class="btn btn-default form-control infoButton"
-		        translate="CLOSE"
-		        data-ng-click="pmC.close()"></button>
-	</div>
-</section>
+			</td>
+			<td>{{program.date}}</td>
+			<td>{{program.cinema}}</td>
+		</tr>
+	</table>
+</div>

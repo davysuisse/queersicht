@@ -1,17 +1,8 @@
-<section class="section container-fluid modalBackground" data-ng-init="infoC.init()">
-	<div class="modal-header">
-		<h3 class="modal-title">{{infoC.getTitle(infoC.movie)}}</h3>
-	</div>
-	<div class="modal-body">
-		<table class="table table-striped">
-			<tr data-ng-repeat="myKey in infoC.getKeys(infoC.infos) | orderBy : myKey">
-				<td>{{myKey}}</td>
-				<td>{{infoC.infos[myKey]}}</td>
-			</tr>
-		</table>
-		<button type="button"
-		        class="btn btn-default form-control infoButton"
-		        translate="CLOSE"
-		        data-ng-click="infoC.close()"></button>
-	</div>
-</section>
+<div class="modalBackground" data-ng-init="infoC.init()">
+	<table class="table table-striped">
+		<tr data-ng-repeat="myKey in infoC.getKeys(infoC.infos) | orderBy : myKey">
+			<td>{{myKey}}</td>
+			<td>{{infoC.infos[myKey]}}</td>
+		</tr>
+	</table>
+</div>

@@ -131,8 +131,13 @@ div .tile-movie .img-movie {
 div .tile-movie .description-movie {
     background-color: lightgray;
     padding: 0.5em;
-    min-height: 150px;
     border: 1px solid black;
+    text-align: justify;
+}
+
+div .tile-movie .description-movie-height {
+    min-height: 150px;
+
 }
 
 div .title-movie {
@@ -145,12 +150,12 @@ div .title-movie span {
     vertical-align: middle;
 }
 
-.table-striped>tbody>tr:nth-of-type(odd) {
+.table-striped > tbody > tr:nth-of-type(odd) {
     background-color: #909090 !important;
 }
 
-.table-striped>tbody>tr:nth-of-type(even) {
-    background-color: darkgrey !important;
+.table-striped > tbody > tr:nth-of-type(even) {
+    background-color: #BFBFBF !important;
 }
 
 .infoButton {
@@ -164,14 +169,35 @@ div .title-movie span {
     padding: 4px 4px;
 }
 
-.modal-header {
-    background-color: #2f3336 !important;
-}
-
-.modal-body {
-    background-color: lightgray !important;
-}
-
 .section, .app {
     background-color: #eee !important;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: darkgray !important;
+    color: white;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.tab-content {
+    border: 1px solid black;
+    background-color: darkgray !important;
+    padding: 8px;
+}
+
+.nav-tabs > li > a:hover {
+    border-color: black black;
+}
+
+.nav-tabs > a:hover {
+    color: black;
+    cursor: default;
+    background-color: #aeaeae !important;
+    border: 1px solid #ddd !important;
+}
+
+.nav-tabs > li > a {
+    color: black;
 }

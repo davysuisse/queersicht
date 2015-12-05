@@ -9,17 +9,13 @@
    * Controller that manages the program's modal
    */
   programModalController.$inject = [
-    'movie', 'TranslationService', 'CommonService', 'QSConstants', 'RestCallService', 'StorageService',
-    '$uibModalInstance'
+    'TranslationService', 'CommonService', 'QSConstants', 'RestCallService', 'StorageService'
   ];
-  function programModalController(movie, TranslationService, CommonService, QSConstants, RestCallService, StorageService, $uibModalInstance) {
+  function programModalController(TranslationService, CommonService, QSConstants, RestCallService, StorageService) {
     var vm = this;
 
-    vm.movie              = movie;
-    vm.getTitle           = getTitle;
     vm.addOrDeleteFavoris = addOrDeleteFavoris;
     vm.isInFavoris        = isInFavoris;
-    vm.close              = $uibModalInstance.close;
 
     init();
 
@@ -70,44 +66,22 @@
     function isInFavoris(movieId) {
       return StorageService.isObjectInStorage(QSConstants.favorisKey, movieId);
     }
-
-    function getTitle(movie) {
-      return TranslationService.getTitle(movie);
-    }
   }
 
   /**
    * Directive that shows a movie preview
    */
-  programModalDirective.$inject = ['$templateCache', '$uibModal'];
-  function programModalDirective($templateCache, $uibModal) {
+  programModalDirective.$inject = ['$templateCache'];
+  function programModalDirective($templateCache) {
     return {
-      restrict : 'AE',
-      scope    : {
+      restrict         : 'AE',
+      template         : $templateCache.get('program.html'),
+      controller       : 'ProgramModalController',
+      controllerAs     : 'pmC',
+      bindToController : true,
+      scope            : {
         movie : '='
-      },
-      link     : link
-    };
-
-    function link(scope, element) {
-      function openModal() {
-        $uibModal.open({
-          animation    : true,
-          template     : $templateCache.get('program.html'),
-          controller   : 'ProgramModalController',
-          controllerAs : 'pmC',
-          size         : 'sm',
-          resolve      : {
-            movie : function () {
-              return scope.movie;
-            }
-          }
-        });
       }
-
-      element.bind('click', function () {
-        openModal();
-      });
-    }
+    };
   }
 })();
