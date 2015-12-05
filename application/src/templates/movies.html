@@ -5,7 +5,7 @@
 	     data-ng-hide="mC.isFavoris && !mC.isInFavoris(movie.id)">
 		<div class="tile-movie" data-ng-class="{'tile-movie-cursor' : !mC.isNews}">
 			<div class="title-movie">
-	                <span class="fa" data-ng-if="!mC.isNews"
+	                <span class="fa" data-ng-if="mC.displayFavoris()"
 	                      data-ng-class="{'fa-star-o' : !mC.isInFavoris(movie.id), 'fa-star' : mC.isInFavoris(movie.id)}"
 	                      data-ng-click="mC.addOrDeleteFavoris(movie.id); $event.stopPropagation();"></span>
 				<span>{{mC.getTitle(movie)}}</span>
@@ -14,7 +14,7 @@
 			     data-ng-src="{{mC.getImage(movie)}}"/>
 
 			<div class="description-movie">
-				<p>{{mC.getDescription(movie) | truncate:true:450}}</p>
+				<p>{{mC.getDescription(movie) | truncate:true:300}}</p>
 			</div>
 		</div>
 	</div>

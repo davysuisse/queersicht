@@ -9,7 +9,7 @@
   function qsConstants() {
     return {
       // Server url
-      urlService   : 'http://localhost:8081/api', //192.168.192.100
+      urlService   : 'http://192.168.192.100:8081/api', //localhost
       defaultImage : 'http://placeimg.com/400/200/people',
 
       // Property passed through states

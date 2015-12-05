@@ -20,6 +20,7 @@
     vm.isInFavoris        = isInFavoris;
     vm.goDetail           = goDetail;
     vm.getImage           = getImage;
+    vm.displayFavoris     = displayFavoris;
     vm.isFavoris          = $attrs && $attrs.isFavoris;
     vm.isNews             = $attrs && $attrs.isNews;
     vm.reverse            = $attrs.reverse || false;
@@ -87,6 +88,10 @@
 
     function isInFavoris(movieId) {
       return StorageService.isObjectInStorage(QSConstants.favorisKey, movieId);
+    }
+
+    function displayFavoris() {
+      return $attrs && !($attrs.isNews || $attrs.isPerMovie);
     }
   }
 
