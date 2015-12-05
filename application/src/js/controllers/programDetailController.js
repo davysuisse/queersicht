@@ -15,7 +15,6 @@
     var vm = this;
 
     vm.lengthMap      = CommonService.lengthMap;
-    vm.getImage       = getImage;
     vm.getDescription = getDescription;
 
     init();
@@ -27,18 +26,6 @@
       if (!CommonService.isDefinedAndNotNull(vm.detail)) {
         $injector.get('$state').go(QSCStates.stateMovie);
       }
-    }
-
-    /**
-     * Get image of the movie, if none get the default one
-     * @param movie
-     * @returns {*|string}
-     */
-    function getImage(movie) {
-      if (CommonService.isDefinedAndNotNull(movie.image)){
-        return movie.image;
-      }
-      return QSConstants.defaultImage;
     }
 
     function getDescription(movie) {

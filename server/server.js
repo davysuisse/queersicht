@@ -3,8 +3,12 @@
 
   var mysql   = require("mysql");
   var express = require('express');
-  var app     = express();
-  var router  = express.Router();
+  var fs      = require('fs');
+  var buffer  = require('buffer');
+
+  var app         = express();
+  var router      = express.Router();
+  var encodeImage = encodeImage;
 
   // Configuration of the DB
   var con = mysql.createConnection({
@@ -45,6 +49,7 @@
           // Movie
           movie.title          = row.title;
           movie.image          = row.image;
+          movie.image          = encodeImage(row.image);
           movie.description_de = row.description_de;
           movie.description_fr = row.description_fr;
 
@@ -81,7 +86,7 @@
           // News
           news.id             = row.newsId;
           news.date           = row.date;
-          news.image          = row.image;
+          news.image          = encodeImage(row.image);
           news.title          = row.title;
           news.title_fr       = row.title_fr;
           news.description_de = row.description_de;
@@ -106,5 +111,16 @@
   app.use('/api', router);
 
   app.listen(8081);
+
+
+  function encodeImage(file) {
+    var path = (file) ? file : 'images/default/queersicht.png';
+
+    // read binary data
+    var image = fs.readFileSync(path);
+
+    // convert binary data to base64 encoded string
+    return new Buffer(image).toString('base64');
+  }
 
 })();

@@ -11,7 +11,7 @@
 				<span>{{mC.getTitle(movie)}}</span>
 			</div>
 			<img class="img-responsive img-movie"
-			     data-ng-src="{{mC.getImage(movie)}}"/>
+			     data-ng-src="data:image/png;base64,{{mC.movie.image}}"/>
 
 			<div class="description-movie">
 				<p>{{mC.getDescription(movie) | truncate:true:300}}</p>

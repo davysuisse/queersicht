@@ -7,7 +7,7 @@
 						<span>{{pdC.detail.title}}</span>
 					</div>
 					<img class="img-responsive img-movie"
-					     data-ng-src="{{pdC.getImage(pdC.detail)}}"/>
+					     data-ng-src="data:image/png;base64,{{pdC.detail.image}}"/>
 
 					<div class="description-movie">
 						<p>{{pdC.getDescription(pdC.detail)}}</p>

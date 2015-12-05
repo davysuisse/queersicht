@@ -19,7 +19,6 @@
     vm.addOrDeleteFavoris = addOrDeleteFavoris;
     vm.isInFavoris        = isInFavoris;
     vm.goDetail           = goDetail;
-    vm.getImage           = getImage;
     vm.displayFavoris     = displayFavoris;
     vm.isFavoris          = $attrs && $attrs.isFavoris;
     vm.isNews             = $attrs && $attrs.isNews;
@@ -53,15 +52,6 @@
       } else {
         StorageService.deleteObjectInStorage(QSConstants.favorisKey, movieId);
       }
-    }
-
-    /**
-     * Get image of the movie, if none get the default one
-     * @param movie
-     * @returns {*|string}
-     */
-    function getImage(movie) {
-      return movie.image || QSConstants.defaultImage;
     }
 
     /**
