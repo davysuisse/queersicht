@@ -40,7 +40,7 @@
     function forceService(service) {
       var defer = $q.defer();
       $http.get(getUrl(service.url)).then(function (response) {
-          StorageService.setObjectInStorage(service.key, response.data);
+        StorageService.setObjectInStorage(service.key, response.data);
         defer.resolve(response);
       }, function (error) {
         defer.reject(error);
