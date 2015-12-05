@@ -13,11 +13,6 @@
       ERROR_500               : 'Erreur: Le serveur n\'est pour le moment pas disponible. Veuillez réessayer plus tard.',
       ERROR_TITLE             : 'Erreur',
       FAVORIS_TITLE           : 'Favoris',
-      LANG_GERMAN             : 'Allemand',
-      LANG_ENGLISH            : 'Anglais',
-      LANG_FRENCH             : 'Français',
-      LANG_SPANISH            : 'Espagnol',
-      LANG_RUSSIAN            : 'Russe',
       LANGUAGE_SETTINGS_TITLE : 'Langue',
       LOCAL_MOVIE_TITLE       : 'Sauvegarder le programme',
       MENU                    : 'Menu',
@@ -45,7 +40,14 @@
       CH : 'Suisse',
       FR : 'France',
       GE : 'Allemagne',
-      SP : 'Espagne'
+      SP : 'Espagne',
+
+      // Language
+      LANG_GERMAN  : 'Allemand',
+      LANG_ENGLISH : 'Anglais',
+      LANG_FRENCH  : 'Français',
+      LANG_SPANISH : 'Espagnol',
+      LANG_RUSSIAN : 'Russe'
     };
   }
 

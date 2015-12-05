@@ -13,11 +13,6 @@
       ERROR_500               : 'Fehler: Server ist zurzeit nicht verfügbar. Bitte versuchen sie es später noch einmal.',
       ERROR_TITLE             : 'Error',
       FAVORIS_TITLE           : 'Favoriten',
-      LANG_GERMAN             : 'Deutsch',
-      LANG_ENGLISH            : 'Englisch',
-      LANG_FRENCH             : 'Französisch',
-      LANG_SPANISH            : 'Spanisch',
-      LANG_RUSSIAN            : 'Russisch',
       LANGUAGE_SETTINGS_TITLE : 'Sprache',
       LOCAL_MOVIE_TITLE       : 'Programm speichern',
       MENU                    : 'Menu',
@@ -45,7 +40,14 @@
       CH : 'Schweiz',
       FR : 'Frankreich',
       GE : 'Deutschland',
-      SP : 'Spanien'
+      SP : 'Spanien',
+
+      // Language
+      LANG_GERMAN  : 'Deutsch',
+      LANG_ENGLISH : 'Englisch',
+      LANG_FRENCH  : 'Französisch',
+      LANG_SPANISH : 'Spanisch',
+      LANG_RUSSIAN : 'Russisch'
 
     };
   }

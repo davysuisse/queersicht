@@ -13,11 +13,6 @@
       ERROR_500               : 'Error: Server is temporarily not available. Please try it again later.',
       ERROR_TITLE             : 'Error',
       FAVORIS_TITLE           : 'Favoris',
-      LANG_GERMAN             : 'German',
-      LANG_ENGLISH            : 'English',
-      LANG_FRENCH             : 'French',
-      LANG_SPANISH            : 'Spanish',
-      LANG_RUSSIAN            : 'Russian',
       LANGUAGE_SETTINGS_TITLE : 'Language',
       LOCAL_MOVIE_TITLE       : 'Save program',
       MENU                    : 'Menu',
@@ -45,7 +40,14 @@
       CH : 'Switzerland',
       FR : 'France',
       GE : 'Germany',
-      SP : 'Spain'
+      SP : 'Spain',
+
+      // Language
+      LANG_GERMAN  : 'German',
+      LANG_ENGLISH : 'English',
+      LANG_FRENCH  : 'French',
+      LANG_SPANISH : 'Spanish',
+      LANG_RUSSIAN : 'Russian'
     };
   }
 
