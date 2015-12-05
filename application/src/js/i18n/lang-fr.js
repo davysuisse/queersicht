@@ -41,7 +41,7 @@
       CLOSE                   : 'Fermer',
 
       // Country
-      BR : 'Grande Bretagne',
+      GB : 'Grande Bretagne',
       CH : 'Suisse',
       FR : 'France',
       GE : 'Allemagne'

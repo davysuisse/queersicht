@@ -41,7 +41,7 @@
       CLOSE                   : 'Close',
 
       // Country
-      BR : 'Great Britain',
+      GB : 'Great Britain',
       CH : 'Switzerland',
       FR : 'France',
       GE : 'Germany'

@@ -1,12 +1,12 @@
-<section class="section container-fluid modalBackground">
+<section class="section container-fluid modalBackground" data-ng-init="infoC.init()">
 	<div class="modal-header">
 		<h3 class="modal-title">{{infoC.getTitle(infoC.movie)}}</h3>
 	</div>
 	<div class="modal-body">
 		<table class="table table-striped">
-			<tr data-ng-repeat="(key, value) in infoC.movie.informations">
-				<td>{{key | uppercase | translate}}</td>
-				<td>{{value | translate}}</td>
+			<tr data-ng-repeat="myKey in infoC.getKeys(infoC.infos) | orderBy : myKey">
+				<td>{{myKey}}</td>
+				<td>{{infoC.infos[myKey]}}</td>
 			</tr>
 		</table>
 		<button type="button"

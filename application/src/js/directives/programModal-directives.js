@@ -37,13 +37,14 @@
 
         // Sorting movies by title and ignoring duplicating ones
         angular.forEach(response.data, function (data) {
-          if (angular.equals(vm.movie.movieId, data.movieId)) {
+          if (angular.equals(CommonService.stringify(vm.movie.movieId), CommonService.stringify(data.movieId))) {
             var program = {};
 
             // program's id => Favoris purpose
-            program.id     = data.id;
-            program.date   = TranslationService.getMoment(data.date, QSConstants.formatFullDate);
-            program.cinema = data.cinema;
+            program.id      = data.id;
+            program.date    = TranslationService.getMoment(data.date, QSConstants.formatFullDate);
+            program.dateRaw = data.date;
+            program.cinema  = data.cinema;
 
             this.push(program);
           }
