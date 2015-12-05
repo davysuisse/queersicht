@@ -16,7 +16,7 @@
       LANG_GERMAN             : 'German',
       LANG_ENGLISH            : 'English',
       LANG_FRENCH             : 'French',
-      LANG_SPAIN              : 'Spanish',
+      LANG_SPANISH            : 'Spanish',
       LANG_RUSSIAN            : 'Russian',
       LANGUAGE_SETTINGS_TITLE : 'Language',
       LOCAL_MOVIE_TITLE       : 'Save program',
@@ -44,7 +44,8 @@
       GB : 'Great Britain',
       CH : 'Switzerland',
       FR : 'France',
-      GE : 'Germany'
+      GE : 'Germany',
+      SP : 'Spain'
     };
   }
 
