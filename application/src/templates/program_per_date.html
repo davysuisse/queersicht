@@ -1,7 +1,7 @@
 <section class="section container-fluid">
-	<div class="col-sm-12" data-ng-repeat="(date_title, movies) in ppdC.dates">
-		<h2>{{date_title}}</h2>
+	<div class="col-sm-12" data-ng-repeat="myDate in ppdC.getKeys(ppdC.dates) | orderBy : myDate">
+		<h2>{{ppdC.getFullDate(myDate)}}</h2>
 
-		<div movies="movies" predicate="date" is-per-date="true"></div>
+		<div movies="ppdC.dates[myDate]" predicate="date" is-per-date="true"></div>
 	</div>
 </section>

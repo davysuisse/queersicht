@@ -18,11 +18,13 @@
 
     init();
 
+    /**
+     * @private
+     * Load the setting from the local storage and load also the actual language
+     */
     function init() {
       CommonService.init("SETTINGS_TITLE");
-
       vm.settings = SettingsService.getSettings();
-
       // Language is stored elsewhere (angular-translate)
       vm.selectedLanguage = TranslationService.getLanguage();
 
@@ -30,6 +32,7 @@
     }
 
     /**
+     * @public
      * Get the key value of a translation
      * @param value
      * @returns the translated value or the actual value
@@ -38,17 +41,28 @@
       return $filter('translate')(value);
     }
 
-    // Apply language setting and save the settings afterwards
+    /**
+     * @public
+     * Apply language and save the settings afterwards
+     */
     function applyLanguage() {
       TranslationService.setLanguage(vm.selectedLanguage);
       saveSettings();
     }
 
-    // Store the settings in the local storage
+    /**
+     * @public
+     * Store the settings in the local storage
+     */
     function saveSettings() {
       SettingsService.setSettings(vm.settings);
     }
 
+    /**
+     * @public
+     * By resetting, default settings will be applied.
+     * Selected language will be set
+     */
     function resetSettings() {
       vm.settings = QSConstants.defaultSettings;
 

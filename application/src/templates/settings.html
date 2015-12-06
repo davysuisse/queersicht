@@ -1,7 +1,10 @@
 <section class="section container-fluid">
 	<form class="form-horizontal col-sm-12">
+		<!-- Selected Language -->
 		<div class="form-group title-movie title_padding">
-			<label for="selectLanguage" class="col-sm-4 col-md-4 col-lg-4 control-label" translate="LANGUAGE_SETTINGS_TITLE"></label>
+			<label for="selectLanguage"
+			       class="col-sm-4 col-md-4 col-lg-4 control-label"
+			       translate="LANGUAGE_SETTINGS_TITLE"></label>
 
 			<div class="col-sm-8 col-md-8 col-lg-8">
 				<select name="selectLanguage"
@@ -13,6 +16,7 @@
 			</div>
 		</div>
 
+		<!-- Selected Spinner -->
 		<div class="form-group title-movie title_padding">
 			<label for="selectLanguage" class="col-sm-4 col-md-4 col-lg-4 control-label">
 				{{'SPINNER_TITLE' | translate}}&nbsp;
@@ -33,6 +37,7 @@
 			</div>
 		</div>
 
+		<!-- Selected Save in local Storage -->
 		<div class="form-group title-movie title_padding">
 			<label for="selectLanguage" class="col-sm-4 col-md-4 col-lg-4 control-label">
 				{{'LOCAL_MOVIE_TITLE' | translate}}
@@ -48,9 +53,13 @@
 			</div>
 		</div>
 
+		<!-- Reset button -->
 		<div class="form-group title-movie title_padding">
 			<div class="col-sm-8 col-sm-offset-4 col-md-8 col-md-offset-4 col-lg-offset-4 col-lg-8">
-				<input type="button" data-ng-click="settingsC.resetSettings()" class="btn btn-danger" value="{{'RESET' | translate}}" />
+				<input type="button"
+				       data-ng-click="settingsC.resetSettings()"
+				       class="btn btn-danger"
+				       value="{{'RESET' | translate}}"/>
 			</div>
 		</div>
 	</form>

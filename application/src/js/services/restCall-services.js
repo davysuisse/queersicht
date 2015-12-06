@@ -4,9 +4,6 @@
   angular.module('Queersicht.services')
     .factory('RestCallService', restCallService);
 
-  /**
-   * Get all the REST calls for the application
-   */
   restCallService.$inject = ['$http', 'QSConstants', 'SettingsService', 'StorageService', '$q'];
   function restCallService($http, QSConstants, SettingsService, StorageService, $q) {
     var service = {
@@ -18,8 +15,10 @@
     return service;
 
     /**
-     * Get news
-     * @return an array of news
+     * @public
+     * Call the REST api from server (if not already in local)
+     * @param service
+     * @return {*}
      */
     function callService(service) {
       if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
@@ -34,7 +33,9 @@
     }
 
     /**
-     * Get a list of movies from server and store them in local
+     * @public
+     * Call the REST api from server
+     * @param service
      * @returns {*}
      */
     function forceService(service) {
@@ -49,6 +50,7 @@
     }
 
     /**
+     * @public
      * Get a detail of a movie from its id
      * @param id
      * @return a movie
@@ -58,6 +60,7 @@
     }
 
     /**
+     * @private
      * Get the full path
      * @param partialPath
      * @returns string of the full path

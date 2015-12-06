@@ -10,21 +10,23 @@
   translationService.$inject = ['QSConstants', 'CommonService', '$translate'];
   function translationService(QSConstants, CommonService, $translate) {
     var service = {
-      setLanguage    : setLanguage,
-      getLanguage    : getLanguage,
-      getDescription : getDescription,
-      getTitle       : getTitle,
-      getMoment      : getMoment
+      getDescription      : getDescription,
+      getLanguage         : getLanguage,
+      getMoment           : getMoment,
+      getMomentFromString : getMomentFromString,
+      getTitle            : getTitle,
+      setLanguage         : setLanguage
     };
 
     return service;
 
     /**
-     * Set language if defined, otherwise take default or current one
+     * @public
+     * Set language if defined, otherwise set a default or current one
      * @param language
      */
     function setLanguage(language) {
-      if (CommonService.isDefinedAndNotNull(language)) {
+      if (CommonService.isDefined(language)) {
         $translate.use(language);
       } else {
         $translate.use(getLanguage());
@@ -32,7 +34,8 @@
     }
 
     /**
-     * Get the current language or the defaule one if none
+     * @public
+     * Get the current language or the default one if none
      * @returns {Object|string|string}
      */
     function getLanguage() {
@@ -41,6 +44,7 @@
 
 
     /**
+     * @public
      * Determined the correct description to give
      * @param movie
      * @returns {*}
@@ -55,6 +59,7 @@
     }
 
     /**
+     * @public
      * Determined the correct title to give
      * @param movie
      * @returns {*}
@@ -68,8 +73,27 @@
       }
     }
 
+    /**
+     * @public
+     * Get a date with a specific format and the current language
+     * @param date
+     * @param format
+     * @returns {string|*}
+     */
     function getMoment(date, format) {
       return moment(date).locale(getLanguage()).format(format);
+    }
+
+    /**
+     * @public
+     * Get a date with a specific format and the current language from a known format
+     * @param date
+     * @param beforeFormat
+     * @param afterFormat
+     * @returns {string|*}
+     */
+    function getMomentFromString(date, beforeFormat, afterFormat) {
+      return moment(date, beforeFormat).locale(getLanguage()).format(afterFormat);
     }
   }
 })();

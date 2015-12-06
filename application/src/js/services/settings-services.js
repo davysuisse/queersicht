@@ -4,9 +4,6 @@
   angular.module('Queersicht.services')
     .factory('SettingsService', settingsService);
 
-  /**
-   * Get all the settings functions that are used in the application
-   */
   settingsService.$inject = ['$window', 'QSConstants'];
   function settingsService($window, QSConstants) {
     var service = {
@@ -18,6 +15,7 @@
     return service;
 
     /**
+     * @public
      * Get the settings from the localStorage
      * @return either a list of settings or an empty array
      */
@@ -26,6 +24,7 @@
     }
 
     /**
+     * @public
      * Get the settings from the localStorage
      * @return either a list of settings or an empty array
      */
@@ -35,6 +34,7 @@
     }
 
     /**
+     * @public
      * Set settings in the localStorage
      */
     function setSettings(settings) {

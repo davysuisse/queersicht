@@ -1,9 +1,10 @@
 <div class="modalBackground" data-ng-if="pmC.movie">
 	<table class="table table-striped">
 		<tr data-ng-repeat="program in pmC.programs | orderBy : 'dateRaw'">
-			<td><span class="fa"
-			          data-ng-class="{'fa-star-o' : !pmC.isInFavoris(program.id), 'fa-star' : pmC.isInFavoris(program.id)}"
-			          data-ng-click="pmC.addOrDeleteFavoris(program.id); $event.stopPropagation();">
+			<td>
+				<span class="fa"
+				      data-ng-class="{'fa-star-o' : !pmC.isInFavoris(program.id), 'fa-star' : pmC.isInFavoris(program.id)}"
+				      data-ng-click="pmC.addOrDeleteFavoris(program.id); $event.stopPropagation();">
 				</span>
 			</td>
 			<td>{{program.date}}</td>

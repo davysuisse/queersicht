@@ -2,16 +2,13 @@
   'use strict';
 
   angular.module('Queersicht.directives')
-    .controller('ProgramModalController', programModalController)
-    .directive('programModal', programModalDirective);
+    .controller('ProgramController', programController)
+    .directive('qsProgram', qsProgramDirective);
 
-  /**
-   * Controller that manages the program's modal
-   */
-  programModalController.$inject = [
+  programController.$inject = [
     'TranslationService', 'CommonService', 'QSConstants', 'RestCallService', 'StorageService'
   ];
-  function programModalController(TranslationService, CommonService, QSConstants, RestCallService, StorageService) {
+  function programController(TranslationService, CommonService, QSConstants, RestCallService, StorageService) {
     var vm = this;
 
     vm.addOrDeleteFavoris = addOrDeleteFavoris;
@@ -19,11 +16,17 @@
 
     init();
 
+    /**
+     * @private
+     * Load the program from local storage or from server
+     */
     function init() {
       loadDatas(RestCallService.callService(QSConstants.programService));
     }
 
     /**
+     * @private
+     * A promise is passed in the function
      * Get all the program where the movie is and extract infos from it
      * @param promise
      */
@@ -52,6 +55,7 @@
     }
 
     /**
+     * @public
      * Delete or Add a favoris
      * @param movieId
      */
@@ -63,20 +67,26 @@
       }
     }
 
+    /**
+     * @public
+     * Tell if a movie is already in the favoris
+     * @param movieId
+     * @returns {*}
+     */
     function isInFavoris(movieId) {
       return StorageService.isObjectInStorage(QSConstants.favorisKey, movieId);
     }
   }
 
   /**
-   * Directive that shows a movie preview
+   * Directive that shows all the programs for a movie
    */
-  programModalDirective.$inject = ['$templateCache'];
-  function programModalDirective($templateCache) {
+  qsProgramDirective.$inject = ['$templateCache'];
+  function qsProgramDirective($templateCache) {
     return {
       restrict         : 'AE',
       template         : $templateCache.get('program.html'),
-      controller       : 'ProgramModalController',
+      controller       : 'ProgramController',
       controllerAs     : 'pmC',
       bindToController : true,
       scope            : {

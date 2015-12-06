@@ -60,7 +60,7 @@
           movie.informations.country  = row.country;
           movie.informations.language = row.language;
           movie.informations.subtitle = row.subtitle;
-          movie.informations.autor    = row.autor;
+          movie.informations.author    = row.author;
 
           programs.push(movie);
         });

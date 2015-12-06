@@ -9,10 +9,15 @@
 
   function qsLangFr() {
     return {
+      AUTHOR                  : 'Auteur',
+      CLOSE                   : 'Fermer',
+      COUNTRY                 : 'Pays',
       DETAIL_TITLE            : 'Détail',
+      DURATION                : 'Durée',
       ERROR_500               : 'Erreur: Le serveur n\'est pour le moment pas disponible. Veuillez réessayer plus tard.',
       ERROR_TITLE             : 'Erreur',
       FAVORIS_TITLE           : 'Favoris',
+      LANGUAGE                : 'Langue',
       LANGUAGE_SETTINGS_TITLE : 'Langue',
       LOCAL_MOVIE_TITLE       : 'Sauvegarder le programme',
       MENU                    : 'Menu',
@@ -22,32 +27,27 @@
       PROG_PER_CINEMA_TITLE   : 'Programme par cinéma',
       PROG_PER_DATE_TITLE     : 'Programme par date',
       PROG_PER_MOVIE_TITLE    : 'Programme par film',
+      PROGRAM                 : 'Programme',
       RESET                   : 'Réinitialiser',
       SETTINGS_TITLE          : 'Configurations',
       SPINNER_TITLE           : 'Icône de chargement',
-      YES                     : 'Oui',
-      DURATION                : 'Durée',
-      YEAR                    : 'Année',
-      COUNTRY                 : 'Pays',
-      LANGUAGE                : 'Langue',
       SUBTITLE                : 'Sous-titre',
-      AUTOR                   : 'Auteur',
-      PROGRAM                 : 'Programme',
-      CLOSE                   : 'Fermer',
+      YEAR                    : 'Année',
+      YES                     : 'Oui',
 
       // Country
-      GB : 'Grande Bretagne',
       CH : 'Suisse',
       FR : 'France',
+      GB : 'Grande Bretagne',
       GE : 'Allemagne',
       SP : 'Espagne',
 
       // Language
-      LANG_GERMAN  : 'Allemand',
       LANG_ENGLISH : 'Anglais',
       LANG_FRENCH  : 'Français',
-      LANG_SPANISH : 'Espagnol',
-      LANG_RUSSIAN : 'Russe'
+      LANG_GERMAN  : 'Allemand',
+      LANG_RUSSIAN : 'Russe',
+      LANG_SPANISH : 'Espagnol'
     };
   }
 

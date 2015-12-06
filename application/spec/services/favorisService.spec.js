@@ -26,7 +26,7 @@
       store = {};
     });
 
-    it("Test if an item has been added", function () {
+    it("Test if an item has correctly been added/deleted", function () {
       var favoris = storageService.getObjectInStorage(favorisKey);
       expect(favoris).toEqual([]);
 

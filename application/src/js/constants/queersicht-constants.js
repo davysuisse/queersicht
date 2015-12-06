@@ -9,7 +9,7 @@
   function qsConstants() {
     return {
       // Server url
-      urlService   : 'http://localhost:8081/api', //localhost 192.168.192.100
+      urlService : 'http://localhost:8081/api', //localhost 192.168.192.100
 
       // Property passed through states
       movieProperty     : 'movie',
@@ -27,6 +27,7 @@
 
       formatFullDate : 'ddd DD MMM YY',
       formatDate     : 'DD.MM.YY',
+      formatNormDate : 'YY.MM.DD',
       formatTime     : 'HH:MM',
 
       // Default settings

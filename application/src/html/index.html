@@ -14,8 +14,7 @@
 	<!--<script src="js/app-min.js"></script>-->
 	<script src="js/app.js"></script>
 </head>
-<body data-ng-app="Queersicht" data-ng-controller="QueersichtController as queersichtCtrl"
-      style="font-family: 'GloberRegular' !important;">
+<body data-ng-app="Queersicht" data-ng-controller="QueersichtController as queersichtCtrl">
 <!-- Sidebars -->
 <div data-ng-include="'sidebar.html'"
      data-ui-track-as-search-param='true'
@@ -48,8 +47,10 @@
 		<div class="app-content" style="overflow: auto !important;">
 			<!-- Loading Spinner -->
 			<div id="loading" data-ng-show="queersichtCtrl.sharedItemsService.isLoading">
-				<span><i class="spinner fa fa-spin fa-3x"
-				         data-ng-class="[queersichtCtrl.settings.getSetting('selectedSpinner')]"></i></span>
+				<span>
+					<i class="spinner fa fa-spin fa-3x"
+					   data-ng-class="[queersichtCtrl.settings.getSetting('selectedSpinner')]"></i>
+				</span>
 			</div>
 			<!-- Templates -->
 			<div data-ui-view></div>

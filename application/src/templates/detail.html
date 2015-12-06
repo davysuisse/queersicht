@@ -10,10 +10,15 @@
 					     data-ng-src="data:image/png;base64,{{pdC.detail.image}}"/>
 
 					<uib-tabset class="description-movie">
-						<uib-tab heading="{{'DETAIL_TITLE' | translate}}"><span>{{pdC.getDescription(pdC.detail)}}</span>
+						<uib-tab heading="{{'DETAIL_TITLE' | translate}}">
+							<span>{{pdC.getDescription(pdC.detail)}}</span>
 						</uib-tab>
-						<uib-tab heading="{{'MORE_INFOS' | translate}}"><span info-modal movie="pdC.detail"></span></uib-tab>
-						<uib-tab heading="{{'PROGRAM' | translate}}"><span program-modal movie="pdC.detail"></span></uib-tab>
+						<uib-tab heading="{{'MORE_INFOS' | translate}}">
+							<span qs-info movie="pdC.detail"></span>
+						</uib-tab>
+						<uib-tab heading="{{'PROGRAM' | translate}}">
+							<span qs-program movie="pdC.detail"></span>
+						</uib-tab>
 					</uib-tabset>
 				</div>
 			</div>

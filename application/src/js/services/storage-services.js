@@ -4,9 +4,6 @@
   angular.module('Queersicht.services')
     .factory('StorageService', storageService);
 
-  /**
-   * Get all the possibilities to store objects in localStorage that are used in the application
-   */
   storageService.$inject = ['$window', 'CommonService'];
   function storageService($window, CommonService) {
     var service = {
@@ -20,7 +17,10 @@
     return service;
 
     /**
-     * @parameter objectToAdd is the object that we want to add in the localStorage
+     * @public
+     * Add an object in the localStorage
+     * @param key
+     * @param objectToAdd is the object that we want to add in the localStorage
      */
     function addObjectInStorage(key, objectToAdd) {
       if (isValidObject(objectToAdd)) {
@@ -33,8 +33,10 @@
     }
 
     /**
-     * Delete a Object from the localStorage
-     * @parameter objectToDelete is the object that we want to delete
+     * @public
+     * Delete an object in the localStorage
+     * @param key
+     * @param objectToDelete is the object that we want to delete in the localStorage
      */
     function deleteObjectInStorage(key, objectToDelete) {
       if (isValidObject(objectToDelete)) {
@@ -48,8 +50,10 @@
     }
 
     /**
+     * @public
      * Test if the object is already in the localStorage
-     * @parameter object
+     * @param key
+     * @param objectToTest
      * return {boolean}
      */
     function isObjectInStorage(key, objectToTest) {
@@ -65,14 +69,7 @@
     }
 
     /**
-     * Tells if an object is defined
-     * @returns {*|boolean}
-     */
-    function isValidObject(obj) {
-      return CommonService.isDefinedAndNotNull(obj);
-    }
-
-    /**
+     * @public
      * Get the object from the localStorage
      * @return either a list of object or an empty array
      */
@@ -81,10 +78,22 @@
     }
 
     /**
-     * Set object in the localStorage
+     * @public
+     * Set objects in the localStorage
+     * @param key
+     * @param object
      */
-    function setObjectInStorage(key, object) {
-      $window.localStorage.setItem(key, JSON.stringify(object));
+    function setObjectInStorage(key, objects) {
+      $window.localStorage.setItem(key, JSON.stringify(objects));
+    }
+
+    /**
+     * @private
+     * Tell if an object is defined
+     * @returns {*|boolean}
+     */
+    function isValidObject(obj) {
+      return CommonService.isDefined(obj);
     }
   }
 })();
