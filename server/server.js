@@ -8,7 +8,6 @@
 
   var app         = express();
   var router      = express.Router();
-  var encodeImage = encodeImage;
 
   // Configuration of the DB
   var con = mysql.createConnection({
@@ -109,16 +108,12 @@
   });
 
   app.use('/api', router);
-
   app.listen(8081);
-
 
   function encodeImage(file) {
     var path = (file) ? file : 'images/default/queersicht.png';
-
     // read binary data
     var image = fs.readFileSync(path);
-
     // convert binary data to base64 encoded string
     return new Buffer(image).toString('base64');
   }
