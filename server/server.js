@@ -135,9 +135,9 @@
         response.end();
       }
     );
-
-    app.use('/api', router);
-    app.listen(8081);
   }
+
+  app.use('/api', router);
+  app.listen(8081);
 
 })();

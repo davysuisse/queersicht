@@ -118,7 +118,9 @@
 
       RestCallService.callService(service).then(function (response) {
         movie.imageLoaded = "data:image/png;base64," + response.data.image;
-      }, errorImage);
+      }, function (error) {
+        errorImage(error, movie);
+      })
     }
 
     /**
@@ -127,8 +129,9 @@
      * It will send a message with a status
      * 1) In case of the news page, a default image will be assigned
      * @param error
+     * @param movie
      */
-    function errorImage (error) {
+    function errorImage(error, movie) {
       // Apply default image for news page
       if (vm.isNews) {
         movie.imageLoaded = QSConstants.defaultImage;

@@ -7,7 +7,7 @@
 						<span>{{pdC.detail.title}}</span>
 					</div>
 					<img class="img-responsive img-movie"
-					     data-ng-src="data:image/png;base64,{{pdC.detail.image}}"/>
+					     data-ng-src="{{pdC.detail.imageLoaded}}" data-ng-init="pdC.loadImage(pdC.detail)" />
 
 					<uib-tabset class="description-movie">
 						<uib-tab heading="{{'DETAIL_TITLE' | translate}}">
