@@ -13,12 +13,14 @@ The different plugins used for the development are the followings:
 First make sure these components are globally installed, by running:
 
     npm install -g gulp
-    npm install -g cordova
     npm install -g phonegap
+    npm install -g cordova
+    
+    cordova platform add android
 
 After cloning the project, run the following commands:
 
-    npm install // Install all the dependencies
+    npm install --save-dev // Install all the dependencies
     gulp // Start compiling and running server
 
 This will start the server, the application should be available at the following url:
@@ -29,3 +31,4 @@ This will start the server, the application should be available at the following
 To encapsulate the application in a android package (.apk):
 
     cordova build android
+    
