@@ -13,8 +13,8 @@ The main plugins used for the development are the followings:
 The instructions of the installation are located in each repository [Application, Server]. 
 
 # Launch Application/Server
-  gulp
-  node server.js
+    gulp // Run Application
+    node server.js // Run Server
 
 # Features in modern releases
 No release
