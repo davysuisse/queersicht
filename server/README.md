@@ -15,7 +15,7 @@ First make sure these components are globally installed, by running:
 
 After cloning the project, run the following commands:
 
-    npm install // Install all the dependencies
+    npm install --save // Install all the dependencies
     node server.js // Start compiling and running server (In this file, you'll need to configure your MySQL configuration)
 
 This will start the server, it should be available at the following url:
