@@ -9,13 +9,14 @@
 
   function qsLangDe() {
     return {
-      AUTHOR                   : 'Autor',
+      AUTHOR                  : 'Autor',
       CLOSE                   : 'Schliessen',
       COUNTRY                 : 'Land',
       DETAIL_TITLE            : 'Detail',
       DURATION                : 'Länge',
       ERROR_500               : 'Fehler: Server ist zurzeit nicht verfügbar. Bitte versuchen sie es später noch einmal.',
       ERROR_TITLE             : 'Error',
+      ERROR_LOAD_IMAGE        : 'Ein Foto konnte nicht hochgeladen werden.',
       FAVORIS_TITLE           : 'Favoriten',
       LANGUAGE                : 'Sprache',
       LANGUAGE_SETTINGS_TITLE : 'Sprache',

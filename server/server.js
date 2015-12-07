@@ -6,8 +6,8 @@
   var fs      = require('fs');
   var buffer  = require('buffer');
 
-  var app         = express();
-  var router      = express.Router();
+  var app    = express();
+  var router = express.Router();
 
   // Configuration of the DB
   var con = mysql.createConnection({
@@ -48,7 +48,6 @@
           // Movie
           movie.title          = row.title;
           movie.image          = row.image;
-          movie.image          = encodeImage(row.image);
           movie.description_de = row.description_de;
           movie.description_fr = row.description_fr;
 
@@ -59,7 +58,7 @@
           movie.informations.country  = row.country;
           movie.informations.language = row.language;
           movie.informations.subtitle = row.subtitle;
-          movie.informations.author    = row.author;
+          movie.informations.author   = row.author;
 
           programs.push(movie);
         });
@@ -85,7 +84,7 @@
           // News
           news.id             = row.newsId;
           news.date           = row.date;
-          news.image          = encodeImage(row.image);
+          news.image          = row.image;
           news.title          = row.title;
           news.title_fr       = row.title_fr;
           news.description_de = row.description_de;
@@ -99,7 +98,9 @@
     });
   });
 
-  // The application will be able to call our REST api with a different url
+  /**
+   * The application will be able to call our REST api with a different url
+   */
   app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
@@ -107,15 +108,36 @@
     next();
   });
 
-  app.use('/api', router);
-  app.listen(8081);
+  /**
+   * Get an image from its path
+   */
+  router.get('/image', function (req, res) {
+    encodeImage(req.query.urlImg, res);
+  });
 
-  function encodeImage(file) {
-    var path = (file) ? file : 'images/default/queersicht.png';
-    // read binary data
-    var image = fs.readFileSync(path);
-    // convert binary data to base64 encoded string
-    return new Buffer(image).toString('base64');
+  /**
+   * Encode an image to base 64 and store it in the reponse
+   * Error 400 when the file couldn't be found
+   * @param file
+   * @param response
+   */
+  function encodeImage(file, response) {
+    fs.readFile('images/' + file, function (err, data) {
+        var dataToSend = {};
+        if (err) {
+          response.status(400);
+          dataToSend.message = 'ERROR_LOAD_IMAGE';
+        } else {
+          response.status(200);
+          dataToSend.image = new Buffer(data).toString('base64');
+        }
+        response.json(dataToSend);
+        response.end();
+      }
+    );
+
+    app.use('/api', router);
+    app.listen(8081);
   }
 
 })();

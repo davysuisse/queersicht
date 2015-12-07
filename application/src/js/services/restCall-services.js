@@ -23,7 +23,7 @@
     function callService(service) {
       if (SettingsService.getSetting(QSConstants.saveStorageProperty)) {
         var objectInStorage = StorageService.getObjectInStorage(service.key);
-        if (objectInStorage.length > 0) {
+        if (objectInStorage != null) {
           var defer = $q.defer();
           defer.resolve({'data' : objectInStorage});
           return defer.promise;

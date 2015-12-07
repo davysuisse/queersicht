@@ -11,6 +11,9 @@
       // Server url
       urlService : 'http://localhost:8081/api', //localhost 192.168.192.100
 
+      defaultImage : 'images/default/queersicht.png',
+      errorImage   : 'images/error/notfound.jpg',
+
       // Property passed through states
       movieProperty     : 'movie',
       parameterProperty : 'parameters',
@@ -24,6 +27,7 @@
       settingsKey    : 'settings',
       programService : {'key' : 'program', url : '/program'},
       newsService    : {'key' : 'news', url : '/news'},
+      imageService   : {'key' : null, url : '/image?urlImg='},
 
       formatFullDate : 'ddd DD MMM YY',
       formatDate     : 'DD.MM.YY',

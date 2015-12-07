@@ -16,6 +16,7 @@
       DURATION                : 'Duration',
       ERROR_500               : 'Error: Server is temporarily not available. Please try it again later.',
       ERROR_TITLE             : 'Error',
+      ERROR_LOAD_IMAGE        : 'A picture couldn\'t be loaded.',
       FAVORIS_TITLE           : 'Favoris',
       LANGUAGE                : 'Language',
       LANGUAGE_SETTINGS_TITLE : 'Language',

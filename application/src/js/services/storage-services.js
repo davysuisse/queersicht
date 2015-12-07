@@ -74,14 +74,14 @@
      * @return either a list of object or an empty array
      */
     function getObjectInStorage(key) {
-      return JSON.parse($window.localStorage.getItem(key) || '[]');
+      return JSON.parse($window.localStorage.getItem(key)) || null;
     }
 
     /**
      * @public
      * Set objects in the localStorage
      * @param key
-     * @param object
+     * @param objects
      */
     function setObjectInStorage(key, objects) {
       $window.localStorage.setItem(key, JSON.stringify(objects));

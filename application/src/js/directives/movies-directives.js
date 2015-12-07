@@ -6,9 +6,10 @@
     .directive('movies', moviesDirective);
 
   moviesController.$inject = [
-    'StorageService', 'QSConstants', 'TranslationService', '$attrs', '$injector', 'QSCStates'
+    'StorageService', 'QSConstants', 'TranslationService', '$attrs',
+    '$injector', 'QSCStates', 'RestCallService', 'CommonService'
   ];
-  function moviesController(StorageService, QSConstants, TranslationService, $attrs, $injector, QSCStates) {
+  function moviesController(StorageService, QSConstants, TranslationService, $attrs, $injector, QSCStates, RestCallService, CommonService) {
     var vm = this;
 
     // Functions
@@ -18,11 +19,12 @@
     vm.getTitle           = getTitle;
     vm.goDetail           = goDetail;
     vm.isInFavoris        = isInFavoris;
+    vm.loadImage          = loadImage;
 
     // Variables and attributes
     vm.isFavoris = $attrs && $attrs.isFavoris;
     vm.isNews    = $attrs && $attrs.isNews;
-    vm.reverse   = $attrs.reverse || false;
+    vm.reverse   = $attrs.reverse || false
 
     /**
      * @public
@@ -102,6 +104,28 @@
      */
     function formatDate(date, format) {
       return TranslationService.getMoment(date, format);
+    }
+
+    /**
+     * Load images from local Storage if they exist, otherwise from url
+     * @param movie
+     */
+    function loadImage(movie) {
+      var service = {};
+      service.key = movie.image;
+      service.url = QSConstants.imageService.url + movie.image;
+
+      RestCallService.callService(service).then(function (response) {
+        movie.imageLoaded = "data:image/png;base64," + response.data.image;
+      }, function (error) {
+        // Apply default image for news page
+        if (vm.isNews) {
+          movie.imageLoaded = QSConstants.defaultImage;
+        } else {
+          movie.imageLoaded = QSConstants.errorImage;
+          CommonService.errorMessage(error.data.message);
+        }
+      });
     }
   }
 
