@@ -122,6 +122,7 @@
     }
 
     /**
+     * @private
      * Error can occurs if the server doesn't find a specific image
      * It will send a message with a status
      * 1) In case of the news page, a default image will be assigned
