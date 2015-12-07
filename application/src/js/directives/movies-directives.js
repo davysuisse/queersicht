@@ -107,6 +107,7 @@
     }
 
     /**
+     * @public
      * Load images from local Storage if they exist, otherwise from url
      * @param movie
      */
@@ -117,15 +118,23 @@
 
       RestCallService.callService(service).then(function (response) {
         movie.imageLoaded = "data:image/png;base64," + response.data.image;
-      }, function (error) {
-        // Apply default image for news page
-        if (vm.isNews) {
-          movie.imageLoaded = QSConstants.defaultImage;
-        } else {
-          movie.imageLoaded = QSConstants.errorImage;
-          CommonService.errorMessage(error.data.message);
-        }
-      });
+      }, errorImage);
+    }
+
+    /**
+     * Error can occurs if the server doesn't find a specific image
+     * It will send a message with a status
+     * 1) In case of the news page, a default image will be assigned
+     * @param error
+     */
+    function errorImage (error) {
+      // Apply default image for news page
+      if (vm.isNews) {
+        movie.imageLoaded = QSConstants.defaultImage;
+      } else {
+        movie.imageLoaded = QSConstants.errorImage;
+        CommonService.errorMessage(error.data.message);
+      }
     }
   }
 
