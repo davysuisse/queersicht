@@ -41,7 +41,7 @@
 
             // program's id => Favoris purpose
             program.id      = data.id;
-            program.date    = TranslationService.getMoment(data.date, QSConstants.formatFullDate);
+            program.date    = TranslationService.getMoment(data.date, QSConstants.formatDateTime);
             program.dateRaw = data.date;
             program.cinema  = data.cinema;
 

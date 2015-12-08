@@ -35,7 +35,7 @@
     function getTitle(movie) {
       var title = TranslationService.getTitle(movie);
       if ($attrs && $attrs.isPerCinema || $attrs.isNews) {
-        title += ' - ' + formatDate(movie.date, QSConstants.formatDate) + ' ' + formatDate(movie.date, QSConstants.formatTime);
+        title += ' - ' + formatDate(movie.date, QSConstants.formatDateTime);
       } else if ($attrs && ($attrs.isPerDate || $attrs.isFavoris)) {
         title += ' - ' + movie.cinema + ' - ' + formatDate(movie.date, QSConstants.formatTime);
       }

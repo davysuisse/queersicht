@@ -9,7 +9,7 @@
   function qsConstants() {
     return {
       // Server url
-      urlService : 'http://192.168.192.100:8081/api', //localhost 192.168.192.100
+      urlService : 'http://localhost:8081/api', //localhost 192.168.192.100
 
       defaultImage : 'images/default/queersicht.png',
       errorImage   : 'images/error/notfound.jpg',
@@ -30,7 +30,7 @@
       imageService   : {'key' : null, url : '/image?urlImg='},
 
       formatFullDate : 'ddd DD MMM YY',
-      formatDate     : 'DD.MM.YY',
+      formatDateTime : 'DD.MM.YY HH:MM',
       formatNormDate : 'YY.MM.DD',
       formatTime     : 'HH:MM',
 

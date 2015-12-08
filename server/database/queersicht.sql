@@ -22,7 +22,7 @@ CREATE TABLE program (
 	date datetime,
 	cinema varchar(255),
 	movieId int(11),
-	PRIMARY KEY (id),
+	PRIMARY KEY (programId),
 	FOREIGN KEY (movieId) REFERENCES movie(movieId)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5;
 
@@ -43,11 +43,17 @@ INSERT INTO movie (movieId, title, image, description_de, description_fr, countr
 INSERT INTO movie (movieId, title, image, description_de, description_fr, country, language, subtitle, autor, duration, year) VALUES (4, 'The Duke of Burgundy', 'theDukeOfBurgundy/thedukeofburgundy.jpg', 'Eine obsessive Beziehung, in der nicht so ist, wie es scheint: Cynthia, Schmetterlingsforscherin, liebt Evelyn, ihre devote Haushälterin. Evelyn liebt es, wenn Cynthia sie dominiert. Eine Beziehung, geprägt von Anziehung, Macht und Bestrafungsritualen. Die Frage ist nur: Wer dominiert wen? Wer wünscht sich was? Und was passiert, wenn die Grenzen überschritten werden? Ein Film über Obsessionen, die das Leben der beiden Frauen verändern werden.', 'Une relation obsessionnelle dans laquelle tout n\'est pas comme ce qu\'il y paraît:Cynthia, spécialiste des papillons, aime Evelyn, sa gouvernante. Evelyn aime se faire dominer par Cynthia. Une relation, marquée par la force et les châtiments rituels. Les questions qui seposent: Qui domine qui? Qui veut quoi? Et qu\'est-ce qu\'il se passerait, si les limites étaient dépassées? Un film sur les obsessions, qui vont changer la vie des deux femmes.', 'GB', 'EN', 'GE', 'Peter Strickland', 104, 2014);
 INSERT INTO movie (movieId, title, image, description_de, description_fr, country, language, subtitle, autor, duration, year) VALUES (5, 'Banana', 'banana/banana.jpg', 'TV-Serien sind das neue Kino. In Grossbritannien trug man dem Trend Rechnung und, erneut unter Russell T Davies, entstanden 15 Jahre nach „Queer as Folk“ „Cucumber“ und zwei Spin-Offs: „Tofu“ und „Banana“. Banana ist ein bunter Mix aus Episoden, die uns vom (Liebes-)Leben junger ProtagonistInnen in Manchester erzählen. Ob schwul, lesbisch, trans* und ganz schön queer, mal lustig, mal nachdenklich, immer liebenswert sind die Figuren und man kann nicht anders, als sie ins Herz zu schliessen. - In unserer Episodenauswahl treffen wir auf Dean, Scotty, Helen, Amy, Aiden und viele andere. Der 19-jährige Dean etwa hat einen Job, eine tolle Wohnung und ein ausgefülltes Sexleben. Doch seine Probleme holen ihn ein. Scotty trifft Yvonne und ist hin und weg von ihr. Aus der Liebe auf den ersten Blick wird jedoch eine Obsession, welche Scottys Leben grundlegend verändert. Helen erlebt eine unangenehme Geburtstagsüberraschung ihres Ex-Freundes und wird von ihrer Familie unterstützt, Amy traut sich selbst zu wenig zu, als sie sich mit Kay verabredet und schliesslich diskutieren Aiden und Frank, ob aus einem One-Night-Stand jemals mehr werden kann.', 'Les séries TV sont le nouveau cinéma. En Grande-Bretagne elles font succès et Russell T. Davies en abuse et ré-abuse: 15 ans après "Queer as Folk", il crée "Cucumber" et deux Spin-offs: "Tofu" et "Banana". "Banana" est un mix d\'épisodes qui nous racontent la vie de jeunes gens à Manchester. Les personnages, qu\'ils soient gays, lesbiens, trans* ou autres, sont parfois drôles, parfois pensifs, mais toujours très sympathiques! On ne peut que les aimer. - Dans notre choix d\'épisodes, nous rencontrons Dean, Scotty, Amy, Helen, Aiden et pleins d\'autres. Dean qui a 19 ans a un job, un super appartement et une vie sexuelle épanouie. Cependant ses problèmes le rattrapent. Scotty rencontre Yvonne et fait des allers-retours chez elle. Toutefois le coup de foudre amoureux va vite se transformer en obsession, ce qui changera sa vie. Helen fait l\'expérience d\'une surprise d’anniversaire déplaisante de son ex-petit ami et sa famille la soutient. Amy n’a aucune confiance en soi quand elle prend rendez-vous avec Kay et enfin Aiden et Frank se demandent, si à travers un One-Night-Stand quelque chose de sérieux peut se construire.', 'GB', 'EN', 'GE', 'Russell T. Davies', 88, 2015);
 
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/06 20:30:00', 'Kino Rex 1', 1);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/11 18:00:00', 'Kellerkino', 1);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/09 20:30:00', 'Ciné Movie', 2);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/11 20:30:00', 'Kino Rex 1', 3);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/05 20:30:00', 'Kellerkino', 4);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/11 20:30:00', 'Cinématte', 4);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/05 20:30:00', 'ABC', 5);
-INSERT INTO program (date, cinema, movie_id) VALUES ('2015/11/08 18:00:00', 'Kino Rex 1', 5);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/05 20:30:00', 'ABC', 5);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/05 20:30:00', 'Kellerkino', 4);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/06 20:30:00', 'Kino Rex 1', 1);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/05 22:00:00', 'Kellerkino', 2);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/06 22:00:00', 'Kino Rex 1', 3);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/08 18:00:00', 'Kino Rex 1', 5);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/08 20:30:00', 'Kino Rex 1', 1);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/09 20:30:00', 'Ciné Movie', 2);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/09 22:00:00', 'Ciné Movie', 4);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/11 18:00:00', 'Kellerkino', 1);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/11 20:30:00', 'Kino Rex 1', 3);
+INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/11 20:30:00', 'Cinématte', 4);
+
+

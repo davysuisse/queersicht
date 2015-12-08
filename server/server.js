@@ -31,7 +31,7 @@
    * This route will get all the programs
    */
   router.get('/program', function (req, res) {
-    con.query('SELECT * FROM program, movie where program.movie_id = movie.movieId order by movie.title', function (err, rows) {
+    con.query('SELECT * FROM program, movie where program.movieId = movie.movieId order by movie.title', function (err, rows) {
       if (err) throw err;
 
       var programs = [];
