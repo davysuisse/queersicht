@@ -6,20 +6,20 @@
       'ngCookies',
       'mobile-angular-ui',
       'ui.bootstrap',
+      'Queersicht.constants',
       'pascalprecht.translate',
       'Queersicht.controllers',
       'Queersicht.services',
       'Queersicht.directives',
-      'Queersicht.filters',
-      'Queersicht.constants'
+      'Queersicht.filters'
     ]
   );
 
   // Create modules
-  angular.module('Queersicht.services', ['ngResource']);
+  angular.module('Queersicht.constants', []);
   angular.module('Queersicht.directives', []);
   angular.module('Queersicht.controllers', []);
-  angular.module('Queersicht.constants', []);
   angular.module('Queersicht.filters', []);
+  angular.module('Queersicht.services', ['ngResource']);
 
 })();

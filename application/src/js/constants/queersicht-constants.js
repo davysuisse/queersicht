@@ -10,6 +10,7 @@
     return {
       // Server url
       urlService : 'http://localhost:8081/api', //localhost 192.168.192.100
+      maxTimeout : 10000,
 
       defaultImage : 'images/default/queersicht.png',
       errorImage   : 'images/error/notfound.jpg',

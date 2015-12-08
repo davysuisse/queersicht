@@ -33,8 +33,9 @@
     };
   }
 
-  httpInterceptor.$inject = ['$httpProvider'];
-  function httpInterceptor($httpProvider) {
+  httpInterceptor.$inject = ['$httpProvider', 'QSConstants'];
+  function httpInterceptor($httpProvider, QSConstants) {
+    $httpProvider.defaults.timeout = QSConstants.maxTimeout;
     $httpProvider.interceptors.push('QSHttpInterceptor');
   }
 })();

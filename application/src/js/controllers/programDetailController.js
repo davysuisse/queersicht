@@ -61,18 +61,12 @@
      * @private
      * Error can occurs if the server doesn't find a specific image
      * It will send a message with a status
-     * 1) In case of the news page, a default image will be assigned
      * @param error
      * @param movie
      */
     function errorImage(error, movie) {
-      // Apply default image for news page
-      if (vm.isNews) {
-        movie.imageLoaded = QSConstants.defaultImage;
-      } else {
-        movie.imageLoaded = QSConstants.errorImage;
-        CommonService.errorMessage(error.data.message);
-      }
+      movie.imageLoaded = QSConstants.errorImage;
+      CommonService.errorMessage(error.data.message);
     }
   }
 })();
