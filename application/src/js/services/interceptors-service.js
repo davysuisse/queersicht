@@ -33,9 +33,8 @@
     };
   }
 
-  httpInterceptor.$inject = ['$httpProvider', 'QSConstants'];
-  function httpInterceptor($httpProvider, QSConstants) {
-    $httpProvider.defaults.timeout = QSConstants.maxTimeout;
+  httpInterceptor.$inject = ['$httpProvider'];
+  function httpInterceptor($httpProvider) {
     $httpProvider.interceptors.push('QSHttpInterceptor');
   }
 })();

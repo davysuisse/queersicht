@@ -8,8 +8,7 @@
   function restCallService($http, QSConstants, SettingsService, StorageService, $q) {
     var service = {
       callService  : callService,
-      forceService : forceService,
-      getDetail    : getDetail
+      forceService : forceService
     };
 
     return service;
@@ -40,23 +39,13 @@
      */
     function forceService(service) {
       var defer = $q.defer();
-      $http.get(getUrl(service.url)).then(function (response) {
+      $http.get(getUrl(service.url), {timeout: QSConstants.maxTimeout}).then(function (response) {
         StorageService.setObjectInStorage(service.key, response.data);
         defer.resolve(response);
       }, function (error) {
         defer.reject(error);
       });
       return defer.promise;
-    }
-
-    /**
-     * @public
-     * Get a detail of a movie from its id
-     * @param id
-     * @return a movie
-     */
-    function getDetail(id) {
-      return $http.get(getUrl('/detail/' + id));
     }
 
     /**
