@@ -1,207 +1,198 @@
-@font-face {
-    font-family: "GloberRegular";
-    src: url(../fonts/GloberRegular.otf);
+#description {
+    padding: 8px
 }
 
-body {
-    font-family: 'GloberRegular' !important;
+#errorPage {
+    background: #d3d3d3;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%
+}
+
+#errorPage .errorIcon {
+    display: block;
+    left: 50%;
+    position: initial;
+    text-align: center;
+    top: 50%
+}
+
+#loading {
+    background: grey;
+    height: 100%;
+    left: 0;
+    opacity: .8;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 1000
+}
+
+#loading .spinner {
+    color: #000;
+    left: 50%;
+    position: initial;
+    top: 50%;
+    z-index: 1001
+}
+
+.app .app-body .errorMessage {
+    bottom: 0;
+    margin: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 1002
+}
+
+.detail:hover, .detail, a.list-group-item {
+    color: #FFF
+}
+
+.list-group-item {
+    background: #2f3336 !important;
+    display: block;
+    padding: 10px 15px;
+    position: relative
+}
+
+.list-group-item, a.list-group-item {
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    color: #FFF !important;
+    margin-bottom: 0
+}
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    background: #FFF !important;
+    border-color: lightgray !important;
+    color: #000 !important;
+    z-index: 2
+}
+
+.modalBackground {
+    color: #000 !important
 }
 
 .movies {
-    margin: 0.5em;
-    background-color: grey;
-    border: 1px solid black;
+    background: grey;
+    border: 1px solid #000;
+    margin: .5em
 }
 
-h2 {
-    border-top: 2px solid #2f3336;
-    border-bottom: 2px solid #2f3336;
-    margin-top: 50px !important;
+.nav-tabs > a:hover {
+    background: #aeaeae !important;
+    border: 1px solid #ddd !important;
+    color: #000;
+    cursor: default
 }
 
-.detail:hover {
-    color: white;
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+    background: #dedede !important;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+    border-top: 1px solid #000;
+    color: #000
 }
 
-.detail {
-    color: white;
+.nav-tabs > li > a {
+    color: #000
 }
 
-.sidebar-left {
-    background: #2f3336 !important;
+.nav-tabs > li > a:hover {
+    border-color: #000
 }
 
 .navbar-app, .navbar-app .btn, .navbar-app .btn-navbar {
     background: #2f3336 !important;
-    color: white !important;
-}
-
-.list-group-item, a.list-group-item {
-    margin-bottom: 0;
-    border: 0;
-    border-bottom: 1px solid #ddd;
-    color: white !important;
-}
-
-a.list-group-item {
-    color: white;
-}
-
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    background-color: #2f3336 !important;
-}
-
-.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
-    z-index: 2;
-    color: black !important;
-    background-color: white !important;
-    border-color: lightgray !important;
+    color: #FFF !important
 }
 
 .scrollable-content .list-group .pull-down {
-    position: absolute;
     bottom: 0;
-    width: 100%;
-}
-
-#loading {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    background-color: grey;
-    opacity: 0.8;
-    text-align: center;
+    width: 100%
 }
 
-#loading .spinner {
-    position: initial;
-    color: black;
-    z-index: 1001;
-    top: 50%;
-    left: 50%;
-}
-
-#errorPage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: lightgrey;
-}
-
-#errorPage .errorIcon {
-    position: initial;
-    top: 50%;
-    left: 50%;
-    display: block;
-    text-align: center;
-}
-
-.app .app-body .errorMessage {
-    margin: auto;
-    width: 100%;
-    z-index: 1002;
-    position: absolute;
-    bottom: 0;
-}
-
-section .row .margin-b-2 {
-    margin-bottom: 2em !important;
-}
-
-div .tile-movie {
-    border: 1px solid black;
-    padding: 4px;
-    background: white;
-}
-
-div .tile-movie-cursor {
-    cursor: pointer;
-}
-
-div .tile-movie .img-movie {
-    width: 100%;
-    height: auto;
-    border: 1px solid black;
-}
-
-div .tile-movie .description-movie {
-    background-color: lightgray;
-    padding: 0.5em;
-    border: 1px solid black;
-    text-align: justify;
-}
-
-div .tile-movie .description-movie-height {
-    min-height: 150px;
-
-}
-
-div .title-movie {
-    padding: 4px 8px;
-    color: #fff;
-    background: #2f3336;
-}
-
-div .title-movie span {
-    vertical-align: middle;
-}
-
-.table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: #DEDEDE !important;
-}
-
-.table-striped > tbody > tr:nth-of-type(even) {
-    background-color: #BFBFBF !important;
-}
-
-.modalBackground {
-    color: black !important;
-}
-
-.section, .app {
-    background-color: #eee !important;
-}
-
-.nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
-    background-color: #DEDEDE !important;
-    color: black;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
+.sidebar-left {
+    background: #2f3336 !important
 }
 
 .tab-content {
-    border: 1px solid black;
-    background-color: #DEDEDE !important;
-}
-
-.nav-tabs > li > a:hover {
-    border-color: black black;
-}
-
-.nav-tabs > a:hover {
-    color: black;
-    cursor: default;
-    background-color: #aeaeae !important;
-    border: 1px solid #ddd !important;
-}
-
-.nav-tabs > li > a {
-    color: black;
+    background: #dedede !important;
+    border: 1px solid #000
 }
 
 .table {
-    margin-bottom: 0 !important;
+    margin-bottom: 0 !important
 }
 
-#description {
-    padding: 8px;
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background: #dedede !important
+}
+
+body {
+    font-family: 'GloberRegular' !important
+}
+
+div .tile-movie {
+    background: #FFF;
+    border: 1px solid #000;
+    padding: 4px
+}
+
+div .tile-movie .description-movie {
+    background: lightgray;
+    border: 1px solid #000;
+    padding: .5em;
+    text-align: justify
+}
+
+@font-face {
+    src: url(../fonts/GloberRegular.otf);
+    font-family: 'GloberRegular' !important
+}
+
+.section, .app {
+    background: #eee !important
+}
+
+.table-striped > tbody > tr:nth-of-type(even) {
+    background: #bfbfbf !important
+}
+
+div .tile-movie .description-movie-height {
+    min-height: 150px
+}
+
+div .tile-movie .img-movie {
+    border: 1px solid #000;
+    height: auto;
+    width: 100%
+}
+
+div .tile-movie-cursor {
+    cursor: pointer
+}
+
+div .title-movie {
+    background: #2f3336;
+    color: #fff;
+    padding: 4px 8px
+}
+
+div .title-movie span {
+    vertical-align: middle
+}
+
+h2 {
+    border-bottom: 2px solid #2f3336;
+    border-top: 2px solid #2f3336;
+    margin-top: 50px !important
+}
+
+section .row .margin-b-2 {
+    margin-bottom: 2em !important
 }
