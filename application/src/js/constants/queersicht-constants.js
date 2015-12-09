@@ -9,11 +9,12 @@
   function qsConstants() {
     return {
       // Server url
-      urlService : 'http://192.168.192.100:8081/api', //localhost 192.168.192.100
+      urlService : 'http://localhost:8081/api', //localhost 192.168.192.100
       maxTimeout : 5000,
 
       defaultImage : 'images/default/queersicht.png',
       errorImage   : 'images/error/notfound.jpg',
+      base64Image  : 'data:image/png;base64,',
 
       // Property passed through states
       movieProperty     : 'movie',
