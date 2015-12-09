@@ -164,7 +164,8 @@ div .tile-movie .description-movie {
 }
 
 div .tile-movie .description-movie-height {
-    min-height: 150px
+    min-height: 150px;
+    height: 150px
 }
 
 div .tile-movie .img-movie {
