@@ -56,4 +56,6 @@ INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/11 18:00:00', 'Kell
 INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/11 20:30:00', 'Kino Rex 1', 3);
 INSERT INTO program (date, cinema, movieId) VALUES ('2015/11/11 20:30:00', 'Cinématte', 4);
 
+INSERT INTO news (title, title_fr, image, description_de, description_fr, date) VALUES ('Drache und die Feen', 'Dragons et fée', 'dragon/dragon.jpg', 'Ein Drache mit drei Köpfen. Vorsicht, komm ihm nicht zu nahe. Sein Feuer kann er sehr weit spucken, so dass er dich von weiter Entfernung trifft. Seine Flügel sind sehr gross. Da sie drei Köpfe haben, können sie alles sehen und hören. Probier es erst gar nicht aus, dich an ihnen vorbeizuschleichen.', 'Certaines parties du monde ont différents types d’élémentaux. Sur la planète, seuls les vecteurs peu nombreux qui projettent ce qu’on peut appeler « le champ d’énergie à spectre complet » possèdent la totalité du Royaume des Fées en quantité et en qualité. Et ceux d\'entre eux qui permettent aux humains de « voir » ces êtres et d\'interagir plus effectivement avec eux sont encore plus rares.', '2015/11/12 20:19:00');
+
 

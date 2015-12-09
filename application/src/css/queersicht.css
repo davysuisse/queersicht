@@ -155,7 +155,7 @@ div .title-movie span {
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: #AFAFAF !important;
+    background-color: #DEDEDE !important;
 }
 
 .table-striped > tbody > tr:nth-of-type(even) {
@@ -164,7 +164,6 @@ div .title-movie span {
 
 .modalBackground {
     color: black !important;
-    padding: 4px 4px;
 }
 
 .section, .app {
@@ -182,7 +181,6 @@ div .title-movie span {
 .tab-content {
     border: 1px solid black;
     background-color: #DEDEDE !important;
-    padding: 8px;
 }
 
 .nav-tabs > li > a:hover {
@@ -200,6 +198,10 @@ div .title-movie span {
     color: black;
 }
 
-.table-striped {
-    border: 1px solid black !important;
+.table {
+    margin-bottom: 0 !important;
+}
+
+#description {
+    padding: 8px;
 }

@@ -11,7 +11,7 @@
 
 					<uib-tabset class="description-movie">
 						<uib-tab heading="{{'DETAIL_TITLE' | translate}}">
-							<span>{{pdC.getDescription(pdC.detail)}}</span>
+							<div id="description">{{pdC.getDescription(pdC.detail)}}</div>
 						</uib-tab>
 						<uib-tab heading="{{'MORE_INFOS' | translate}}">
 							<span qs-info movie="pdC.detail"></span>
