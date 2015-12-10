@@ -32,9 +32,9 @@
       imageService   : {'key' : null, url : '/image?urlImg='},
 
       formatFullDate : 'ddd DD MMM YY',
-      formatDateTime : 'DD.MM.YY HH:MM',
+      formatDateTime : 'DD.MM.YY HH:mm',
       formatNormDate : 'YY.MM.DD',
-      formatTime     : 'HH:MM',
+      formatTime     : 'HH:mm',
 
       // Default settings
       defaultSettings : {
